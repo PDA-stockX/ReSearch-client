@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from "react-redux"
 import store from "./store/store"
-import { Mobile } from "~/components/common/Responsive.jsx";
+import { Mobile, PC } from "~/components/common/Responsive.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,5 +12,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Mobile>
       <App /> 
     </Mobile>
+    <PC>
+      <App /> 
+    </PC>
   </Provider>
 )
