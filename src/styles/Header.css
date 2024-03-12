@@ -1,0 +1,18 @@
+/* styles.css (새로운 CSS 파일 또는 기존의 CSS 파일) */
+
+/* Customize navbar style for small screens */
+@media (max-width: 375px) {
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .navbar-toggler {
+      display: none; /* Hide the default toggle button */
+    }
+
+    .navbar-nav .nav-link {
+      padding: 1rem; /* Adjust padding as needed */
+      font-size: 0.8rem; /* Adjust font size as needed */
+    }
+}
+
