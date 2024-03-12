@@ -9,6 +9,9 @@ import AnalystEarning from '~/pages/analyst/EarningRate';
 import AnalystAchievement from '~/pages/analyst/AchievementRate';
 import AnalystSector from '~/pages/analyst/Sector';
 import AnalystPopularity from '~/pages/analyst/Popularity';
+import CompanyEarning from '~/pages/company/EarningRate';
+import CompanyAchievement from '~/pages/company/AchievementRate';
+import CompanyPopularity from '~/pages/company/Popularity';
 
 const mainRoutes = [
     {
@@ -46,6 +49,18 @@ const mainRoutes = [
                     {
                         path: "/analyst/popularity",    // analyst 인기
                         element: <AnalystPopularity/>
+                    },
+                    {
+                        path: "/company/earning",       // company 첫 페이지이자 수익률
+                        element: <CompanyEarning/>
+                    },
+                    {
+                        path: "/company/achievement",   // company 달성률
+                        element: <CompanyAchievement/>
+                    },
+                    {
+                        path: "/company/popularity",    // company 인기
+                        element: <CompanyPopularity/>
                     },
 
                 ]
