@@ -13,9 +13,13 @@ export default defineConfig({
     alias: [
       // 절대 경로로 접근하기
       { find: '~/components', replacement: '/src/components'},
+      { find: '~/layout', replacement: '/src/layout'},
       { find: '~/lib', replacement: '/src/lib'},
       { find: '~/routers', replacement: '/src/routers'},
       { find: '~/pages', replacement: '/src/pages'},
+      { find: '~/reducer', replacement: '/src/reducer'},
+      { find: '~/hooks', replacement: '/src/hooks'},
+      { find: '~/styles', replacement: '/src/styles'},
     ],
   },
 })
