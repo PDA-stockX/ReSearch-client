@@ -9,43 +9,55 @@ import AnalystEarning from "~/pages/analyst/EarningRate";
 import AnalystAchievement from "~/pages/analyst/AchievementRate";
 import AnalystSector from "~/pages/analyst/Sector";
 import AnalystPopularity from "~/pages/analyst/Popularity";
-
+import AnalystRoom from "~/Analyst/AnalystRoom";
 const mainRoutes = [
   {
-    path: "",
+    path: "/",
     element: <DefaultLayout />,
     children: [
       {
-        index: true,
+        path: "/Home",
         element: <Home />,
+        index: true,
       },
       {
         path: "/login",
         element: <Login />,
+        index: true,
       },
       {
         path: "/signup",
         element: <Signup />,
+        index: true,
       },
       {
-        path: "",
+        path: "/",
         element: <NavbarLayout />,
         children: [
           {
-            path: "/analyst/earning", // analyst 첫 페이지이자 수익률
+            path: "/analyst/:analId",
+            element: <AnalystRoom />,
+            index: true,
+          },
+          {
+            path: "analyst/earning", // analyst 첫 페이지이자 수익률
             element: <AnalystEarning />,
+            index: true,
           },
           {
-            path: "/analyst/achievement", // analyst 달성률
+            path: "analyst/achievement", // analyst 달성률
             element: <AnalystAchievement />,
+            index: true,
           },
           {
-            path: "/analyst/sector", // analyst 업종
+            path: "analyst/sector", // analyst 업종
             element: <AnalystSector />,
+            index: true,
           },
           {
-            path: "/analyst/popularity", // analyst 인기
+            path: "analyst/popularity", // analyst 인기
             element: <AnalystPopularity />,
+            index: true,
           },
         ],
       },

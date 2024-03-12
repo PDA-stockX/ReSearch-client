@@ -4,33 +4,37 @@ import socket from "~/lib/assets/socket/socket";
 
 export default function AnalystRoom() {
   const [inputText, setInputText] = useState("");
-  const [messaseList, setMessaseList] = useState([]);
-  const { analId } = useParams;
+  const [messageList, setMessageList] = useState([]);
+  const { analId } = useParams();
   useEffect(() => {
-    socket.join("connectAnal", analId);
+    socket.emit("connectAnalRoom", { analId: analId });
     socket.on("listenChat", (chatString) => {
-      setInputText([...messaseList, chatString]);
+      // console.log(chatString);
+      setMessageList((messageList) => [...messageList, chatString]);
+      console.log(messageList);
     });
-  });
+  }, []);
 
-  const submitChat = useCallback(() => {
-    socket.emit("sendChat", inputText);
-    setMessaseList([...messaseList, inputText]);
-  }, [analId]);
+  const onClickSubmit = () => {
+    console.log(inputText);
+    socket.emit("sendChat", { analId: analId, chatString: inputText });
+    setInputText("");
+  };
   return (
     <div>
-      {/* <div>{messaseList.map}</div> */}
+      <div>
+        {console.log(messageList)}
+        {messageList.map((el) => {
+          <div>{el}</div>;
+        })}
+      </div>
       <input
+        value={inputText}
         onChange={(e) => {
           setInputText(e.target.value);
         }}
       />
-      <button
-        onClick={(e) => {
-          submitChat;
-          setInputText("");
-        }}
-      />
+      <button onClick={onClickSubmit}>입력</button>
     </div>
   );
 }
