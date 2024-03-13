@@ -66,3 +66,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@font-face {
+  font-family: "NotoSansKR-Medium";
+  font-weight: 500;
+  src: url("./fonts/NotoSansKR-Medium.ttf") format("truetype");
+}
+
+body {
+  font-family: "NotoSansKR-Medium";
+}
