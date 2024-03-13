@@ -12,7 +12,7 @@ import AnalystPopularity from "~/pages/analyst/Popularity";
 import CompanyEarning from "~/pages/company/EarningRate";
 import CompanyAchievement from "~/pages/company/AchievementRate";
 import CompanyPopularity from "~/pages/company/Popularity";
-import AnalystDetail from "~/Analyst/AnalystDetail";
+import AnalystDetail from "~/analyst/AnalystDetail";
 
 const mainRoutes = [
   {

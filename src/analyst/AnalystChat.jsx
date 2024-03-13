@@ -17,17 +17,16 @@ export default function AnalystChat(props) {
       // console.log(chatString);
       setMessageList((messageList) => [...messageList, chatString]);
     });
-    return;
+    return socket;
   }, []);
   return (
-    <div className="chatBox rounded-lg box-border h-48 flex-col gap-6 w-100 p-4 border-4 overflow-auto">
+    <div className="chatBox rounded-lg box-border h-48  gap-6 w-100 p-4 border-4 overflow-auto">
       {messageList.map((el) => {
         console.log(el);
         console.log(messageList);
         return <AnalystMessage chat={el} key={el.id} />;
       })}
       <input
-        className="border-2 rounded-lg box-border ounded-lg border-neutral-950"
         value={inputText}
         onChange={(e) => {
           setInputText(e.target.value);
