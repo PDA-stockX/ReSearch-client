@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-navbar .nav-link {
+    display: flex;
+    font-size: 100%;
+    padding-right: 3%;
+    font-weight: bold;
+    color: #CBCBCB; /* 비활성화 상태 색상 */
+}
+
+.custom-navbar .nav-link.active {
+    color: #030303 !important; /* 활성화된 링크 색상 */
+}
