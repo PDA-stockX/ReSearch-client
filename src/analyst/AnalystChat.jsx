@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import socket from "~/lib/assets/socket/socket";
 import AnalystMessage from "./AnalystMessage";
 import "./AnalystDetail.css";
+
 export default function AnalystChat(props) {
   const [messageList, setMessageList] = useState([]);
   const [inputText, setInputText] = useState("");
