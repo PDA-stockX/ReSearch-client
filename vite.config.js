@@ -24,6 +24,10 @@ export default defineConfig({
         find: "~/Analyst/AnalystDetail",
         replacement: "/src/Analyst/AnalystDetail.jsx",
       },
+      {
+        find: "~/lib/assets/socket/socket",
+        replacement: "/src/lib/assets/socket/socket.js",
+      },
     ],
   },
 });
