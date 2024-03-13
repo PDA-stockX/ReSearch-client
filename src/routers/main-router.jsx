@@ -12,6 +12,7 @@ import AnalystPopularity from "~/pages/analyst/Popularity";
 import CompanyEarning from "~/pages/company/EarningRate";
 import CompanyAchievement from "~/pages/company/AchievementRate";
 import CompanyPopularity from "~/pages/company/Popularity";
+import AnalystDetail from "~/Analyst/AnalystDetail";
 
 const mainRoutes = [
   {
@@ -62,6 +63,7 @@ const mainRoutes = [
             path: "/company/popularity", // company 인기
             element: <CompanyPopularity />,
           },
+          { path: "/analyst/:analId", element: <AnalystDetail />, index: true },
         ],
       },
     ],

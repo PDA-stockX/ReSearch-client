@@ -21,8 +21,8 @@ export default defineConfig({
       { find: "~/hooks", replacement: "/src/hooks" },
       { find: "~/styles", replacement: "/src/styles" },
       {
-        find: "~/Analyst/AnalystRoom",
-        replacement: "/src/Analyst/AnalystRoom.jsx",
+        find: "~/Analyst/AnalystDetail",
+        replacement: "/src/Analyst/AnalystDetail.jsx",
       },
     ],
   },
