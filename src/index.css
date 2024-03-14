@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "NotoSansKR-Medium";
+  font-family: "Noto Sans KR", sans-serif;
   font-weight: 500;
-  src: url("./fonts/NotoSansKR-Medium.ttf") format("truetype");
+  font-optical-sizing: auto;
+  src: url("/fonts/NotoSansKR-Medium.ttf") format("truetype");
 }
 
-body {
-  font-family: "NotoSansKR-Medium";
+#root {
+  font-family: "Noto Sans KR";
 }
