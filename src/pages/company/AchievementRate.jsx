@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AchievementRate() {
+export default function CompanyAchievementRate() {
     return (
         <div>AchievementRate</div>
     )

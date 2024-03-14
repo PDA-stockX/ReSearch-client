@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Popularity() {
+export default function CompanyPopularity() {
     return (
         <div>Popularity</div>
     )
