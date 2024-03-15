@@ -2,20 +2,19 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "~/layout/DefaultLayout";
 import Home from "~/pages/home/Home";
-import Login from "~/pages/home/Login";
-import Signup from "~/pages/home/Signup";
+import LoginForm from "~/pages/home/LoginForm.jsx";
+import Signup from "~/pages/home/SignUpForm.jsx";
 import NavbarLayout from "~/layout/NavbarLayout";
-import AnalystEarning from "~/pages/analyst/EarningRate";
-import AnalystAchievement from "~/pages/analyst/AchievementRate";
+import AnalystReturnRate from "~/pages/analyst/ReturnRate.jsx";
+import AnalystAchievementScore from "~/pages/analyst/AchievementScore.jsx";
 import AnalystSector from "~/pages/analyst/Sector";
-import AnalystPopularity from "~/pages/analyst/Popularity";
-import CompanyEarning from "~/pages/company/EarningRate";
-import CompanyAchievement from "~/pages/company/AchievementRate";
-import CompanyPopularity from "~/pages/company/Popularity";
+import PopularAnalysts from "~/pages/analyst/Popularity";
+import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
+import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
+import PopularFirms from "~/pages/firm/Popularity";
 import BookmarkAnalyst from "~/pages/bookmark/Analyst";
 import BookmarkReport from "~/pages/bookmark/Report";
 import AnalystDetail from "~/analyst/AnalystDetail";
-
 
 const mainRoutes = [
   {
@@ -23,17 +22,17 @@ const mainRoutes = [
     element: <DefaultLayout />,
     children: [
       {
-        index: true,
-        path: "/Home",
+        path: "/home",
         element: <Home />,
+        index: true,
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <LoginForm />,
         index: true,
       },
       {
-        path: "/signup",
+        path: "/sign-up",
         element: <Signup />,
         index: true,
       },
@@ -42,13 +41,13 @@ const mainRoutes = [
         element: <NavbarLayout />,
         children: [
           {
-            path: "/analyst/earning", // analyst 첫 페이지이자 수익률
-            element: <AnalystEarning />,
+            path: "/analyst/return-rate", // analyst 첫 페이지이자 수익률
+            element: <AnalystReturnRate />,
             index: true,
           },
           {
-            path: "/analyst/achievement", // analyst 달성률
-            element: <AnalystAchievement />,
+            path: "/analyst/achievement-score", // analyst 달성률
+            element: <AnalystAchievementScore />,
             index: true,
           },
           {
@@ -57,23 +56,23 @@ const mainRoutes = [
             index: true,
           },
           {
-            path: "/analyst/popularity", // analyst 인기
-            element: <AnalystPopularity />,
+            path: "/analyst/popular", // analyst 인기
+            element: <PopularAnalysts />,
             index: true,
           },
           {
-            path: "/company/earning", // company 첫 페이지이자 수익률
-            element: <CompanyEarning />,
+            path: "/firm/return-rate", // firm 첫 페이지이자 수익률
+            element: <FirmReturnRate />,
             index: true,
           },
           {
-            path: "/company/achievement", // company 달성률
-            element: <CompanyAchievement />,
+            path: "/firm/achievement-score", // firm 달성률
+            element: <FirmAchievementScore />,
             index: true,
           },
           {
-            path: "/company/popularity", // company 인기
-            element: <CompanyPopularity />,
+            path: "/firm/popular", // firm 인기
+            element: <PopularFirms />,
             index: true,
           },
           {

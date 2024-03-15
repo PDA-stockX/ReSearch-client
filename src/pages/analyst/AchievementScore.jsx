@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AnalystAchievementRate() {
+export default function AchievementScore() {
     return (
         <div>AchievementRate</div>
     )
