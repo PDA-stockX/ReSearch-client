@@ -6,10 +6,10 @@ import NeedLogin from '~/components/common/NeedLogin';
 
 export default function AnalystEarningRate() {
     const exampleColumn = [
-        { columnName: 'Rank', columnWidth: 50 }, // 열 너비 정보 추가
-        { columnName: 'Analyst', columnWidth: 60 }, // 열 너비 정보 추가
-        { columnName: 'Sector', columnWidth: 140 }, // 열 너비 정보 추가
-        { columnName: 'Earnings', columnWidth: 60 } // 열 너비 정보 추가
+        { columnName: 'Rank', columnWidth: 40 }, 
+        { columnName: 'Analyst', columnWidth: 50 },
+        { columnName: 'Sector', columnWidth: 100 },
+        { columnName: 'Earnings', columnWidth: 50 } // 총 width = 240이 되도록?
     ];
 
     const exampleData = [
@@ -35,7 +35,7 @@ export default function AnalystEarningRate() {
         <>
             <div>EarningRate</div>
             <Rank column={exampleColumn} data={exampleData}></Rank>
-            {/* <Best3 data={exampleBest}></Best3> */}
+            <Best3 data={exampleBest}></Best3>
             <NeedLogin></NeedLogin>
         </>
     )

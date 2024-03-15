@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-export default function LoginModal() {
-    const [showModal, setShowModal] = useState(true); // 모달 상태
+export default function NeedLogin() {
+    const [showModal, setShowModal] = useState(false); // 모달 상태
 
     const handleClose = () => setShowModal(false); // 모달 닫기
     const handleShow = () => setShowModal(true); // 모달 띄우기

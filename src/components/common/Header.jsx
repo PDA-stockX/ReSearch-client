@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <>
-      <Navbar className="fixed-top" sticky="top">
+      <Navbar className="fixed-top bg-white" sticky="top">
         <Container className="custom-navbar">
           <Nav>
             <Nav.Link

@@ -18,9 +18,9 @@ export default function Rank({ column, data }) {
         <div ref={cardRef} className="rankCard">
             <div className="rankContainer">
                 {/* 열 이름 표시 */}
-                <div className="rankRow">
+                <div className="rankRow" style={{gridTemplateColumns: column.map(col => col.columnWidth + "fr").join(' ')}}>
                     {column.map((col, cellIndex) => (
-                        <div key={cellIndex} className="rankCell" style={{ width: col.columnWidth }}>{col.columnName}</div>
+                        <div key={cellIndex} className="rankCell" style={{ textAlign: "center" }}>{col.columnName}</div>
                     ))}
                 </div>
                 {/* 나머지 행 표시 */}
