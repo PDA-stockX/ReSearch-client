@@ -36,7 +36,7 @@ function Header() {
                 navigate("/company/earning");
               }}
               className={
-                location.pathname.startsWith("/company") ? "active" : ""
+                location.pathname.startsWith("/firm") ? "active" : ""
               }
             >
               증권사
