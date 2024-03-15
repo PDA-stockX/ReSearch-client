@@ -1,24 +1,31 @@
-// Rank.jsx
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Common.css';
+import Row from './RankRow'; // Row 컴포넌트 불러오기
 
 export default function Rank({ column, data }) {
-    // 열 이름만 포함된 배열
-    const columnNames = column.map(col => col.columnName);
-    // 그리드의 각 행에 표시될 데이터
-    const rowData = [columnNames, ...data];
-    console.log(column[1].columnWidth)
+
+    const cardRef = useRef(null);
+
+    const [cardHeight, setCardHeight] = useState(0);
+
+    useEffect(() => {
+        // 리스트 길이가 변경될 때 카드 길이 조절
+        const height = data.length * 30;
+        setCardHeight(height);
+    }, [data]);
 
     return (
-        <div className="rankCard">
+        <div ref={cardRef} className="rankCard">
             <div className="rankContainer">
-                {/* 열 이름과 각 데이터를 표시하는 행 추가 */}
-                {rowData.map((row, rowIndex) => (
-                    <div key={rowIndex} className="rankRow">
-                        {row.map((cell, cellIndex) => (
-                            <div key={cellIndex} className="rankCell" style={{width: column[cellIndex].columnWidth}}>{cell}</div> // 열 너비 적용
-                        ))}
-                    </div>
+                {/* 열 이름 표시 */}
+                <div className="rankRow">
+                    {column.map((col, cellIndex) => (
+                        <div key={cellIndex} className="rankCell" style={{ width: col.columnWidth }}>{col.columnName}</div>
+                    ))}
+                </div>
+                {/* 나머지 행 표시 */}
+                {data.map((row, rowIndex) => (
+                    <Row key={rowIndex} row={row} column={column} />
                 ))}
             </div>
         </div>

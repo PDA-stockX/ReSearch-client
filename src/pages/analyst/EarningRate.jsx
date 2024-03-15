@@ -2,13 +2,14 @@
 import React from 'react';
 import Rank from '~/components/common/Rank';
 import Best3 from '~/components/common/Best3';
+import NeedLogin from '~/components/common/NeedLogin';
 
 export default function AnalystEarningRate() {
     const exampleColumn = [
-        { columnName: 'Rank', columnWidth: 30 }, // 열 너비 정보 추가
-        { columnName: 'Analyst', columnWidth: 50 }, // 열 너비 정보 추가
-        { columnName: 'Sector', columnWidth: 120 }, // 열 너비 정보 추가
-        { columnName: 'Earnings', columnWidth: 50 } // 열 너비 정보 추가
+        { columnName: 'Rank', columnWidth: 50 }, // 열 너비 정보 추가
+        { columnName: 'Analyst', columnWidth: 60 }, // 열 너비 정보 추가
+        { columnName: 'Sector', columnWidth: 140 }, // 열 너비 정보 추가
+        { columnName: 'Earnings', columnWidth: 60 } // 열 너비 정보 추가
     ];
 
     const exampleData = [
@@ -17,11 +18,11 @@ export default function AnalystEarningRate() {
         [3, "Analyst3", "Sector3", 7],
         [4, "Analyst4", "Sector4", 6],
         [5, "Analyst5", "Sector5", 5],
-        [6, "Analyst5", "Sector5", 5],
-        [7, "Analyst5", "Sector5", 5],
-        [8, "Analyst5", "Sector5", 5],
-        [9, "Analyst5", "Sector5", 5],
-        [10, "Analyst5", "Sector5", 5],
+        [6, "Analyst5", "Sector6", 5],
+        [7, "Analyst5", "Sector7", 5],
+        [8, "Analyst5", "Sector8", 5],
+        [9, "Analyst5", "Sector9", 5],
+        [10, "Analyst5", "Sector10", 5],
     ];
 
     const exampleBest = [
@@ -33,8 +34,9 @@ export default function AnalystEarningRate() {
     return (
         <>
             <div>EarningRate</div>
-            {/* <Rank column={exampleColumn} data={exampleData}></Rank> */}
-            <Best3 data={exampleBest}></Best3>
+            <Rank column={exampleColumn} data={exampleData}></Rank>
+            {/* <Best3 data={exampleBest}></Best3> */}
+            <NeedLogin></NeedLogin>
         </>
     )
 }

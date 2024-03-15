@@ -16,7 +16,6 @@ import BookmarkAnalyst from "~/pages/bookmark/Analyst";
 import BookmarkReport from "~/pages/bookmark/Report";
 import AnalystDetail from "~/analyst/AnalystDetail";
 
-
 const mainRoutes = [
   {
     path: "",
