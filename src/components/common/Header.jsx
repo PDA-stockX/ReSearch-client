@@ -43,7 +43,7 @@ function Header() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/bookmark");
+                navigate("/bookmark/analyst");
               }}
               className={
                 location.pathname.startsWith("/bookmark") ? "active" : ""

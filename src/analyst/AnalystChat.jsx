@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import socket from "~/lib/assets/socket/socket";
 import AnalystMessage from "./AnalystMessage";
 import "./AnalystDetail.css";
-
 export default function AnalystChat(props) {
   const [messageList, setMessageList] = useState([]);
   const [inputText, setInputText] = useState("");
@@ -18,9 +17,10 @@ export default function AnalystChat(props) {
       // console.log(chatString);
       setMessageList((messageList) => [...messageList, chatString]);
     });
+    return socket;
   }, []);
   return (
-    <div className="chatBox" style={{ overflow: scroll }}>
+    <div className="chatBox rounded-lg box-border h-48  gap-6 w-100 p-4 border-4 overflow-auto">
       {messageList.map((el) => {
         console.log(el);
         console.log(messageList);

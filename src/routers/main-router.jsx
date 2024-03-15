@@ -12,6 +12,8 @@ import PopularAnalysts from "~/pages/analyst/Popularity";
 import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
 import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
 import PopularFirms from "~/pages/firm/Popularity";
+import BookmarkAnalyst from "~/pages/bookmark/Analyst";
+import BookmarkReport from "~/pages/bookmark/Report";
 import AnalystDetail from "~/analyst/AnalystDetail";
 
 const mainRoutes = [
@@ -71,6 +73,16 @@ const mainRoutes = [
           {
             path: "/firm/popular", // firm 인기
             element: <PopularFirms />,
+            index: true,
+          },
+          {
+            path: "/bookmark/analyst", // 즐겨찾기 - 애널리스트
+            element: <BookmarkAnalyst />,
+            index: true,
+          },
+          {
+            path: "/bookmark/report", // 즐겨찾기 - 리포트
+            element: <BookmarkReport />,
             index: true,
           },
           { path: "/analyst/:analId", element: <AnalystDetail />, index: true },
