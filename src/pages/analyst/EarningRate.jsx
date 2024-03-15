@@ -1,6 +1,7 @@
 // AnalystEarningRate.jsx
 import React from 'react';
 import Rank from '~/components/common/Rank';
+import Best3 from '~/components/common/Best3';
 
 export default function AnalystEarningRate() {
     const exampleColumn = [
@@ -23,10 +24,17 @@ export default function AnalystEarningRate() {
         [10, "Analyst5", "Sector5", 5],
     ];
 
+    const exampleBest = [
+        ['최승환', '신한투자증권', '74.6'],
+        ['김철수', '미래에셋증권', '68.2'],
+        ['박지영', 'KB증권', '59.1']
+    ];
+
     return (
         <>
             <div>EarningRate</div>
-            <Rank column={exampleColumn} data={exampleData}></Rank>
+            {/* <Rank column={exampleColumn} data={exampleData}></Rank> */}
+            <Best3 data={exampleBest}></Best3>
         </>
     )
 }
