@@ -1,0 +1,57 @@
+/* Header.jsx */
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-navbar .nav-link {
+    display: flex;
+    font-size: 100%;
+    padding-right: 3%;
+    font-weight: bold;
+    color: #CBCBCB; /* 비활성화 상태 색상 */
+}
+
+.custom-navbar .nav-link.active {
+    color: #030303 !important; /* 활성화된 링크 색상 */
+}
+
+
+/* Rank.jsx */
+.rankCard {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 330px;
+    margin: 1rem;
+    position: relative;
+    width: 300px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 7px;
+}
+
+
+.rankContainer {
+    display: grid;
+    padding: 10px;
+}
+
+.rankRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 5px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.rankCell {
+    padding: 10px;
+    font-size: 13px;
+    text-align: center;    
+}
+
+.rankRow > div:last-child {
+    text-align: right;
+}
+
