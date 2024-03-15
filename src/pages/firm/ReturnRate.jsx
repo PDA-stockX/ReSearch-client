@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CompanyEarningRate() {
+export default function ReturnRate() {
     return (
         <div>EarningRate</div>
     )
