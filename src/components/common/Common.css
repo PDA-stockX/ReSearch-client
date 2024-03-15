@@ -28,7 +28,6 @@ body {
     background: #FFFFFF;
     border-radius: 2px;
     display: inline-block;
-    height: 330px;
     margin: 1rem;
     position: relative;
     width: 300px;
@@ -41,7 +40,6 @@ body {
     display: grid;
     width: 100%;
     padding: 10px;
-    /* height: '300px' */
 }
 
 .rankRow {
@@ -55,7 +53,6 @@ body {
 .rankCell {
     padding: 10px;
     font-size: 13px;
-    text-align: center;    
 }
 
 .rankRow > div:last-child {
@@ -66,7 +63,7 @@ body {
 /* Best3.jsx */
 .best3 {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     justify-content: center;
 }
 
@@ -74,10 +71,11 @@ body {
 .bestCard {
     background-color: #FFFFFF;
     border: none;
-    padding: 4%;
-    width: 27%;
-    height: 35%;
-    border-radius: 8px;
+    padding: 10px;
+    width: 95px;
+    height: 95px;
+    margin-bottom: 8px;
+    border-radius: 7px;
     align-items: center;
     font-family: 'Noto Sans KR', sans-serif;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -95,7 +93,7 @@ body {
 
 .name {
     padding-top: 22px;
-    font-size: 1em;
+    font-size: 14px;
     font-weight: bold;
     padding-bottom: 10%;
 }
@@ -220,6 +218,8 @@ body {
     flex-direction: column;
     width: 150px;
     font-family: "Noto Sans KR";
+    border-radius: 5px; /* 모서리를 부드럽게 */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
 }
 
 .modalBody {
@@ -232,6 +232,8 @@ body {
 .modalFooter {
     background-color: #DCC7FF !important;
     margin: 0;
+    display: flex; /* 버튼을 가운데 정렬 */
+    justify-content: center; /* 버튼을 가운데 정렬 */
 }
 
 .modalButton {
