@@ -12,8 +12,6 @@ import PopularAnalysts from "~/pages/analyst/Popularity";
 import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
 import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
 import PopularFirms from "~/pages/firm/Popularity";
-import BookmarkAnalyst from "~/pages/bookmark/Analyst";
-import BookmarkReport from "~/pages/bookmark/Report";
 import AnalystDetail from "~/analyst/AnalystDetail";
 import BookmarkAnalyst from '~/pages/bookmark/Analyst';
 import BookmarkReport from '~/pages/bookmark/Report';
