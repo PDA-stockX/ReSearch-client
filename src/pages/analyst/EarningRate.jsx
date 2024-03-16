@@ -3,7 +3,7 @@ import Rank from '~/components/common/Rank';
 import Best3 from '~/components/common/Best3';
 import NeedLogin from '~/components/common/NeedLogin';
 
-export default function ReturnRate() {
+export default function AnalystEarningRate() {
     const exampleColumn = [
         { columnName: 'Rank', columnWidth: 40 }, 
         { columnName: 'Analyst', columnWidth: 50 },
