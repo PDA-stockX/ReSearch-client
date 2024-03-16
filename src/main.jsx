@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <GlobalStyle />
-    
+
     <Mobile>
       <App />
     </Mobile>
