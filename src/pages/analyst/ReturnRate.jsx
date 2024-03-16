@@ -33,7 +33,7 @@ export default function ReturnRate() {
 
     return (
         <>
-            <div>EarningRate</div>
+            <div>ReturnRate</div>
             <Rank column={exampleColumn} data={exampleData}></Rank>
             <Best3 data={exampleBest}></Best3>
             <NeedLogin></NeedLogin>
