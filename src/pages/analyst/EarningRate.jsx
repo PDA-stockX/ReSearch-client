@@ -31,6 +31,12 @@ export default function AnalystEarningRate() {
         ['박지영', 'KB증권', '59.1']
     ];
 
+    const exampleBest = [
+        ['최승환', '신한투자증권', '74.6'],
+        ['김철수', '미래에셋증권', '68.2'],
+        ['박지영', 'KB증권', '59.1']
+    ];
+
     return (
         <>
             <div>EarningRate</div>
