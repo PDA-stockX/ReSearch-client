@@ -1,4 +1,3 @@
-// AnalystEarningRate.jsx
 import React from 'react';
 import Best from '~/components/common/Best';
 

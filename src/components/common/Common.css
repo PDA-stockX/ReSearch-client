@@ -30,7 +30,7 @@ body {
     display: inline-block;
     margin: 1rem;
     position: relative;
-    width: 320px;
+    width: 92%;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-radius: 7px;
 }
@@ -38,6 +38,7 @@ body {
 
 .rankContainer {
     display: grid;
+    width: 100%;
     padding: 10px;
 }
 
@@ -51,7 +52,7 @@ body {
 
 .rankCell {
     padding: 10px;
-    font-size: 13px;
+    font-size: 0.9em;
 }
 
 .rankRow > div:last-child {
@@ -62,7 +63,7 @@ body {
 /* Best3.jsx */
 .best3 {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
 }
 
@@ -70,11 +71,10 @@ body {
 .bestCard {
     background-color: #FFFFFF;
     border: none;
-    padding: 10px;
-    width: 95px;
-    height: 95px;
-    margin-bottom: 8px;
-    border-radius: 7px;
+    padding: 4%;
+    width: 27%;
+    height: 35%;
+    border-radius: 8px;
     align-items: center;
     font-family: 'Noto Sans KR', sans-serif;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -82,6 +82,7 @@ body {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    font-size: 14px;
 }
 
 .bestInfo {
@@ -91,52 +92,121 @@ body {
 
 .name {
     padding-top: 22px;
-    font-size: 14px;
+    font-size: 1em;
     font-weight: bold;
-    padding-bottom: 3px;
+    padding-bottom: 10%;
 }
 
 .company {
-    font-size: 11px;
+    font-size: 0.7em;
     color: #9C5FFF;
+    padding-bottom: 22%;
 }
 
 .returnRate {
-    font-size: 13px;
+    font-size: 1em;
     font-weight: bold;
     text-align: right;
     color: #F22E40;
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 7px;
+    right: 7px;
+}
+
+@media screen and (max-width: 375px) {
+    .bestCard {
+        min-width: 90px;
+        min-height: 90px;
+    }
+
+    .rankCard {
+        width: 306px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .rankCell {
+        font-size: 1em;
+    }
+
+    .best3 {
+        gap: 5vw;
+    }
+    
+    .name {
+        font-size: 1.2em;
+    }
+
+    .company {
+        font-size: 1em;
+        margin-top: 6%;
+    }
+
+    .returnRate {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .rankCard {
+        width: 861px
+    }
+
+    .bestCard {
+        max-width: 301px;
+        max-height: 161px;
+    }
+    
+    .name {
+        font-size: 1.4em;
+    }
+
+    .company {
+        font-size: 1.2em;
+    }
+
+    .returnRate {
+        font-size: 1.4em;
+    }
 }
 
 /* NeedLogin.jsx */
 .modal {
     display: flex;
     flex-direction: column;
-    width: 150px;
+    max-width: 80%;
     font-family: "Noto Sans KR";
-    border-radius: 5px; /* 모서리를 부드럽게 */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.modalDialog {
+    max-width: 70%;
 }
 
 .modalBody {
-    height: 100px;
+    height: 80px;
     text-align: center;
     margin: auto 0;
     font-weight: 400;
+    padding: 20px;
+    display: flex; /* flexbox 사용 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
 }
 
 .modalFooter {
     background-color: #DCC7FF !important;
     margin: 0;
-    display: flex; /* 버튼을 가운데 정렬 */
-    justify-content: center; /* 버튼을 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
 }
 
 .modalButton {
     background-color: #DCC7FF;
     border: none !important;
     color: #030303;
+    width: 100%;
 }

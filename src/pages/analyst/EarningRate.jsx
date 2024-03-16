@@ -1,4 +1,3 @@
-// AnalystEarningRate.jsx
 import React from 'react';
 import Rank from '~/components/common/Rank';
 import Best3 from '~/components/common/Best3';
@@ -9,7 +8,7 @@ export default function AnalystEarningRate() {
         { columnName: 'Rank', columnWidth: 40 }, 
         { columnName: 'Analyst', columnWidth: 50 },
         { columnName: 'Sector', columnWidth: 100 },
-        { columnName: 'Earnings', columnWidth: 50 } // 총 width = 240이 되도록?
+        { columnName: 'Return', columnWidth: 50 } // 총 width = 240이 되도록?
     ];
 
     const exampleData = [
@@ -23,6 +22,7 @@ export default function AnalystEarningRate() {
         [8, "Analyst5", "Sector8", 5],
         [9, "Analyst5", "Sector9", 5],
         [10, "Analyst5", "Sector10", 5],
+        [11, "Analyst5", "Sector11", 5],
     ];
 
     const exampleBest = [

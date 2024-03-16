@@ -10,16 +10,22 @@ export default function NeedLogin() {
 
     return (
         <>
-            <Modal show={showModal} onHide={handleClose} className='modal'>
-                <Modal.Body className='modalBody'>
-                    <p>로그인이 필요합니다.</p>
-                </Modal.Body>
-
-                <Modal.Footer className='modalFooter'>
-                    <Button variant="primary" onClick={handleClose} className='modalButton'>
-                        확인
-                    </Button>
-                </Modal.Footer>
+            <Modal
+                show={showModal}
+                onHide={handleClose}
+                centered
+                className="modal"
+            >
+                <Modal.Dialog className="modal-dialog modal-sm">
+                    <Modal.Body className="modalBody" style={{ fontWeight: "bold", backgroundColor: "#f7f7f7", border: "1px solid #ddd" }}>
+                        <p>로그인 후 이용해주세요.</p>
+                    </Modal.Body>
+                    <Modal.Footer className="modalFooter">
+                        <Button variant="primary" onClick={handleClose} className="modalButton">
+                            확인
+                        </Button>
+                    </Modal.Footer>
+                </Modal.Dialog>
             </Modal>
         </>
     );
