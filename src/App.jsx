@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <RouterProvider router={mainRouter}/>
+      <RouterProvider router={mainRouter} />
     </>
   );
 }
