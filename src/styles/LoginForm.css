@@ -1,0 +1,64 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #F7F7F7;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px 0;
+}
+
+.inputGroup input {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.inputContainer button {
+    margin: 5px 0;
+    padding: 10px;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #DCC7FF;
+    color: black;
+    cursor: pointer;
+}
+
+.linkContainer {
+    margin: 10px;
+}
+
+.linkContainer a {
+    padding: 10px;
+    width: 30%;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.linkContainer em {
+    color: #9C5FFF;
+    font-weight: 700;
+}
+
+.inputContainer label {
+    color: red;
+}

@@ -6,18 +6,24 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:3000", // express 포트번호
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
     },
   },
   resolve: {
     alias: [
       // 절대 경로로 접근하기
+      { find: "~/api", replacement: "/src/api" },
+      { find: "~/assets", replacement: "/src/assets" },
       { find: "~/components", replacement: "/src/components" },
       { find: "~/layout", replacement: "/src/layout" },
       { find: "~/lib", replacement: "/src/lib" },
       { find: "~/routers", replacement: "/src/routers" },
       { find: "~/pages", replacement: "/src/pages" },
-      { find: "~/reducer", replacement: "/src/reducer" },
+      { find: "~/reducers", replacement: "/src/reducers" },
       { find: "~/hooks", replacement: "/src/hooks" },
       { find: "~/styles", replacement: "/src/styles" },
       {

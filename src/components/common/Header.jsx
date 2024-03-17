@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
-import "~/styles/Header.css";
+import "./Common.css";
 
 function Header() {
   const location = useLocation();
@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <>
-      <Navbar className="fixed-top" sticky="top">
+      <Navbar className="fixed-top bg-white" sticky="top">
         <Container className="custom-navbar">
           <Nav>
             <Nav.Link
@@ -23,7 +23,7 @@ function Header() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/analyst/earning");
+                navigate("/analyst/return-rate");
               }}
               className={
                 location.pathname.startsWith("/analyst") ? "active" : ""
@@ -33,17 +33,17 @@ function Header() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/company/earning");
+                navigate("/firm/return-rate");
               }}
               className={
-                location.pathname.startsWith("/company") ? "active" : ""
+                location.pathname.startsWith("/firm") ? "active" : ""
               }
             >
               증권사
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/bookmark");
+                navigate("/bookmark/analyst");
               }}
               className={
                 location.pathname.startsWith("/bookmark") ? "active" : ""
