@@ -12,10 +12,10 @@ import PopularAnalysts from "~/pages/analyst/Popularity";
 import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
 import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
 import PopularFirms from "~/pages/firm/Popularity";
-import BookmarkAnalyst from "~/pages/bookmark/Analyst";
-import BookmarkReport from "~/pages/bookmark/Report";
+import BookmarkAnalyst from "~/pages/bookmark/bookmarkAnalyst";
+import BookmarkReport from "~/pages/bookmark/bookmarkReport";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
-
+import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
 const mainRoutes = [
   {
     path: "",
@@ -76,13 +76,20 @@ const mainRoutes = [
             index: true,
           },
           {
-            path: "/bookmark/analyst", // 즐겨찾기 - 애널리스트
+            // path: "/bookmark/analyst", // 즐겨찾기 - 애널리스트
+            // element: <BookmarkAnalyst />,
+            path: "/bookmark/BookmarkAnalyst",
             element: <BookmarkAnalyst />,
             index: true,
           },
           {
-            path: "/bookmark/report", // 즐겨찾기 - 리포트
+            path: "/bookmark/BookmarkReport", // 즐겨찾기 - 리포트
             element: <BookmarkReport />,
+            index: true,
+          },
+          {
+            path: "/reportDetail/:reportId",
+            element: <ReportDetailPage />,
             index: true,
           },
           {
