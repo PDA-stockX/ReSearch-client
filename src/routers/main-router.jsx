@@ -5,6 +5,9 @@ import Home from "~/pages/home/Home";
 import LoginForm from "~/pages/home/LoginForm.jsx";
 import Signup from "~/pages/home/SignUpForm.jsx";
 import NavbarLayout from "~/layout/NavbarLayout";
+import Analyst from '~/layout/AnalystNavbarLayout';
+import Firm from '~/layout/FirmNavbarLayout';
+import Bookmark from '~/layout/BookmarkNavbarLayout';
 import AnalystReturnRate from "~/pages/analyst/ReturnRate.jsx";
 import AnalystAchievementScore from "~/pages/analyst/AchievementScore.jsx";
 import AnalystSector from "~/pages/analyst/Sector";
@@ -18,7 +21,7 @@ import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
 import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
 const mainRoutes = [
   {
-    path: "/",
+    path: "",
     element: <DefaultLayout />,
     children: [
       {
@@ -35,68 +38,86 @@ const mainRoutes = [
         path: "/sign-up",
         element: <Signup />,
         index: true,
-      },
-      {
+      },          {
+        path: "/reportDetail/:reportId",
+        element: <ReportDetailPage />,
+        index: true,
+    },            
+    {
+        path: "/analystDetail/:analId",
+        element: <AnalystDetailPage />,
+        index: true,
+    },
+    {
         path: "",
         element: <NavbarLayout />,
         children: [
-          {
-            path: "/analyst/return-rate", // analyst 첫 페이지이자 수익률
-            element: <AnalystReturnRate />,
-            index: true,
-          },
-          {
-            path: "/analyst/achievement-score", // analyst 달성률
-            element: <AnalystAchievementScore />,
-            index: true,
-          },
-          {
-            path: "/analyst/sector", // analyst 업종
-            element: <AnalystSector />,
-            index: true,
-          },
-          {
-            path: "/analyst/popular", // analyst 인기
-            element: <PopularAnalysts />,
-            index: true,
-          },
-          {
-            path: "/firm/return-rate", // firm 첫 페이지이자 수익률
-            element: <FirmReturnRate />,
-            index: true,
-          },
-          {
-            path: "/firm/achievement-score", // firm 달성률
-            element: <FirmAchievementScore />,
-            index: true,
-          },
-          {
-            path: "/firm/popular", // firm 인기
-            element: <PopularFirms />,
-            index: true,
-          },
-          {
-            // path: "/bookmark/analyst", // 즐겨찾기 - 애널리스트
-            // element: <BookmarkAnalyst />,
-            path: "/bookmark/bookmark-analyst",
-            element: <BookmarkAnalyst />,
-            index: true,
-          },
-          {
-            path: "/bookmark/bookmark-report", // 즐겨찾기 - 리포트
-            element: <BookmarkReport />,
-            index: true,
-          },
-          {
-            path: "/reportDetail/:reportId",
-            element: <ReportDetailPage />,
-            index: true,
-          },
-          {
-            path: "/analyst/:analId",
-            element: <AnalystDetailPage />,
-            index: true,
-          },
+            {
+                path: "",
+                element: <Analyst/>,
+                child: [
+                    {
+                        path: "/analyst/return-rate", // analyst 첫 페이지이자 수익률
+                        element: <AnalystReturnRate />,
+                        index: true,
+                    },
+                    {
+                        path: "/analyst/achievement-score", // analyst 달성률
+                        element: <AnalystAchievementScore />,
+                        index: true,
+                    },
+                    {
+                        path: "/analyst/sector", // analyst 업종
+                        element: <AnalystSector />,
+                        index: true,
+                    },
+                    {
+                        path: "/analyst/popular", // analyst 인기
+                        element: <PopularAnalysts />,
+                        index: true,
+                    },
+                ]
+            },
+            {
+                path: "",
+                element: <Firm/>,
+                child: [
+                    {
+                        path: "/firm/return-rate", // firm 첫 페이지이자 수익률
+                        element: <FirmReturnRate />,
+                        index: true,
+                    },
+                    {
+                        path: "/firm/achievement-score", // firm 달성률
+                        element: <FirmAchievementScore />,
+                        index: true,
+                    },
+                    {
+                        path: "/firm/popular", // firm 인기
+                        element: <PopularFirms />,
+                        index: true,
+                    },
+                ]
+            },
+            {
+                path: "",
+                element: <Bookmark/>,
+                child: [
+                    {
+                        // path: "/bookmark/analyst", // 즐겨찾기 - 애널리스트
+                        // element: <BookmarkAnalyst />,
+                        path: "/bookmark/BookmarkAnalyst",
+                        element: <BookmarkAnalyst />,
+                        index: true,
+                    },
+                    {
+                        path: "/bookmark/BookmarkReport", // 즐겨찾기 - 리포트
+                        element: <BookmarkReport />,
+                        index: true,
+                    },
+                ]
+            },
+  
         ],
       },
     ],
