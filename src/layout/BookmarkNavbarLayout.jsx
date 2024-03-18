@@ -16,7 +16,7 @@ export default function AnalystNavbarLayout() {
 
   return (
     <>
-      <SubHeader menu='analyst' subMenu={subMenu} subMenuName={subMenuName}/>
+      <SubHeader menu='bookmark' subMenu={subMenu} subMenuName={subMenuName}/>
       <Container className="min-vh-100">
         <Outlet />
       </Container>
