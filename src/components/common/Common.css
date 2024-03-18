@@ -22,6 +22,10 @@ body {
   color: #030303 !important; /* 활성화된 링크 색상 */
 }
 
+.sub-navbar {
+  font-size: 90%;
+}
+
 /* Rank.jsx */
 .rankCard {
   background: #ffffff;

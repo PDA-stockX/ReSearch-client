@@ -1,14 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import Header from "~/components/common/Header";
 import SubHeader from '~/components/common/SubHeader';
 
 export default function AnalystNavbarLayout() {
   const subMenu = [
     'return-rate',
     'achievement-score',
-    'popularity'
+    'popular'
   ]
 
   const subMenuName = [

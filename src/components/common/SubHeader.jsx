@@ -11,15 +11,15 @@ export default function SubHeader(props) {
   return (
     <>
       <Navbar className="fixed-top bg-white" sticky="top">
-        <Container className="custom-navbar">
+        <Container className="custom-navbar sub-navbar">
           <Nav>
             {console.log(props)}
-            {props.subMenuName.map((item, index) => (
+            {props.subMenu.map((item, index) => (
               <Nav.Link
                 key={index}
-                onClick={() => navigate(`/${props.subMenu}/${item}`)}
+                onClick={() => navigate(`/${props.menu}/${item}`)}
                 className={
-                  location.pathname === `/${props.subMenu}/${item}`
+                  location.pathname === `/${props.menu}/${item}`
                     ? "active"
                     : ""
                 }
