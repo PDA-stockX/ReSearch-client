@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Common.css";
 
-export default function SubHeader(menu, subMenu, subMenuName) {
+export default function SubHeader(props) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -13,13 +13,18 @@ export default function SubHeader(menu, subMenu, subMenuName) {
       <Navbar className="fixed-top bg-white" sticky="top">
         <Container className="custom-navbar">
           <Nav>
-            {subMenu.map((item, index) => (
+            {console.log(props)}
+            {props.subMenuName.map((item, index) => (
               <Nav.Link
                 key={index}
-                onClick={() => navigate(`/${menu}/${item}`)}
-                className={location.pathname === `/${menu}/${item}` ? "active" : ""}
+                onClick={() => navigate(`/${props.subMenu}/${item}`)}
+                className={
+                  location.pathname === `/${props.subMenu}/${item}`
+                    ? "active"
+                    : ""
+                }
               >
-                {subMenuName[index]}
+                {props.subMenuName[index]}
               </Nav.Link>
             ))}
           </Nav>
