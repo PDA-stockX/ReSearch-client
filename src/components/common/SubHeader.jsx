@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Common.css";
 
-export default function Header() {
+export default function SubHeader(menu) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,38 +15,38 @@ export default function Header() {
           <Nav>
             <Nav.Link
               onClick={() => {
-                navigate("/");
+                navigate(`/${menu}/return-rate`);
               }}
-              className={location.pathname === "/home" ? "active" : ""}
+              className={location.pathname === `/${menu}/return-rate` ? "active" : ""}
             >
               홈
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/analyst/return-rate");
+                navigate(`/${menu}/achievement-score`);
               }}
               className={
-                location.pathname.startsWith("/analyst") ? "active" : ""
+                location.pathname === `/${menu}/achievement-score` ? "active" : ""
               }
             >
               애널리스트
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/firm/return-rate");
+                navigate(`/${menu}/sector`);
               }}
               className={
-                location.pathname.startsWith("/firm") ? "active" : ""
+                location.pathname.startsWith(`/${menu}/sector`) ? "active" : ""
               }
             >
               증권사
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/bookmark/analyst");
+                navigate(`/${menu}/popularity`);
               }}
               className={
-                location.pathname.startsWith("/bookmark") ? "active" : ""
+                location.pathname === `/${menu}/popularity` ? "active" : ""
               }
             >
               즐겨찾기

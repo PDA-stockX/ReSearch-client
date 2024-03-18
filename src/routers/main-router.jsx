@@ -5,6 +5,7 @@ import Home from "~/pages/home/Home";
 import LoginForm from "~/pages/home/LoginForm.jsx";
 import Signup from "~/pages/home/SignUpForm.jsx";
 import NavbarLayout from "~/layout/NavbarLayout";
+import Analyst from '~/layout/Analyst';
 import AnalystReturnRate from "~/pages/analyst/ReturnRate.jsx";
 import AnalystAchievementScore from "~/pages/analyst/AchievementScore.jsx";
 import AnalystSector from "~/pages/analyst/Sector";

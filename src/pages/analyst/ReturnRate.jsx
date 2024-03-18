@@ -33,10 +33,13 @@ export default function ReturnRate() {
 
     return (
         <>
-            <div>ReturnRate</div>
-            <Rank column={exampleColumn} data={exampleData}></Rank>
-            <Best3 data={exampleBest}></Best3>
-            <NeedLogin></NeedLogin>
+            <div className='items-center'>
+                <h2>Best 3</h2>
+                <Best3 data={exampleBest}></Best3>
+                <h2>수익률 순위</h2>
+                <Rank column={exampleColumn} data={exampleData}></Rank>
+                {/* <NeedLogin></NeedLogin> */}
+            </div>
         </>
     )
 }
