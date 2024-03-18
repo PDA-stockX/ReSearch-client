@@ -22,44 +22,6 @@ export default function SubHeader(menu, subMenu, subMenuName) {
                 {subMenuName[index]}
               </Nav.Link>
             ))}
-            {/* <Nav.Link
-              onClick={() => {
-                navigate(`/${menu}/${subMenu[0]}`);
-              }}
-              className={location.pathname === `/${menu}/${subMenu[0]}` ? "active" : ""}
-            >
-              {subMenuName[0]}
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                navigate(`/${menu}/achievement-score`);
-              }}
-              className={
-                location.pathname === `/${menu}/achievement-score` ? "active" : ""
-              }
-            >
-              달성률
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                navigate(`/${menu}/sector`);
-              }}
-              className={
-                location.pathname.startsWith(`/${menu}/sector`) ? "active" : ""
-              }
-            >
-              업종
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                navigate(`/${menu}/popularity`);
-              }}
-              className={
-                location.pathname === `/${menu}/popularity` ? "active" : ""
-              }
-            >
-              인기
-            </Nav.Link> */}
           </Nav>
         </Container>
       </Navbar>
