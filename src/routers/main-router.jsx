@@ -12,13 +12,13 @@ import PopularAnalysts from "~/pages/analyst/Popularity";
 import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
 import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
 import PopularFirms from "~/pages/firm/Popularity";
-import BookmarkAnalyst from "~/pages/bookmark/bookmarkAnalyst";
-import BookmarkReport from "~/pages/bookmark/bookmarkReport";
+import BookmarkAnalyst from "~/pages/bookmark/BookmarkAnalyst";
+import BookmarkReport from "~/pages/bookmark/BookmarkReport";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
 import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
 const mainRoutes = [
   {
-    path: "",
+    path: "/",
     element: <DefaultLayout />,
     children: [
       {
