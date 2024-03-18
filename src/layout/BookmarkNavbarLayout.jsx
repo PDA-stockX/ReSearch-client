@@ -1,22 +1,17 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import Header from "~/components/common/Header";
 import SubHeader from '~/components/common/SubHeader';
 
 export default function AnalystNavbarLayout() {
   const subMenu = [
-    'return-rate',
-    'achievement-score',
-    'sector',
-    'popularity'
+    'analyst',
+    'report'
   ]
 
   const subMenuName = [
-    '수익률',
-    '달성률',
-    '업종',
-    '인기'
+    '애널리스트',
+    '리포트',
   ]
 
   return (

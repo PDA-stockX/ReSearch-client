@@ -8,14 +8,12 @@ export default function AnalystNavbarLayout() {
   const subMenu = [
     'return-rate',
     'achievement-score',
-    'sector',
     'popularity'
   ]
 
   const subMenuName = [
     '수익률',
     '달성률',
-    '업종',
     '인기'
   ]
 

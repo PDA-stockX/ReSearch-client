@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Common.css";
 
-export default function SubHeader(menu) {
+export default function SubHeader(menu, subMenu, subMenuName) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -13,13 +13,22 @@ export default function SubHeader(menu) {
       <Navbar className="fixed-top bg-white" sticky="top">
         <Container className="custom-navbar">
           <Nav>
-            <Nav.Link
+            {subMenu.map((item, index) => (
+              <Nav.Link
+                key={index}
+                onClick={() => navigate(`/${menu}/${item}`)}
+                className={location.pathname === `/${menu}/${item}` ? "active" : ""}
+              >
+                {subMenuName[index]}
+              </Nav.Link>
+            ))}
+            {/* <Nav.Link
               onClick={() => {
-                navigate(`/${menu}/return-rate`);
+                navigate(`/${menu}/${subMenu[0]}`);
               }}
-              className={location.pathname === `/${menu}/return-rate` ? "active" : ""}
+              className={location.pathname === `/${menu}/${subMenu[0]}` ? "active" : ""}
             >
-              홈
+              {subMenuName[0]}
             </Nav.Link>
             <Nav.Link
               onClick={() => {
@@ -29,7 +38,7 @@ export default function SubHeader(menu) {
                 location.pathname === `/${menu}/achievement-score` ? "active" : ""
               }
             >
-              애널리스트
+              달성률
             </Nav.Link>
             <Nav.Link
               onClick={() => {
@@ -39,7 +48,7 @@ export default function SubHeader(menu) {
                 location.pathname.startsWith(`/${menu}/sector`) ? "active" : ""
               }
             >
-              증권사
+              업종
             </Nav.Link>
             <Nav.Link
               onClick={() => {
@@ -49,8 +58,8 @@ export default function SubHeader(menu) {
                 location.pathname === `/${menu}/popularity` ? "active" : ""
               }
             >
-              즐겨찾기
-            </Nav.Link>
+              인기
+            </Nav.Link> */}
           </Nav>
         </Container>
       </Navbar>
