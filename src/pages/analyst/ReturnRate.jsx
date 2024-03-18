@@ -1,7 +1,6 @@
 import React from 'react';
 import Rank from '~/components/common/Rank';
 import Best3 from '~/components/common/Best3';
-import NeedLogin from '~/components/common/NeedLogin';
 
 export default function ReturnRate() {
     const exampleColumn = [
@@ -33,12 +32,17 @@ export default function ReturnRate() {
 
     return (
         <>
-            <div className='items-center'>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
                 <h2>Best 3</h2>
                 <Best3 data={exampleBest}></Best3>
                 <h2>수익률 순위</h2>
                 <Rank column={exampleColumn} data={exampleData}></Rank>
-                {/* <NeedLogin></NeedLogin> */}
             </div>
         </>
     )

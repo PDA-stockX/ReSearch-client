@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <>
-      <Navbar className="fixed-top bg-white" sticky="top">
+      <Navbar className="fixed-to" bg='F7F7F7' sticky="top">
         <Container className="custom-navbar">
           <Nav>
             <Nav.Link
