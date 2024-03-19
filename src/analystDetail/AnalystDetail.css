@@ -1,0 +1,69 @@
+.analystDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 3%;
+  background-color: #f7f7f7;
+}
+
+.chatBox {
+  border: 1px solid #cbcbcb;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageBox {
+  background-color: #eee3ff;
+  display: inline-block;
+  border-radius: 3%;
+  height: 15%;
+}
+.cardBox {
+  border-radius: 3%;
+  border: 1px solid #cbcbcb;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  position: relative;
+}
+
+.analFont1 {
+  color: #cbcbcb;
+}
+
+.analystFont2 {
+  color: #030303;
+}
+
+.analystImg {
+  border-radius: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding: auto;
+  padding-left: 3%;
+  padding-right: 3%;
+  width: 40%;
+  height: 100%;
+}
+
+.analystDetailCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  justify-content: center;
+}
+
+.messageInput {
+  border: 1px;
+  border: solid;
+  border-radius: 5%;
+  border-color: #be96ff;
+  width: 15%;
+  position: absolute;
+  /* bottom: 5%; */
+  right: 2.5%;
+  color: #be96ff;
+}

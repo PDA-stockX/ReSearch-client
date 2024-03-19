@@ -4,14 +4,15 @@ import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "~/styles/Header.css";
 import {SearchModal} from "../SearchModal.jsx";
+import "./Common.css";
 
-function Header() {
+export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
     <>
-      <Navbar className="fixed-top" sticky="top">
+      <Navbar className="fixed-top bg-white" sticky="top">
         <Container className="custom-navbar">
           <Nav>
             <Nav.Link
@@ -24,7 +25,7 @@ function Header() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/analyst/earning");
+                navigate("/analyst/return-rate");
               }}
               className={
                 location.pathname.startsWith("/analyst") ? "active" : ""
@@ -34,7 +35,7 @@ function Header() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/company/earning");
+                navigate("/firm/return-rate");
               }}
               className={
                 location.pathname.startsWith("/firm") ? "active" : ""
@@ -59,5 +60,3 @@ function Header() {
     </>
   );
 }
-
-export default Header;

@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import AnalystChat from "./AnalystChat";
 import "./AnalystDetail.css";
 import AnalystCard from "./AnalystCard";
-export default function AnalystDetail() {
+import AnalystReport from "./AnalystReport";
+export default function AnalystDetailPage() {
   const { analId } = useParams();
   const render = (el) => {
     console.log(el);
@@ -11,11 +12,14 @@ export default function AnalystDetail() {
   };
 
   return (
-    <div className="grid gap-y-2">
+    <div className=" analystDetail">
+      <h2>애널리스트 정보</h2>
       <div>
-        <h2>애널리스트 정보</h2>
         <AnalystCard analId={analId} />
       </div>
+      <h2>리포트</h2>
+      <AnalystReport analId={analId} />
+      <h3>오픈 TALK 💬</h3>
       <div>
         <AnalystChat analId={analId} />
       </div>

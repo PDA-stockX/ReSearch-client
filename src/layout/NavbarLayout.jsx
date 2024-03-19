@@ -7,7 +7,7 @@ export default function NavbarLayout() {
   return (
     <>
       <Header />
-      <Container className="min-vh-100">
+      <Container style={{ backgroundColor: "#F7F7F7" }} className="min-vh-100 ">
         <Outlet />
       </Container>
     </>

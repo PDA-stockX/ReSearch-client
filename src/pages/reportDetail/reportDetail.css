@@ -1,0 +1,15 @@
+.reportDetailCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 90%;
+  margin: "5%";
+}
+
+.reportDetailCardLeft {
+  color: #030303;
+}
+
+.reportDetailCardRight {
+  color: #cbcbcb;
+}
