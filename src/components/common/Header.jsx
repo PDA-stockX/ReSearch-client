@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "~/styles/Header.css";
+import {Modal} from "../Modal.jsx";
 
 function Header() {
   const location = useLocation();
@@ -53,6 +54,7 @@ function Header() {
             </Nav.Link>
           </Nav>
         </Container>
+        <Modal isMobile={true}></Modal>
       </Navbar>
     </>
   );
