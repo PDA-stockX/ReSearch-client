@@ -2,6 +2,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
+import "~/styles/Header.css";
+import {Modal} from "../Modal.jsx";
 import "./Common.css";
 
 export default function Header() {
@@ -43,7 +45,7 @@ export default function Header() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/bookmark/bookmark-analyst");
+                navigate("/bookmark/analyst");
               }}
               className={
                 location.pathname.startsWith("/bookmark") ? "active" : ""
@@ -53,6 +55,7 @@ export default function Header() {
             </Nav.Link>
           </Nav>
         </Container>
+        <Modal isMobile={true}></Modal>
       </Navbar>
     </>
   );

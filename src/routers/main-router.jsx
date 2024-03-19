@@ -165,14 +165,15 @@ const mainRoutes = [
         children: [
           {
             path: "home",
-            elemet: <Home />,
+            element: <Home />,
             index: true,
           },
           {
             path: "bookmark",
+            element: <Bookmark/>,
             children: [
               {
-                path: "Analyst",
+                path: "analyst",
                 element: <BookmarkAnalyst />,
                 index: true,
               },
@@ -189,22 +190,22 @@ const mainRoutes = [
             element: <Analyst />,
             children: [
               {
-                path: "Return-rate", // analyst 첫 페이지이자 수익률
+                path: "return-rate", // analyst 첫 페이지이자 수익률
                 element: <AnalystReturnRate />,
                 index: true,
               },
               {
-                path: "Achievement-score", // analyst 달성률
+                path: "achievement-score", // analyst 달성률
                 element: <AnalystAchievementScore />,
                 index: true,
               },
               {
-                path: "Sector", // analyst 업종
+                path: "sector", // analyst 업종
                 element: <AnalystSector />,
                 index: true,
               },
               {
-                path: "Popular", // analyst 인기
+                path: "popular", // analyst 인기
                 element: <PopularAnalysts />,
                 index: true,
               },
@@ -215,12 +216,12 @@ const mainRoutes = [
             element: <Firm />,
             children: [
               {
-                path: "returnrate", // firm 첫 페이지이자 수익률
+                path: "return-rate", // firm 첫 페이지이자 수익률
                 element: <FirmReturnRate />,
                 index: true,
               },
               {
-                path: "achievementscore", // firm 달성률
+                path: "achievement-score", // firm 달성률
                 element: <FirmAchievementScore />,
                 index: true,
               },
