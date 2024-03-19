@@ -66,7 +66,8 @@ export default function NavbarLayout() {
         ) : <Header />
       }
 
-      <Container style={{ backgroundColor: "#F7F7F7", marginTop: "78.4px" }} className="min-vh-100">
+      {/* marginTop: "78.4px" */}
+      <Container style={{ backgroundColor: "#F7F7F7", marginTop: "104.01px" }} className="min-vh-100">
         <Outlet />
       </Container>
     </>
