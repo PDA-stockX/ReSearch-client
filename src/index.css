@@ -10,4 +10,10 @@
 
 #root {
   font-family: "Noto Sans KR";
+  background-color: #F7F7F7;
+}
+
+:root {
+  font-family: "Noto Sans KR";
+  background-color: #F7F7F7;
 }

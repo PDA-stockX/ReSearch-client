@@ -1,13 +1,15 @@
 import React from "react";
 import Best3 from '~/components/common/Best3';
 import Rank from '~/components/common/Rank';
+import './analyst.css';
+
 
 export default function AchievementScore() {
   const exampleColumn = [
-      { columnName: 'Rank', columnWidth: 40 }, 
-      { columnName: 'Analyst', columnWidth: 50 },
-      { columnName: 'Sector', columnWidth: 100 },
-      { columnName: 'Return', columnWidth: 50 } // 총 width = 240이 되도록?
+      { columnName: '순위', columnWidth: 40 }, 
+      { columnName: '애널리스트', columnWidth: 50 },
+      { columnName: '업종', columnWidth: 100 },
+      { columnName: '달성률', columnWidth: 50 } // 총 width = 240이 되도록?
   ];
 
   const exampleData = [
@@ -32,18 +34,10 @@ export default function AchievementScore() {
 
   return (
       <>
-          <div
-              style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-              }}
-          >
-              <h2>Best 3</h2>
-              <Best3 data={exampleBest}></Best3>
-              <h2>달성률 순위</h2>
-              <Rank column={exampleColumn} data={exampleData}></Rank>
-          </div>
+        <h2>Best 3</h2>
+        <Best3 data={exampleBest}></Best3>
+        <h2>달성률 순위</h2>
+        <Rank column={exampleColumn} data={exampleData}></Rank>
       </>
   )
 }

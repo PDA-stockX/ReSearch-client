@@ -10,7 +10,7 @@ export default function SubHeader(props) {
 
   return (
     <>
-      <Navbar className="fixed-top" bg="F7F7F7" sticky="top">
+      <Navbar className="fixed-top" bg="F7F7F7" sticky="top" style={{padding: 0}}>
         <Container className="custom-navbar sub-navbar">
           <Nav>
             {console.log(props)}

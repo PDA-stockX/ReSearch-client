@@ -1,6 +1,7 @@
 import React from 'react';
 import Rank from '~/components/common/Rank';
 import Best3 from '~/components/common/Best3';
+import './analyst.css';
 
 export default function ReturnRate() {
     const exampleColumn = [
@@ -32,6 +33,7 @@ export default function ReturnRate() {
 
     return (
         <>
+            <h2>Best 3</h2>
             <div
                 style={{
                     display: "flex",
@@ -39,9 +41,16 @@ export default function ReturnRate() {
                     alignItems: "center",
                 }}
             >
-                <h2>Best 3</h2>
                 <Best3 data={exampleBest}></Best3>
-                <h2>수익률 순위</h2>
+            </div>
+            <h2>수익률 순위</h2>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
                 <Rank column={exampleColumn} data={exampleData}></Rank>
             </div>
         </>
