@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "~/styles/Header.css";
-import {Modal} from "../Modal.jsx";
+import {SearchModal} from "../SearchModal.jsx";
 import "./Common.css";
 
 export default function Header() {
@@ -55,7 +55,7 @@ export default function Header() {
             </Nav.Link>
           </Nav>
         </Container>
-        <Modal isMobile={true}></Modal>
+        <SearchModal isMobile={true}></SearchModal>
       </Navbar>
     </>
   );
