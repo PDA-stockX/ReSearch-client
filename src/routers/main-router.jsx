@@ -1,5 +1,5 @@
 import React from "react";
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "~/layout/DefaultLayout";
 import Home from "~/pages/home/Home";
 import LoginForm from "~/pages/home/LoginForm.jsx";
@@ -12,10 +12,12 @@ import PopularAnalysts from "~/pages/analyst/Popularity";
 import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
 import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
 import PopularFirms from "~/pages/firm/Popularity";
-import BookmarkAnalyst from "~/pages/bookmark/BookmarkAnalyst";
-import BookmarkReport from "~/pages/bookmark/BookmarkReport";
+import BookmarkAnalyst from "~/pages/bookmarkAnalyst/BookAnalystPage";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
-
+import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
+import DetailCommon from "~/pages/detail/DetailCommon";
+import BookmarkReport from "~/pages/bookmarkReport/BookmarkReport";
+import FirmDetailPage from "~/pages/firmDetail/FirmDetailPage";
 const mainRoutes = [
   {
     path: "/",
@@ -33,6 +35,7 @@ const mainRoutes = [
       },
       {
         path: "detail",
+        element: <DetailCommon />,
         children: [
           {
             path: "analyst/:analId",
@@ -41,11 +44,12 @@ const mainRoutes = [
           },
           {
             path: "firm/:firmId",
-            // element:<
+            element: <FirmDetailPage />,
+            index: true,
           },
           {
             path: "report/:reportId",
-            // element:
+            element: <ReportDetailPage />,
             index: true,
           },
         ],
@@ -55,7 +59,7 @@ const mainRoutes = [
         element: <NavbarLayout />,
         children: [
           {
-            path: "home",
+            path: "",
             element: <Home />,
             index: true,
           },
@@ -130,7 +134,6 @@ const mainRoutes = [
 
 const router = createBrowserRouter(mainRoutes);
 export default router;
-
 
 // const mainRoutes = [
 //   {
@@ -236,9 +239,6 @@ export default router;
 //     ],
 //   },
 // ];
-
-// ----------------------------------------
-
 // const mainRoutes = [
 //   {
 //     path: "/",
@@ -284,7 +284,7 @@ export default router;
 //           },
 //           {
 //             path: "bookmark",
-//             element: <Bookmark/>,
+//             element: <Bookmark />,
 //             children: [
 //               {
 //                 path: "analyst",
