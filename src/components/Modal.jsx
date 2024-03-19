@@ -82,9 +82,9 @@ export const Modal = (props) => {
                     <ModalBackdrop onClick={handleClickModalBtn}>
                         <ModalView onClick={(e) => e.stopPropagation()}>
                             <SearchInput placeholder="검색어를 입력해주세요"
-                                         onChange={(e) => {
-                                             setKeyword(e.target.value)
-                                         }}>
+                                        onChange={(e) => {
+                                            setKeyword(e.target.value)
+                                        }}>
                                 <img src="/images/search-button.png" alt="search-button"/>
 
                             </SearchInput>
