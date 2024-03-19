@@ -1,0 +1,219 @@
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Header.jsx */
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-navbar .nav-link {
+  display: flex;
+  font-size: 100%;
+  padding-right: 3%;
+  font-weight: bold;
+  color: #cbcbcb; /* 비활성화 상태 색상 */
+}
+
+.custom-navbar .nav-link.active {
+  color: #030303 !important; /* 활성화된 링크 색상 */
+}
+
+.sub-navbar {
+  font-size: 90%;
+}
+
+/* Rank.jsx */
+.rankCard {
+  background: #ffffff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  width: 92%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 7px;
+  text-align: center;
+}
+
+.rankContainer {
+  display: grid;
+  width: 100%;
+  padding: 10px;
+}
+
+.rankRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  /* gap: 5px;
+    padding: 5px; */
+  border-bottom: 1px solid #ccc;
+}
+
+.rankCell {
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+.rankRow > div:last-child {
+  text-align: right;
+}
+
+/* Best3.jsx */
+.best3 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Best.jsx */
+.bestCard {
+  background-color: #ffffff;
+  border: none;
+  padding: 4%;
+  width: 27%;
+  height: 35%;
+  border-radius: 8px;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  font-size: 14px;
+}
+
+.bestInfo {
+  flex: 1;
+  text-align: center;
+  width: 90%;
+}
+
+.name {
+  padding-top: 22px;
+  font-size: 1em;
+  font-weight: bold;
+  padding-bottom: 10%;
+}
+
+.company {
+  font-size: 0.7em;
+  color: #9c5fff;
+  padding-bottom: 22%;
+  width: "70%";
+}
+
+.returnRate {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: right;
+  color: #f22e40;
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+
+@media screen and (max-width: 375px) {
+  .bestCard {
+    min-width: 90px;
+    min-height: 90px;
+  }
+
+  .rankCard {
+    width: 306px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .rankCell {
+    font-size: 1em;
+  }
+
+  .best3 {
+    gap: 5vw;
+  }
+
+  .name {
+    font-size: 1.2em;
+  }
+
+  .company {
+    font-size: 1em;
+    margin-top: 6%;
+  }
+
+  .returnRate {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .rankCard {
+    width: 861px;
+  }
+
+  .bestCard {
+    max-width: 301px;
+    max-height: 161px;
+  }
+
+  .name {
+    font-size: 1.4em;
+  }
+
+  .company {
+    font-size: 1.2em;
+  }
+
+  .returnRate {
+    font-size: 1.4em;
+  }
+}
+
+/* NeedLogin.jsx */
+.modal {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  font-family: "Noto Sans KR";
+  border-radius: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.modalDialog {
+  max-width: 70%;
+}
+
+.modalBody {
+  height: 80px;
+  text-align: center;
+  margin: auto 0;
+  font-weight: 400;
+  padding: 20px;
+  display: flex; /* flexbox 사용 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.modalFooter {
+  background-color: #dcc7ff !important;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+.modalButton {
+  background-color: #dcc7ff;
+  border: none !important;
+  color: #030303;
+  width: 100%;
+}
