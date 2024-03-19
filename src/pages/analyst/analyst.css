@@ -4,6 +4,13 @@ div h2 {
     font-weight: 600;
 }
 
+div h5 {
+    font-size: 13px;
+    padding-top: 5%;
+    padding-right: 5%;
+    font-weight: 400;
+}
+
 #dropdown-basic-button {
     border: "none";
     background-color: "transparent";
