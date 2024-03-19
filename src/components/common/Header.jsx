@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
-import "~/styles/Header.css";
+// import "~/styles/Header.css";
 import {SearchModal} from "../SearchModal.jsx";
 import "./Common.css";
 
@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <>
-      <Navbar className="fixed-top bg-white" sticky="top">
+      <Navbar className="fixed-top" bg='F7F7F7' sticky="top">
         <Container className="custom-navbar">
           <Nav>
             <Nav.Link
