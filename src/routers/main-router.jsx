@@ -19,6 +19,7 @@ import BookmarkAnalyst from "~/pages/bookmark/BookmarkAnalyst";
 import BookmarkReport from "~/pages/bookmark/BookmarkReport";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
 import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
+import DetailCommon from "~/pages/detail/DetailCommon";
 // const mainRoutes = [
 //   {
 //     path: "/",
@@ -140,6 +141,7 @@ const mainRoutes = [
       },
       {
         path: "detail",
+        element: <DetailCommon />,
         children: [
           {
             path: "analyst/:analId",
