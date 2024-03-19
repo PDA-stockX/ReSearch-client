@@ -35,9 +35,25 @@ export default function AchievementScore() {
   return (
       <>
         <h2>Best 3</h2>
-        <Best3 data={exampleBest}></Best3>
-        <h2>달성률 순위</h2>
-        <Rank column={exampleColumn} data={exampleData}></Rank>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <Best3 data={exampleBest}></Best3>
+            </div>
+            <h2>달성률 순위</h2>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <Rank column={exampleColumn} data={exampleData}></Rank>
+            </div>
       </>
   )
 }

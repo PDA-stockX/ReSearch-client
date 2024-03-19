@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Common.css";
+// import "~/styles/Header.css";
 import {Modal} from "../Modal.jsx";
 
 export default function Header() {
