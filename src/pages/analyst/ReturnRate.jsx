@@ -1,9 +1,15 @@
 import React from 'react';
 import Rank from '~/components/common/Rank';
 import Best3 from '~/components/common/Best3';
-import NeedLogin from '~/components/common/NeedLogin';
+import './analyst.css';
 
 export default function ReturnRate() {
+    const today = new Date();
+    // 현재 날짜를 가져옵니다.
+    
+    const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+    // 원하는 형식으로 날짜를 설정합니다.
+
     const exampleColumn = [
         { columnName: 'Rank', columnWidth: 40 }, 
         { columnName: 'Analyst', columnWidth: 50 },
@@ -33,12 +39,33 @@ export default function ReturnRate() {
 
     return (
         <>
-            <div className='items-center'>
-                <h2>Best 3</h2>
+            <h2>Best 3</h2>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
                 <Best3 data={exampleBest}></Best3>
+            </div>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                }}
+            >   
                 <h2>수익률 순위</h2>
+                <h5>기준 날짜: {formattedDate}</h5>
+            </div>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
                 <Rank column={exampleColumn} data={exampleData}></Rank>
-                {/* <NeedLogin></NeedLogin> */}
             </div>
         </>
     )

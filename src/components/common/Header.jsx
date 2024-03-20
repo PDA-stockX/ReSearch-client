@@ -2,9 +2,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
-import "~/styles/LoginForm.css";
-import { Modal } from "../Modal.jsx";
+import { SearchModal } from "../SearchModal.jsx";
 import "./Common.css";
+import SideNavMenu from "~/components/common/SideNavMenu.jsx";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default function Header() {
   const location = useLocation();
@@ -53,7 +57,8 @@ export default function Header() {
             </Nav.Link>
           </Nav>
         </Container>
-        <Modal isMobile={true}></Modal>
+        <SearchModal isMobile={true}></SearchModal>
+        <SideNavMenu placement="end" name="end" />
       </Navbar>
     </>
   );
