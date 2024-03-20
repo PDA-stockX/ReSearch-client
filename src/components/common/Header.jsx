@@ -2,8 +2,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
-import "~/styles/Header.css";
-import {Modal} from "../Modal.jsx";
+import "~/styles/LoginForm.css";
+import { Modal } from "../Modal.jsx";
 import "./Common.css";
 
 export default function Header() {
@@ -37,9 +37,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/firm/return-rate");
               }}
-              className={
-                location.pathname.startsWith("/firm") ? "active" : ""
-              }
+              className={location.pathname.startsWith("/firm") ? "active" : ""}
             >
               증권사
             </Nav.Link>

@@ -11,6 +11,7 @@ export default function AnalystCard(props) {
   const authContext = useSelector((state) => state.auth.authContext);
   const [pleLogin, setPleLogin] = useState(false);
   useEffect(() => {
+    console.log(authContext);
     async function fetchData() {
       const res = await axios.get(
         `http://127.0.0.1:3000/analyst/${props.analId}`,
@@ -18,35 +19,62 @@ export default function AnalystCard(props) {
           analId: props.analId,
         }
       );
+      console.log(res);
+      setAnalInfo({
+        analName: res.data.name,
+        firm: res.data.firm,
+        achievementRate: res.data.achievementRate,
+        returnRate: res.data.returnRate,
+      });
+    }
+    async function followCheck() {
       const followCheck = await axios.get(
         `http://127.0.0.1:3000/followAnal/checkFollow`,
-        { analId: props.analId }
+        { params: { analId: props.analId, userId: authContext.user.id } }
       );
-      //user Id 수정해야함~~~
-      fetchData();
-      if (authContext.isAuthenticated == true) {
-        const check = followCheck();
-        if (check.message == "Yes") {
-          setIsFollow(true);
-        }
+      console.log(followCheck);
+      if (followCheck.data.message == "Yes") {
+        setIsFollow(true);
       }
     }
+
+    //user Id 수정해야함~~~
+    fetchData();
+    if (authContext.isAuthenticated == true) followCheck();
   }, [props.analId]);
 
   const onFollow = useCallback(() => {
     if (authContext.isAuthenticated == true) {
-      if (isFollow == true) {
-        setIsFollow(false);
-        axios.post("http://127.0.0.1:3000/followAnal/followAnal");
-      } else {
+      // console.log("Bearer " + authContext.token);
+      if (isFollow === false) {
         setIsFollow(true);
-        axios.post("http://127.0.0.1:3000/followAnal/unFollowAnal");
+        axios.post(
+          "http://127.0.0.1:3000/followAnal/followAnal",
+
+          { analId: props.analId },
+          {
+            headers: {
+              Authorization: `Bearer ${authContext.token}`,
+            },
+          }
+        );
+      } else {
+        setIsFollow(false);
+        axios.post(
+          "http://127.0.0.1:3000/followAnal/unFollowAnal",
+          { analId: props.analId },
+          {
+            headers: {
+              Authorization: `Bearer ${authContext.token}`,
+            },
+          }
+        );
       }
     } else {
       setPleLogin(true);
       alert("로그인을 해주세요");
     }
-  }, []);
+  }, [isFollow]);
   return (
     <div className="cardBox border-4">
       {
@@ -82,13 +110,13 @@ export default function AnalystCard(props) {
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div style={{ width: "35%" }}>애널리스트</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            김준성
+            {analInfo.analName}
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div style={{ width: "35%" }}>소속 기간</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            메리츠증권
+            {analInfo.firm}
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
@@ -100,13 +128,13 @@ export default function AnalystCard(props) {
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div style={{ width: "35%" }}>달성률</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            32.7%
+            {analInfo.returnRate}%
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div style={{ width: "35%" }}>수익률</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            75%
+            {analInfo.achievementRate}%
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 import { Button } from "react-bootstrap";
-export default function bookmarkReport() {
+export default function BookmarkReport() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={{ gap: "5%" }}>
