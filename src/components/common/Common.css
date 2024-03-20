@@ -12,7 +12,7 @@ body {
 
 .custom-navbar .nav-link {
   display: flex;
-  font-size: 100%;
+  font-size: 98.5%;
   padding-right: 3%;
   font-weight: bold;
   color: #cbcbcb; /* 비활성화 상태 색상 */
@@ -120,7 +120,17 @@ body {
   right: 7px;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
+  .best3 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 12px;
+  }
+
   .bestCard {
     min-width: 90px;
     min-height: 90px;
