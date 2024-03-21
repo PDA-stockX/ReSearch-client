@@ -1,13 +1,10 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import DefaultLayout from "~/layout/DefaultLayout";
 import Home from "~/pages/home/Home";
 import LoginForm from "~/pages/home/LoginForm.jsx";
 import Signup from "~/pages/home/SignUpForm.jsx";
 import NavbarLayout from "~/layout/NavbarLayout";
-import Analyst from "~/layout/AnalystNavbarLayout";
-import Firm from "~/layout/FirmNavbarLayout";
-import Bookmark from "~/layout/BookmarkNavbarLayout";
 import AnalystReturnRate from "~/pages/analyst/ReturnRate.jsx";
 import AnalystAchievementScore from "~/pages/analyst/AchievementScore.jsx";
 import AnalystSector from "~/pages/analyst/Sector";
@@ -18,7 +15,6 @@ import PopularFirms from "~/pages/firm/Popularity";
 import BookmarkAnalyst from "~/pages/bookmark/BookmarkAnalyst";
 import BookmarkReport from "~/pages/bookmark/BookmarkReport";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
-import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
 
 const mainRoutes = [
   {

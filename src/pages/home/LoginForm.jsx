@@ -18,7 +18,7 @@ export default function LoginForm() {
         if (authContext.isAuthenticated) {
             navigate('/');
         }
-    }, [authContext.isAuthenticated]);
+    }, [authContext.isAuthenticated, navigate]);
 
     const handleLogin = useCallback(async () => {
         try {
@@ -27,7 +27,7 @@ export default function LoginForm() {
         } catch (err) {
             setError(err);
         }
-    }, [dispatch, email, navigate, password]);
+    }, [dispatch, email, password]);
 
     const handleEnter = useCallback(async (e) => {
         if (e.key === "Enter") {
@@ -44,23 +44,23 @@ export default function LoginForm() {
                 <div className="inputGroup">
                     <span>이메일</span>
                     <input placeholder="이메일을 입력해주세요"
-                                  onChange={(e) => {
-                                      setEmail(e.target.value)
-                                  }}/>
+                           onChange={(e) => {
+                               setEmail(e.target.value)
+                           }}/>
                 </div>
                 <div className="inputGroup">
                     <span>비밀번호</span>
                     <input type="password" placeholder="비밀번호를 입력해주세요"
-                                  onChange={(e) => {
-                                      setPassword(e.target.value);
-                                  }}
-                                  onKeyDown={handleEnter}/>
+                           onChange={(e) => {
+                               setPassword(e.target.value);
+                           }}
+                           onKeyDown={handleEnter}/>
                 </div>
                 <button onClick={handleLogin}>로그인</button>
-                {error?<label>로그인 정보가 일치하지 않습니다</label>:null}
+                {error ? <label className="fail">로그인 정보가 일치하지 않습니다</label> : null}
             </div>
             <div className="linkContainer">
-                <a href="../sign-up">계정이 없으신가요? <em>회원가입</em></a>
+                <a href="../signup">계정이 없으신가요? <em>회원가입</em></a>
             </div>
         </div>
     )

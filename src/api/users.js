@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     baseURL: '/api/users',
-    timeout: 1000,
+    timeout: 1000
 });
 
 const login = async (email, password) => {
@@ -48,6 +48,19 @@ const signUp = async (email, password, name, nickname) => {
     }
 }
 
+const checkDuplicateNickname = async (nickname) => {
+    try {
+        const response = await instance.get('/check-nickname', {
+            params: {
+                nickname,
+            }
+        });
+        return response.data.message === "success";
+    } catch (err) {
+        throw err;
+    }
+}
+
 function getAuthContext() {
     const localData = localStorage.getItem('authContext');
     return localData ? JSON.parse(localData) : {
@@ -57,4 +70,4 @@ function getAuthContext() {
     };
 }
 
-export {login, logout, signUp};
+export {login, logout, signUp, checkDuplicateNickname};
