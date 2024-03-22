@@ -5,7 +5,9 @@ import ReportLike from "./ReportLike";
 import ReportContentCard from "./ReportContentCard";
 export default function reportDetailPage() {
   const [photoUrl, setPhotoUrl] = useState("");
+
   const { reportId } = useParams();
+
   return (
     <div
       style={{

@@ -1,43 +1,51 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    authContext: getAuthContext()
-}
+  authContext: getAuthContext(),
+};
 
 const authSlice = createSlice({
-    name: "auth",
-    initialState: initialState,
-    reducers: {
-        authenticate: (state, action) => {
-            if (action.payload.token === null) {
-                state.authContext = {
-                    isAuthenticated: false,
-                    token: null,
-                    user: null,
-                };
-                return;
-            }
-            state.authContext = {
-                isAuthenticated: true,
-                token: action.payload.token,
-                user: {
-                    id: action.payload.id,
-                    email: action.payload.email,
-                    nickname: action.payload.nickname
-                },
-            };
+  name: "auth",
+  initialState: initialState,
+  reducers: {
+    authenticate: (state, action) => {
+      if (action.payload.token === null) {
+        state.authContext = {
+          isAuthenticated: false,
+          token: null,
+          user: null,
+        };
+        setAuthContext(state.authContext);
+        return;
+      }
+      state.authContext = {
+        isAuthenticated: true,
+        token: action.payload.token,
+        user: {
+          id: action.payload.id,
+          email: action.payload.email,
+          nickname: action.payload.nickname,
         },
-    }
+      };
+      setAuthContext(state.authContext);
+    },
+  },
 });
 
 function getAuthContext() {
-    const localData = localStorage.getItem('authContext');
-    return localData ? JSON.parse(localData) : {
+  const localData = localStorage.getItem("authContext");
+  return localData
+    ? JSON.parse(localData)
+    : {
         isAuthenticated: false,
         token: null,
         user: null,
-    };
+      };
 }
 
-export const {authenticate} = authSlice.actions;
+function setAuthContext(authContext) {
+  localStorage.setItem("AUTH_CONTEXT", authContext);
+}
+
+export const { authenticate } = authSlice.actions;
 export default authSlice.reducer;

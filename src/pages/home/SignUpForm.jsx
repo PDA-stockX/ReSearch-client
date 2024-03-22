@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react'
-import {signUp} from "~/api/users.js";
+import {checkDuplicateNickname, signUp} from "~/api/users.js";
 import {useNavigate} from "react-router-dom";
 
 export default function SignUpForm() {
@@ -8,23 +8,37 @@ export default function SignUpForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [message, setMessage] = useState({field: '', type: '', message: ''});
     const navigate = useNavigate();
 
     const handleSignUp = useCallback(async () => {
-        // todo: 잘못된 입력에 따른 에러 처리
         if (password !== confirmPassword) {
-            alert('비밀번호가 일치하지 않습니다.');
+            setMessage({field: 'confirmPassword', type: 'fail', message: '비밀번호가 일치하지 않습니다.'});
             return;
         }
-        const response = await signUp(email, password, name, nickname);
-        // todo: 회원가입 실패에 대한 에러 처리
-        if (response.message === "success") {
-            alert('회원가입이 완료되었습니다.');
-            navigate('/login');
-        } else {
-            alert('회원가입에 실패했습니다.');
+
+        try {
+            const response = await signUp(email, password, name, nickname);
+            if (response.message === "success") {
+                navigate('/login');
+            }
+        } catch (error) {
+            setMessage({field: 'input', type: 'fail', message: '입력 정보를 다시 확인해주세요.'});
+            if (error.response.data.message === "email must be unique") {
+                setMessage({field: 'email', type: 'fail', message: '이미 사용 중인 이메일입니다.'});
+            }
         }
+
     }, [password, confirmPassword, email, name, nickname, navigate]);
+
+    const handleCheckDuplication = useCallback(async () => {
+        const duplicate = await checkDuplicateNickname(nickname)
+        if (!duplicate) {
+            setMessage({field: 'nickname', type: 'fail', message: '이미 사용 중인 닉네임입니다.'});
+        } else {
+            setMessage({field: 'nickname', type: 'success', message: '사용 가능한 닉네임입니다.'});
+        }
+    }, [nickname]);
 
 
     return (
@@ -39,6 +53,10 @@ export default function SignUpForm() {
                            onChange={(e) => {
                                setName(e.target.value)
                            }}/>
+                    {message.field === 'name' ?
+                        <label className={message.type}>{message.message}</label>
+                        : null
+                    }
                 </div>
                 <div className="inputGroup">
                     <span>닉네임</span>
@@ -46,6 +64,14 @@ export default function SignUpForm() {
                            onChange={(e) => {
                                setNickname(e.target.value)
                            }}/>
+                    <button className="checkButton"
+                            onClick={handleCheckDuplication}>
+                        중복확인
+                    </button>
+                    {message.field === 'nickname' ?
+                        <label className={message.type}>{message.message}</label>
+                        : null
+                    }
                 </div>
                 <div className="inputGroup">
                     <span>이메일</span>
@@ -53,6 +79,10 @@ export default function SignUpForm() {
                            onChange={(e) => {
                                setEmail(e.target.value)
                            }}/>
+                    {message.field === 'email' ?
+                        <label className={message.type}>{message.message}</label>
+                        : null
+                    }
                 </div>
                 <div className="inputGroup">
                     <span>비밀번호</span>
@@ -60,6 +90,10 @@ export default function SignUpForm() {
                            onChange={(e) => {
                                setPassword(e.target.value)
                            }}/>
+                    {message.field === 'password' ?
+                        <label className={message.type}>{message.message}</label>
+                        : null
+                    }
                 </div>
                 <div className="inputGroup">
                     <span>비밀번호 확인</span>
@@ -67,8 +101,16 @@ export default function SignUpForm() {
                            onChange={(e) => {
                                setConfirmPassword(e.target.value);
                            }}/>
+                    {message.field === 'confirmPassword' ?
+                        <label className={message.type}>{message.message}</label>
+                        : null
+                    }
                 </div>
                 <button onClick={handleSignUp}>회원가입</button>
+                {message.field === 'input' ?
+                    <label className={message.type}>{message.message}</label>
+                    : null
+                }
             </div>
         </div>
     )
