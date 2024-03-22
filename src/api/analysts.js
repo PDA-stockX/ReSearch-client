@@ -32,7 +32,7 @@ const fetchReturnRateRank = async () => {
 const fetchAchievementScoreRank = async () => {
     try {
         const response = await instance.get('/achievement-score');
-        return response
+        return response.data
     } catch (err) {
         throw err;
     }
