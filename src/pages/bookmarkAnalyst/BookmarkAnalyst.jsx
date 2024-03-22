@@ -39,14 +39,6 @@ export default function BookmarkAnalyst() {
         flexDirection: "column",
         alignItems: "center",
       }}
-    >
-      <div style={{ display: "flex", gap: "5%", margin: "3%" }}>
-        <button style={{ cursor: "pointer" }}>애널리스트</button>
-        <button style={{ color: "#CBCBCB", cursor: "pointer" }}>리포트</button>
-      </div>
-      <Rank column={exampleColumn} data={exampleData}></Rank>
-      <Best3 data={exampleBest}></Best3>
-      <NeedLogin></NeedLogin>
-    </div>
+    ></div>
   );
 }

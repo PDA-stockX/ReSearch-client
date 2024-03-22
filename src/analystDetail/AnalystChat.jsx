@@ -75,7 +75,7 @@ export default function AnalystChat(props) {
         display: "flex",
         flexDirection: "column",
       }}
-      className="chatBox rounded-lg box-border h-48  gap-6 w-100 p-1 border-4"
+      className="chatBox rounded-lg box-border h-48  gap-6 w-100 p-1"
     >
       <div style={{ width: "100%", height: "85%" }} className="overflow-auto">
         {messageList.map((el, index) => {
@@ -117,8 +117,12 @@ export default function AnalystChat(props) {
           />
         ) : (
           <input
-            className="rounded-lg"
-            style={{ width: "80%", border: " solid #717171 1px" }}
+            className=""
+            style={{
+              borderRadius: "10%",
+              width: "80%",
+              border: " solid #717171 1px",
+            }}
             value={inputText}
             placeholder=" 로그인을 해주세요"
             onChange={(e) => {
@@ -128,7 +132,7 @@ export default function AnalystChat(props) {
           />
         )}
         <button
-          className="messageInput rounded-lg"
+          className="messageInput"
           onClick={() => {
             if (!authContext.isAuthenticated) {
               alert("로그인 해주세요");

@@ -14,16 +14,13 @@ export default function AnalystCard(props) {
     console.log(authContext);
     async function fetchData() {
       const res = await axios.get(
-        `http://127.0.0.1:3000/analyst/${props.analId}`,
-        {
-          analId: props.analId,
-        }
+        `http://127.0.0.1:3000/analyst/${props.analId}`
       );
       console.log(res);
       setAnalInfo({
         analName: res.data.name,
-        firm: res.data.firm,
-        achievementRate: res.data.achievementRate,
+        firm: res.data.firm.name,
+        achievementRate: res.data.achievementScore,
         returnRate: res.data.returnRate,
       });
     }
@@ -76,7 +73,7 @@ export default function AnalystCard(props) {
     }
   }, [isFollow]);
   return (
-    <div className="cardBox border-4">
+    <div className="cardBox">
       {
         <Image
           className="scale-100 analystImg       rounded"
