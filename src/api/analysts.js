@@ -22,7 +22,7 @@ const searchAnalysts = async (keyword) => {
 const fetchReturnRateRank = async () => {
     try {
         const response = await instance.get('/return-rate');
-        return response
+        return response.data
     } catch (err) {
         throw err;
     }
