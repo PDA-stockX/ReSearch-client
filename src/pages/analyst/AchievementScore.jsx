@@ -16,7 +16,7 @@ export default function AchievementScore() {
                 index + 1, 
                 item.name,
                 item.sectorName,
-                item.returnRate,
+                item.achievementScore,
             ]);
 
             const top3 = ranking.slice(0, 3);
@@ -24,7 +24,7 @@ export default function AchievementScore() {
                 index + 1, 
                 item.name,
                 item.firm,
-                item.returnRate,
+                item.achievementScore,
             ]);
 
             return {data1, data2}
