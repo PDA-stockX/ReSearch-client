@@ -25,7 +25,7 @@ export default function SideNavMenu({name, ...props}) {
         dispatch(authenticate({token: null}));
         handleClose();
         navigate("/");
-    }, [dispatch]);
+    }, [dispatch, handleClose, navigate]);
 
     return (
         <>

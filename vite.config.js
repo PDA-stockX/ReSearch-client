@@ -21,14 +21,15 @@ export default defineConfig({
       { find: "~/components", replacement: "/src/components" },
       { find: "~/layout", replacement: "/src/layout" },
       { find: "~/lib", replacement: "/src/lib" },
+      { find: "~/utils", replacement: "/src/utils" },
       { find: "~/routers", replacement: "/src/routers" },
       { find: "~/pages", replacement: "/src/pages" },
       { find: "~/reducers", replacement: "/src/reducers" },
       { find: "~/hooks", replacement: "/src/hooks" },
       { find: "~/styles", replacement: "/src/styles" },
       {
-        find: "~/analystDetail/AnalystDetailPage",
-        replacement: "/src/analystDetail/AnalystDetailPage.jsx",
+        find: "~/analystDetail",
+        replacement: "/src/analystDetail",
       },
       {
         find: "~/asset",
