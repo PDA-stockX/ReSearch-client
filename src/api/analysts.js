@@ -46,7 +46,7 @@ const fetchSectorRank = async (sectorName) => {
                 sectorName
             }
         })
-        return response
+        return response.data
     } catch (err) {
         throw err;
     }
