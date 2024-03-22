@@ -33,3 +33,19 @@ div h5 {
 #dropdown-basic-button::after {
     display: none;
 }
+
+/* #content div {
+    width:555px;
+    height:100%;
+    clear:both; 
+    text-align: justify; 
+    overflow-x: auto;
+    padding: 20px 0pt 30px;
+    font-size:9pt;
+    line-height:160%; 
+    color:#000000;
+}
+
+#content span {
+    font-size: 10px;
+} */
