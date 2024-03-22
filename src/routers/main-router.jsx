@@ -13,6 +13,7 @@ import FirmReturnRate from "~/pages/firm/ReturnRate.jsx";
 import FirmAchievementScore from "~/pages/firm/AchievementScore.jsx";
 import PopularFirms from "~/pages/firm/Popularity";
 import BookmarkAnalyst from "~/pages/bookmarkAnalyst/BookAnalystPage";
+// import BookmarkReport from "~/pages/bookmark/BookmarkReport";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
 import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
 import DetailCommon from "~/pages/detail/DetailCommon";

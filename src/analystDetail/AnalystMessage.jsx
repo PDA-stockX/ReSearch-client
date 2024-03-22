@@ -6,7 +6,7 @@ export default function AnalystMessage(props) {
       {console.log(props.nickname)}
       {props.nickname ? (
         <div>
-          <h2 style={{ color: "#CBCBCB" }}>{props.nickname}</h2>
+          <h3 style={{ color: "#CBCBCB" }}>{props.nickname}</h3>
           <h3 className="messageBox rounded-lg">{props.chat}</h3>
         </div>
       ) : (

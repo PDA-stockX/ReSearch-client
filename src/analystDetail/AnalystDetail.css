@@ -5,6 +5,15 @@
   padding: 3%;
   background-color: #f7f7f7;
 }
+.reportListCard {
+  border: 1px solid #cbcbcb;
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  position: relative;
+}
 
 .chatBox {
   border: 1px solid #cbcbcb;
@@ -21,8 +30,8 @@
   height: 15%;
 }
 .cardBox {
-  border-radius: 3%;
   border: 1px solid #cbcbcb;
+  border-radius: 3%;
   width: 100%;
   height: 100%;
   background-color: #ffffff;
@@ -59,11 +68,18 @@
 .messageInput {
   border: 1px;
   border: solid;
-  border-radius: 5%;
+  border-radius: 20%;
   border-color: #be96ff;
   width: 15%;
   position: absolute;
   /* bottom: 5%; */
   right: 2.5%;
   color: #be96ff;
+}
+
+.reportCardEle {
+  display: flex;
+  font-size: 2.5vw;
+  width: 100%;
+  justify-content: space-between;
 }

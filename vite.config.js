@@ -31,6 +31,10 @@ export default defineConfig({
         find: "~/analystDetail/AnalystDetailPage",
         replacement: "/src/analystDetail/AnalystDetailPage.jsx",
       },
+      {
+        find: "~/asset",
+        replacement: "/src/assets",
+      },
     ],
   },
 });
