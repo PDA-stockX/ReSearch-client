@@ -1,10 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Best3 from '~/components/common/Best3';
 import Rank from '~/components/common/Rank';
 import './analyst.css';
+import { fetchFollowerRank } from '~/api/analysts';
 
 
 export default function Popularity() {
+    const [data, setData] = useState([]);
+    const [best, setBest] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const ranking = await fetchFollowerRank ();
+            const data1 = ranking.map((item, index) => [
+                index + 1, 
+                item.name,
+                item.followerCount,
+            ]);
+
+            const top3 = ranking.slice(0, 3);
+            const data2 = top3.map((item, index) => [
+                index + 1, 
+                item.name,
+                item.firm,
+                "★" + item.followerCount,
+            ]);
+
+            return {data1, data2}
+        }
+        fetchData().then(({data1, data2}) => {
+            setData(data1);
+            setBest(data2);
+        });
+    }, [])
     
     // 현재 날짜
     const today = new Date();
@@ -14,25 +42,6 @@ export default function Popularity() {
         { columnName: '순위', columnWidth: 40 }, 
         { columnName: '애널리스트', columnWidth: 50 },
         { columnName: '즐겨찾기 수', columnWidth: 60 } // 총 width = 240이 되도록?
-    ];
-
-    const exampleData = [
-        [1, "Analyst1", 10],
-        [2, "Analyst2", 8],
-        [3, "Analyst3", 7],
-        [4, "Analyst4", 6],
-        [5, "Analyst5", 5],
-        [6, "Analyst6", 4],
-        [7, "Analyst7", 3],
-        [8, "Analyst8", 2],
-        [9, "Analyst9", 1],
-        [10, "Analyst10", 0],
-    ];
-
-    const exampleBest = [
-        ['최승환', '신한투자증권', '74.6'],
-        ['김철수', '미래에셋증권', '68.2'],
-        ['박지영', 'KB증권', '59.1']
     ];
 
     return (
@@ -45,7 +54,7 @@ export default function Popularity() {
                     alignItems: "center",
                 }}
             >
-                <Best3 data={exampleBest}></Best3>
+                {best.length>0 && <Best3 data={best}></Best3>}
             </div>
             <div
                 style={{
@@ -63,7 +72,7 @@ export default function Popularity() {
                     alignItems: "center",
                 }}
             >
-                <Rank column={exampleColumn} data={exampleData}></Rank>
+                <Rank column={exampleColumn} data={data}></Rank>
             </div>
         </>
     )

@@ -8,7 +8,7 @@ export default function Best({ name, company, returnRate }) {
                 <div className="name">{name}</div>
                 <div className="company">{company}</div>
             </div>
-            <div className="returnRate">{returnRate}%</div>
+            <div className="returnRate">{returnRate}</div>
         </div>
     )
 }

@@ -23,7 +23,7 @@ export default function ReturnRate() {
                 index + 1, 
                 item.name,
                 item.firm,
-                item.returnRate,
+                item.returnRate + "%",
             ]);
 
             return {data1, data2}
