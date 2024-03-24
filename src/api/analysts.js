@@ -55,8 +55,8 @@ const fetchSectorRank = async (sectorName) => {
 // 애널리스트 즐겨찾기 순위 조회
 const fetchFollowerRank = async () => {
     try {
-        const response = await instance.get('/follwer-rank')
-        return response
+        const response = await instance.get('/follower-rank')
+        return response.data
     } catch (err) {
         throw err;
     }
