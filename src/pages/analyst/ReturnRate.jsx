@@ -14,7 +14,7 @@ export default function ReturnRate() {
             const data1 = ranking.map((item, index) => [
                 index + 1, 
                 item.name,
-                item.sectorName,
+                item.sectorNames[0],
                 item.returnRate,
             ]);
 

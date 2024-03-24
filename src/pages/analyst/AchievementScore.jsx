@@ -15,7 +15,7 @@ export default function AchievementScore() {
             const data1 = ranking.map((item, index) => [
                 index + 1, 
                 item.name,
-                item.sectorName,
+                item.sectorNames[0],
                 item.achievementScore,
             ]);
 
