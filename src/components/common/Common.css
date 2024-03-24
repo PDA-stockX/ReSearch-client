@@ -29,13 +29,13 @@ body {
 /* Rank.jsx */
 .rankCard {
   background: #ffffff;
-  border-radius: 2px;
+  border-radius: 7px;
+  border: 1px solid #cbcbcb;
   display: inline-block;
   margin: 1rem;
   position: relative;
   width: 92%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 7px;
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   text-align: center;
 }
 
@@ -75,14 +75,14 @@ body {
 /* Best.jsx */
 .bestCard {
   background-color: #ffffff;
-  border: none;
+  border: 1px solid #cbcbcb;
   padding: 4%;
   width: 27%;
   height: 35%;
   border-radius: 8px;
   align-items: center;
   font-family: "Noto Sans KR", sans-serif;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   display: flex;
   flex-direction: column;
   justify-content: center;
