@@ -78,7 +78,7 @@ export default function NavbarLayout() {
         location.pathname.startsWith("/analyst")
         ? <Container style={{ backgroundColor: "#F7F7F7"}} className="fixed-top">
             <Header/> 
-            <SubHeader menu='analyst' subMenu={Analyst_subMenu} subMenuName={Analyst_subMenuName}/> 
+            <SubHeader menu='analyst'subMenu={Analyst_subMenu} subMenuName={Analyst_subMenuName}/> 
           </Container>
         :  location.pathname.startsWith("/firm") ? (
           <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
