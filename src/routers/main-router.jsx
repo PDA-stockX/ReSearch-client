@@ -90,7 +90,7 @@ const mainRoutes = [
                 index: true,
               },
               {
-                path: "sector", // analyst 업종
+                path: "", // analyst 업종
                 element: <AnalystSector />,
                 index: true,
               },

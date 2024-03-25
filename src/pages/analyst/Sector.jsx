@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useParams, useHistory } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Best3 from '~/components/common/Best3';
 import Rank from '~/components/common/Rank';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -12,26 +13,39 @@ export default function Sector() {
     const [data, setData] = useState([]);
     const [best, setBest] = useState([]);
     const [sectors, setSectors] = useState([]);
-    const { sector:selectedSector } = useParams();
-    const history = useHistory();
+    const queryParams = new URLSearchParams(location.search);
+    const selectedSector = queryParams.get('sector');
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
             const ranking = await fetchSectorRank(selectedSector);
+            console.log("랭킹", ranking);
             const data1 = ranking.map((item, index) => [
                 index + 1, 
                 item.name,
-                item.sectorName,
                 item.returnRate,
+                item.achievementScore
             ]);
 
             const top3 = ranking.slice(0, 3);
-            const data2 = top3.map((item, index) => [
-                index + 1, 
-                item.name,
-                item.firm,
-                item.returnRate,
-            ]);
+            let emptyData = [];
+
+            if (ranking.length < 3) {
+                const remainingItems = 3 - ranking.length;
+                emptyData = Array.from({ length: remainingItems }, () => ["", "", "", ""]); // 빈 데이터 배열 생성
+            }
+
+            const data2 = [
+                ...top3.map((item, index) => [
+                    index + 1, 
+                    item.name,
+                    item.firm,
+                    item.returnRate,    // TODO: 어떤 정보로 보여줄지
+                ]),
+                ...emptyData // 빈 데이터 배열 추가
+            ];
+
 
             return {data1, data2}
         }
@@ -49,7 +63,7 @@ export default function Sector() {
     }, [selectedSector])
 
     const handleSectorChange = (sector) => {
-        history.push(`/analysts?sector=${sector}`);
+        navigate(`/analyst?sector=${sector}`);
     };
 
     // 현재 날짜
@@ -63,17 +77,17 @@ export default function Sector() {
         { columnName: '달성률', columnWidth: 60 } // 총 width = 240이 되도록?
     ];
 
-    // 기본 선택 항목
-    const defaultSector = sectors.length > 0 ? sectors[0] : '';
-
     return (
         <>
+            {console.log("데이터", data)}
+            {console.log("베스트", best)}
+            {console.log("업종명", sectors)}
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h2>Best 3</h2>
                 <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>}>
                     {sectors.map((sector, index) => (
-                        <Dropdown.Item key={index} onClick={() => handleSectorChange(sector)}>
-                            {sector}
+                        <Dropdown.Item key={index} onClick={() => handleSectorChange(sector.sectorName)} className="dropdownItem">
+                            {sector.sectorName}
                         </Dropdown.Item>
                     ))}
                 </DropdownButton>
@@ -85,7 +99,7 @@ export default function Sector() {
                     alignItems: "center",
                 }}
             >
-                {best.length>0 &&  <Best3 data={best}></Best3>}
+                {best.length > 0 && <Best3 data={best}></Best3>}
             </div>
             <div
                 style={{
@@ -93,7 +107,7 @@ export default function Sector() {
                     justifyContent: "space-between",
                 }}
             >   
-                <h2>{selectedSector || defaultSector} 순위</h2>    {/* 업종별 대신 현재 선택한 업종 받아오기 */}
+                <h2>{selectedSector} 순위</h2>
                 <h5>기준 날짜: {formattedDate}</h5>
             </div>
             <div

@@ -34,6 +34,15 @@ div h5 {
     display: none;
 }
 
+.dropdownItem {
+    background: #fff;
+}
+
+.dropdownItem:hover {
+    background-color: rgb(247, 247, 247);
+    cursor: pointer;
+}
+
 /* #content div {
     width:555px;
     height:100%;

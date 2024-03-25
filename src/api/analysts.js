@@ -43,7 +43,7 @@ const fetchSectorRank = async (sectorName) => {
     try {
         const response = await instance.get('/', {
             params: {
-                sectorName
+                sector: sectorName
             }
         })
         return response.data
