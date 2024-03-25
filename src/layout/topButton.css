@@ -1,0 +1,10 @@
+.topBtn_wrap {
+    position: sticky;
+    bottom: 2%;
+    right: 4%;
+    float: right;
+    color: #343a40;
+}
+.topBtn {
+    font-size: 1.7rem;
+}

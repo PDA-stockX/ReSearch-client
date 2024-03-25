@@ -15,8 +15,8 @@ export default function AchievementScore() {
             const data1 = ranking.map((item, index) => [
                 index + 1, 
                 item.name,
-                item.sectorName,
-                item.returnRate,
+                item.sectorNames[0],
+                item.achievementScore,
             ]);
 
             const top3 = ranking.slice(0, 3);
@@ -24,7 +24,7 @@ export default function AchievementScore() {
                 index + 1, 
                 item.name,
                 item.firm,
-                item.returnRate,
+                item.achievementScore,
             ]);
 
             return {data1, data2}
@@ -41,9 +41,9 @@ export default function AchievementScore() {
 
     const exampleColumn = [
         { columnName: '순위', columnWidth: 40 }, 
-        { columnName: '애널리스트', columnWidth: 50 },
+        { columnName: '애널리스트', columnWidth: 70 },
         { columnName: '업종', columnWidth: 100 },
-        { columnName: '달성률', columnWidth: 50 } // 총 width = 240이 되도록?
+        { columnName: '달성점수', columnWidth: 60 }
     ];
 
     return (
