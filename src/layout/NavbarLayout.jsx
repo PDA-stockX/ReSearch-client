@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Header from "~/components/common/Header";
 import { useLocation } from "react-router-dom";
 import SubHeader from '~/components/common/SubHeader';
+import { BsFillArrowUpCircleFill } from 'react-icons/bs'
+import "./topButton.css";
 
 
 export default function NavbarLayout() {
+  const [showButton, setShowButton] = useState(false);
   const location = useLocation();
   const Analyst_subMenu = [
     'return-rate',
@@ -44,6 +47,30 @@ export default function NavbarLayout() {
     '리포트',
   ]
 
+  const handleScroll = () => {
+    if (!window.scrollY) return
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  useEffect(() => {
+    const handleShowButton = () => {
+      if (window.scrollY > window.innerHeight) {
+        setShowButton(true)
+      } else {
+        setShowButton(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleShowButton)
+    return () => {
+      window.removeEventListener('scroll', handleShowButton)
+    }
+  }, [])
+
 
   return (
     <>
@@ -70,6 +97,14 @@ export default function NavbarLayout() {
       <Container style={{ backgroundColor: "#F7F7F7", marginTop: "104.01px" }} className="min-vh-100">
         <Outlet />
       </Container>
+
+      <div className="topBtn_wrap">
+        {showButton && (
+          <button className="topBtn" onClick={handleScroll}>
+            <BsFillArrowUpCircleFill />
+          </button>
+        )}
+      </div>
     </>
   );
 }
