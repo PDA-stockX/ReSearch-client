@@ -29,12 +29,23 @@ export default function Sector() {
             ]);
 
             const top3 = ranking.slice(0, 3);
-            const data2 = top3.map((item, index) => [
-                index + 1, 
-                item.name,
-                item.firm,
-                item.returnRate,
-            ]);
+            let emptyData = [];
+
+            if (ranking.length < 3) {
+                const remainingItems = 3 - ranking.length;
+                emptyData = Array.from({ length: remainingItems }, () => ["", "", "", ""]); // 빈 데이터 배열 생성
+            }
+
+            const data2 = [
+                ...top3.map((item, index) => [
+                    index + 1, 
+                    item.name,
+                    item.firm,
+                    item.returnRate,    // TODO: 어떤 정보로 보여줄지
+                ]),
+                ...emptyData // 빈 데이터 배열 추가
+            ];
+
 
             return {data1, data2}
         }
@@ -88,7 +99,7 @@ export default function Sector() {
                     alignItems: "center",
                 }}
             >
-                {best.length>0 &&  <Best3 data={best}></Best3>}
+                {best.length > 0 && <Best3 data={best}></Best3>}
             </div>
             <div
                 style={{
@@ -96,7 +107,7 @@ export default function Sector() {
                     justifyContent: "space-between",
                 }}
             >   
-                <h2>{selectedSector} 순위</h2>    {/* 업종별 대신 현재 선택한 업종 받아오기 */}
+                <h2>{selectedSector} 순위</h2>
                 <h5>기준 날짜: {formattedDate}</h5>
             </div>
             <div
