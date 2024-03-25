@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useParams, useHistory } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Best3 from '~/components/common/Best3';
 import Rank from '~/components/common/Rank';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -13,7 +14,7 @@ export default function Sector() {
     const [best, setBest] = useState([]);
     const [sectors, setSectors] = useState([]);
     const { sector:selectedSector } = useParams();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
@@ -49,7 +50,7 @@ export default function Sector() {
     }, [selectedSector])
 
     const handleSectorChange = (sector) => {
-        history.push(`/analysts?sector=${sector}`);
+        navigate(`/analysts?sector=${sector}`);
     };
 
     // 현재 날짜
@@ -62,9 +63,6 @@ export default function Sector() {
         { columnName: '수익률', columnWidth: 60 },
         { columnName: '달성률', columnWidth: 60 } // 총 width = 240이 되도록?
     ];
-
-    // 기본 선택 항목
-    const defaultSector = sectors.length > 0 ? sectors[0] : '';
 
     return (
         <>
@@ -93,7 +91,7 @@ export default function Sector() {
                     justifyContent: "space-between",
                 }}
             >   
-                <h2>{selectedSector || defaultSector} 순위</h2>    {/* 업종별 대신 현재 선택한 업종 받아오기 */}
+                <h2>{selectedSector} 순위</h2>    {/* 업종별 대신 현재 선택한 업종 받아오기 */}
                 <h5>기준 날짜: {formattedDate}</h5>
             </div>
             <div
