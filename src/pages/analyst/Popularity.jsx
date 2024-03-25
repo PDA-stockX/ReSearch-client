@@ -41,7 +41,7 @@ export default function Popularity() {
     const exampleColumn = [
         { columnName: '순위', columnWidth: 30 }, 
         { columnName: '애널리스트', columnWidth: 50 },
-        { columnName: '즐겨찾기 수', columnWidth: 40 } // 총 width = 240이 되도록?
+        { columnName: '즐겨찾기', columnWidth: 40 }
     ];
 
     return (

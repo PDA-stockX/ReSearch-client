@@ -39,10 +39,10 @@ export default function ReturnRate() {
     const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 
     const exampleColumn = [
-        { columnName: 'Rank', columnWidth: 40 }, 
-        { columnName: 'Analyst', columnWidth: 50 },
-        { columnName: 'Sector', columnWidth: 100 },
-        { columnName: 'Return', columnWidth: 50 } // 총 width = 240이 되도록?
+        { columnName: '순위', columnWidth: 40 }, 
+        { columnName: '애널리스트', columnWidth: 70 },
+        { columnName: '업종', columnWidth: 100 },
+        { columnName: '수익률', columnWidth: 60 }
     ];
 
 
