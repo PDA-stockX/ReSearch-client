@@ -81,7 +81,7 @@ export default function SubHeader(props) {
                 }}
                 className={
                   location.pathname === `/${props.menu}/${item}` ||
-                  (props.menu === "sector" && location.pathname.startsWith(`?${props.menu}`))
+                  (`${item}` === "sector" && location.pathname.startsWith(`?${props.menu}`))
                     ? "active"
                     : ""
                 }

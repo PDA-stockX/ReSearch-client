@@ -13,17 +13,19 @@ export default function Sector() {
     const [data, setData] = useState([]);
     const [best, setBest] = useState([]);
     const [sectors, setSectors] = useState([]);
-    const { sector:selectedSector } = useParams();
+    const queryParams = new URLSearchParams(location.search);
+    const selectedSector = queryParams.get('sector');
     const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
             const ranking = await fetchSectorRank(selectedSector);
+            console.log("랭킹", ranking);
             const data1 = ranking.map((item, index) => [
                 index + 1, 
                 item.name,
-                item.sectorName,
                 item.returnRate,
+                item.achievementScore
             ]);
 
             const top3 = ranking.slice(0, 3);
@@ -50,7 +52,7 @@ export default function Sector() {
     }, [selectedSector])
 
     const handleSectorChange = (sector) => {
-        navigate(`/analysts?sector=${sector}`);
+        navigate(`/analyst?sector=${sector}`);
     };
 
     // 현재 날짜
@@ -66,12 +68,15 @@ export default function Sector() {
 
     return (
         <>
+            {console.log("데이터", data)}
+            {console.log("베스트", best)}
+            {console.log("업종명", sectors)}
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h2>Best 3</h2>
                 <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>}>
                     {sectors.map((sector, index) => (
-                        <Dropdown.Item key={index} onClick={() => handleSectorChange(sector)}>
-                            {sector}
+                        <Dropdown.Item key={index} onClick={() => handleSectorChange(sector.sectorName)} className="dropdownItem">
+                            {sector.sectorName}
                         </Dropdown.Item>
                     ))}
                 </DropdownButton>
