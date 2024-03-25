@@ -39,6 +39,7 @@ export default function BookmarkAnalyst() {
         flexDirection: "column",
         alignItems: "center",
       }}
+      
     ></div>
   );
 }

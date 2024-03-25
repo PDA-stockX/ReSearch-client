@@ -17,7 +17,8 @@ import BookmarkAnalyst from "~/pages/bookmarkAnalyst/BookAnalystPage";
 import AnalystDetailPage from "~/analystDetail/AnalystDetailPage";
 import ReportDetailPage from "~/pages/reportDetail/ReportDetailPage";
 import DetailCommon from "~/pages/detail/DetailCommon";
-
+import BookmarkReport from "~/pages/bookmarkReport/BookmarkReport";
+import FirmDetailPage from "~/pages/firmDetail/FirmDetailPage";
 const mainRoutes = [
   {
     path: "/",
@@ -44,7 +45,8 @@ const mainRoutes = [
           },
           {
             path: "firm/:firmId",
-            // element:<
+            element: <FirmDetailPage />,
+            index: true,
           },
           {
             path: "report/:reportId",
@@ -58,7 +60,7 @@ const mainRoutes = [
         element: <NavbarLayout />,
         children: [
           {
-            path: "home",
+            path: "",
             element: <Home />,
             index: true,
           },
@@ -73,7 +75,7 @@ const mainRoutes = [
               },
               {
                 path: "report",
-                // element: <BookmarkReport />,
+                element: <BookmarkReport />,
                 index: true,
               },
             ],

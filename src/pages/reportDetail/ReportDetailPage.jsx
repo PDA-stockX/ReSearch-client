@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ReportDetailCard from "./ReportDetailCard";
 import ReportLike from "./ReportLike";
 import ReportContentCard from "./ReportContentCard";
-export default function reportDetailPage() {
+export default function ReportDetailPage() {
   const [photoUrl, setPhotoUrl] = useState("");
 
   const { reportId } = useParams();

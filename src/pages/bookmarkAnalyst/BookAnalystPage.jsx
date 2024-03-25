@@ -10,16 +10,13 @@ export default function BookAnalystPage() {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "5%",
-        margin: "5%",
+        paddingInline: "3%",
         height: "100%",
+        width: "100%",
+        gap: "10px",
       }}
     >
-      {authContext.isAuthenticated == true ? (
-        <BookmarkAnalCard style={{ height: "100%" }}></BookmarkAnalCard>
-      ) : (
-        <div></div>
-      )}
+      {authContext.isAuthenticated == true ? <BookmarkAnalCard /> : <div></div>}
     </div>
   );
 }

@@ -8,9 +8,9 @@ export default function BookmarkAnalCard(props) {
   useEffect(() => {
     async function getMyAnal() {
       // console.log(persist());
-      console.log("Bearer " + localStorage.getItem("persist:root"));
+      // console.log("Bearer " + localStorage.getItem("persist:root"));
       const response = await Instance.get("/bookmark/myAnal");
-      console.log(response);
+      // console.log(response);
       setAnalList(response.data);
     }
     getMyAnal();
@@ -22,12 +22,12 @@ export default function BookmarkAnalCard(props) {
         return (
           <AnalystCard
             key={el.id}
-            style={{ marginTop: "5%" }}
+            style={{ margin: "10%" }}
             analId={el.analyst.id}
           />
         );
       })}
-      {console.log(analList)}
+      {/* {console.log(analList)} */}
     </>
   );
 }
