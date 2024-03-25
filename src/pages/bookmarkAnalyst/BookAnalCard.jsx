@@ -1,14 +1,27 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Instance } from "~/api/instance";
+import AnalystCard from "~/analystDetail/AnalystCard";
+import persist from "~/utils/persist";
 export default function BookmarkAnalCard(props) {
-  const [analLis, setAnalList] = useState([]);
+  const [analList, setAnalList] = useState([]);
   useEffect(() => {
     async function getMyAnal() {
-      console.log("Bearer " + localStorage.getItem("persist:root"));
+      // console.log(persist());
+      // console.log("Bearer " + localStorage.getItem("persist:root"));
       const response = await Instance.get("/bookmark/myAnal");
-      console.log(response);
+      // console.log(response);
+      setAnalList(response.data);
     }
     getMyAnal();
-  });
+  }, [props]);
+
+  return (
+    <>
+      {analList.map((el) => {
+        return <AnalystCard key={el.id} style={{ margin: "10%" }} analId={el.analyst.id} />;
+      })}
+      {/* {console.log(analList)} */}
+    </>
+  );
 }

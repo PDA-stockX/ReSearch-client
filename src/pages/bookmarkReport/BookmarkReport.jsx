@@ -1,13 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
-
+import BookmarkReportList from "./BookmarkReportList";
 import { Button } from "react-bootstrap";
+import { Instance } from "~/api/instance";
 export default function BookmarkReport() {
-  return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {/* <div style={{ gap: "5%" }}>
-        <Button>애널리스트</Button>
-        <Button>리포트</Button>
-      </div> */}
-    </div>
-  );
+  const [reportList, setReportList] = useState([]);
+  useEffect(() => {
+    async function getReportList() {
+      const response = await Instance.get("/bookmark/myReport");
+      console.log(response);
+    }
+    getReportList();
+  });
+  return <BookmarkReportList></BookmarkReportList>;
 }
