@@ -12,7 +12,7 @@ body {
 
 .custom-navbar .nav-link {
   display: flex;
-  font-size: 98.5%;
+  font-size: 98%;
   padding-right: 3%;
   font-weight: bold;
   color: #cbcbcb; /* 비활성화 상태 색상 */
