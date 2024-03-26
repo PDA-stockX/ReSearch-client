@@ -28,6 +28,10 @@ export default defineConfig({
       { find: "~/hooks", replacement: "/src/hooks" },
       { find: "~/styles", replacement: "/src/styles" },
       {
+        find: "~/src",
+        replacement: "/src",
+      },
+      {
         find: "~/analystDetail",
         replacement: "/src/analystDetail",
       },
