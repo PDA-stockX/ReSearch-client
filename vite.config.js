@@ -28,17 +28,12 @@ export default defineConfig({
       { find: "~/hooks", replacement: "/src/hooks" },
       { find: "~/styles", replacement: "/src/styles" },
       {
-<<<<<<< HEAD
-        find: "~/analystDetail/AnalystDetailPage",
-        replacement: "/src/analystDetail/AnalystDetailPage.jsx",
-=======
         find: "~/src",
         replacement: "/src",
       },
       {
         find: "~/analystDetail",
         replacement: "/src/analystDetail",
->>>>>>> 9135dde (detail Firm)
       },
       {
         find: "~/asset",
