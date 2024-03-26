@@ -31,12 +31,7 @@ export default function Sector() {
       }
 
       const data2 = [
-        ...top3.map((item, index) => [
-          index + 1,
-          item.name,
-          item.firm,
-          item.returnRate, // TODO: 어떤 정보로 보여줄지
-        ]),
+        ...top3.map((item, index) => [index + 1, item.name, item.firm, item.score]),
         ...emptyData, // 빈 데이터 배열 추가
       ];
 
