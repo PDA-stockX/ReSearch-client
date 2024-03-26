@@ -2,9 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FirmLike from "./FirmLike";
+import AnalystCard from "~/analystDetail/AnalystCard";
 export default function FirmDetailPage() {
   const firmId = useParams();
   const [firmInfo, setFirmInfo] = useState({});
+  const [analList, setAnalList] = useState([]);
   useEffect(() => {
     async function getFirmInfo() {
       console.log(firmId);
@@ -19,10 +21,19 @@ export default function FirmDetailPage() {
       };
       setFirmInfo(tempRes);
     }
+
+    async function getMyAnal() {
+      const analByFirm = await axios.get(
+        `http://localhost:3000/analyst/getAnalystByFirm/${firmId.firmId}`
+      );
+      console.log(analByFirm);
+      setAnalList(analByFirm.data);
+    }
+    getMyAnal();
     getFirmInfo();
   }, [firmId]);
   return (
-    <>
+    <div style={{ marginInline: "3%" }}>
       <h2>증권사 정보</h2>
       <div className="reportDetailCard">
         <div
@@ -51,7 +62,15 @@ export default function FirmDetailPage() {
           </div>{" "}
         </div>
       </div>
-      <FirmLike />
-    </>
+      <FirmLike firmId={firmId.firmId} />
+      <h2>애널리스트 정보</h2>
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        {analList.map((el) => {
+          console.log(el);
+
+          return <AnalystCard key={el.id} analId={el} />;
+        })}
+      </div>
+    </div>
   );
 }

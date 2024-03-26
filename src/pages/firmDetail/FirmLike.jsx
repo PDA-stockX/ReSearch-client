@@ -6,6 +6,7 @@ import likeImg from "~/assets/like.png";
 import unLikeImg from "~/assets/unlike.png";
 import unHateImg from "~/assets/unhate.png";
 import hateImg from "~/assets/hate.png";
+import { Instance } from "~/api/instance";
 export default function FirmLike(props) {
   const [isLike, setIsLike] = useState(false);
   const [isHate, setIsHate] = useState(false);
@@ -14,31 +15,19 @@ export default function FirmLike(props) {
   const authContext = useSelector((state) => state.auth.authContext);
   useEffect(() => {
     console.log(authContext);
-    async function checkReportLike() {
-      const response = await axios.get(
-        "http://localhost:3000/likeReport/checkLike",
-        { params: { userId: authContext.user.id, reportId: props.reportId } },
-        {
-          headers: {
-            Authorization: `Bearer ${authContext.token}`,
-          },
-        }
-      );
+    async function checkFirmLike() {
+      const response = await Instance.get("likeFirm/checkLike", {
+        params: { firmId: props.firmId },
+      });
       console.log(response.data.message);
       if (response.data.message == "success") {
         setIsLike(true);
       }
     }
-    async function checkReportHate() {
-      const response = await axios.get(
-        "http://localhost:3000/hateReport/checkHate",
-        { params: { userId: authContext.user.id, reportId: props.reportId } },
-        {
-          headers: {
-            Authorization: `Bearer ${authContext.token}`,
-          },
-        }
-      );
+    async function checkFirmHate() {
+      const response = await Instance.get("hateFirm/checkHate", {
+        params: { firmId: props.firmId },
+      });
       console.log(response.data.message);
 
       if (response.data.message == "success") {
@@ -48,44 +37,39 @@ export default function FirmLike(props) {
 
     async function checkLikeNum() {
       const response = await axios.get(
-        "http://localhost:3000/likeReport/checkLikeNum",
-        { params: { reportId: props.reportId } }
+        "http://localhost:3000/likeFirm/checkLikeNum",
+        { params: { firmId: props.firmId } }
       );
 
       setLikeNum(response.data.likeNum);
     }
     async function checkHateNum() {
       const response = await axios.get(
-        "http://localhost:3000/hateReport/checkHateNum",
-        { params: { reportId: props.reportId } }
+        "http://localhost:3000/hateFirm/checkHateNum",
+        { params: { firmId: props.firmId } }
       );
 
       setHateNum(response.data.hateNum);
     }
     if (authContext.isAuthenticated == true) {
-      checkReportHate();
-      checkReportLike();
+      checkFirmHate();
+      checkFirmLike();
     }
     checkHateNum();
     checkLikeNum();
   }, [props.reportId]);
 
-  const clickHateReport = useCallback(async () => {
+  const clickHateFirm = useCallback(async () => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
     } else if (isHate == true) {
       setIsHate(false);
       setIsLike(false);
       setHateNum(hateNum - 1);
-      const response = await axios.post(
-        "http://localhost:3000/hateReport/unHateReport",
-        { userId: authContext.user.id, reportId: props.reportId },
-        {
-          headers: {
-            Authorization: `Bearer ${authContext.token}`,
-          },
-        }
-      );
+      const response = await Instance.post("hateFirm/unHateFirm", {
+        firmId: props.firmId,
+      });
+
       console.log(response);
     } else {
       setIsHate(true);
@@ -94,35 +78,23 @@ export default function FirmLike(props) {
         setIsLike(false);
         setLikeNum(likeNum - 1);
       }
-      const response = await axios.post(
-        "http://localhost:3000/hateReport/hateReport",
-        { userId: authContext.user.id, reportId: props.reportId },
-        {
-          headers: {
-            Authorization: `Bearer ${authContext.token}`,
-          },
-        }
-      );
+      const response = await Instance.post("hateFirm/hateFirm", {
+        firmId: props.firmId,
+      });
       console.log(response);
     }
   });
 
-  const clickLikeReport = useCallback(async () => {
+  const clickLikeFirm = useCallback(async () => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
     } else if (isLike == true) {
       setIsLike(false);
       setIsHate(false);
       setLikeNum(likeNum - 1);
-      const response = await axios.post(
-        "http://localhost:3000/likeReport/unlikeReport",
-        { userId: authContext.user.id, reportId: props.reportId },
-        {
-          headers: {
-            Authorization: `Bearer ${authContext.token}`,
-          },
-        }
-      );
+      const response = await Instance.post("likeFirm/unLikeFirm", {
+        firmId: props.firmId,
+      });
       console.log(response);
     } else {
       setIsLike(true);
@@ -131,15 +103,9 @@ export default function FirmLike(props) {
         setIsHate(false);
         setHateNum(hateNum - 1);
       }
-      const response = await axios.post(
-        "http://localhost:3000/likeReport/LikeReport",
-        { userId: authContext.user.id, reportId: props.reportId },
-        {
-          headers: {
-            Authorization: `Bearer ${authContext.token}`,
-          },
-        }
-      );
+      const response = await Instance.post("likeFirm/likeFirm", {
+        firmId: props.firmId,
+      });
       console.log(response);
     }
   });
@@ -152,12 +118,12 @@ export default function FirmLike(props) {
         justifyContent: "end",
       }}
     >
-      <button onClick={clickLikeReport}>
+      <button onClick={clickLikeFirm}>
         {isLike ? <img src={likeImg}></img> : <img src={unLikeImg} />}
       </button>
       {likeNum}
       {/* {console.log(likeNum)} */}
-      <button onClick={clickHateReport}>
+      <button onClick={clickHateFirm}>
         {isHate ? <img src={hateImg} /> : <img src={unHateImg} />}
       </button>
       {hateNum}

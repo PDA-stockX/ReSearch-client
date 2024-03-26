@@ -10,6 +10,8 @@ export default function AnalystCard(props) {
   const [isFollow, setIsFollow] = useState(false);
   const authContext = useSelector((state) => state.auth.authContext);
   const [pleLogin, setPleLogin] = useState(false);
+  const analId = props.analId;
+
   useEffect(() => {
     console.log(authContext);
     async function fetchData() {
@@ -38,7 +40,7 @@ export default function AnalystCard(props) {
     //user Id 수정해야함~~~
     fetchData();
     if (authContext.isAuthenticated == true) followCheck();
-  }, [props.analId]);
+  }, []);
 
   const onFollow = useCallback(() => {
     if (authContext.isAuthenticated == true) {
