@@ -19,7 +19,13 @@ export default function BookmarkAnalCard(props) {
   return (
     <>
       {analList.map((el) => {
-        return <AnalystCard key={el.id} style={{ margin: "10%" }} analId={el.analyst.id} />;
+        return (
+          <AnalystCard
+            key={el.id}
+            style={{ margin: "10%" }}
+            analId={el.analyst.id}
+          />
+        );
       })}
       {/* {console.log(analList)} */}
     </>
