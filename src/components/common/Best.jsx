@@ -44,9 +44,6 @@ export default function Best({ rank, name, company, returnRate }) {
     });
   }, [name, company]);
 
-  console.log("애널리스트", analystId);
-  console.log("증권사", firmId);
-
   return (
     <div className="bestCard">
       <div className="bestInfo">
