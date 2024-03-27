@@ -1,0 +1,24 @@
+.reportInfoContainer {
+    margin: 0.3rem 0.8rem;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reportInfoContainer .reportInfoHeader {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.reportContent .reportInfoBody {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.reportInfoFooter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+}

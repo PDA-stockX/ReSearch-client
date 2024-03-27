@@ -4,6 +4,8 @@ import {searchReports} from "~/api/reports.js";
 import {searchAnalysts} from "~/api/analysts.js";
 import {searchFirms} from "~/api/firms.js";
 import SearchResult from "~/components/SearchResult.jsx";
+import {useDispatch} from "react-redux";
+import {setAnalysts, setFirms, setReports} from "~/reducers/search.js";
 
 export const ModalContainer = styled.div`
     // Modal을 구현하는데 전체적으로 필요한 CSS를 구현
@@ -12,6 +14,7 @@ export const ModalContainer = styled.div`
     align-items: center;
     aspect-ratio: auto;
     width: ${(props) => props.isMobile ? "20%" : "10%"};
+    position: relative;
 `;
 
 export const ModalBackdrop = styled.div`
@@ -44,18 +47,13 @@ export const ModalView = styled.div.attrs((props) => ({
 }))`
     // Modal창 CSS를 구현합니다.
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     border-radius: 20px;
     width: 500px;
     height: 600px;
     background-color: #ffffff;
-
-    > div.desc {
-        margin: 50px;
-        font-size: 20px;
-        color: #000000;
-    }
+    overflow: scroll;
 `;
 
 export const InputContainer = styled.div`
@@ -64,7 +62,6 @@ export const InputContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 90%;
     height: 40px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -72,6 +69,8 @@ export const InputContainer = styled.div`
     padding: 15px;
     margin: 10px;
     box-sizing: border-box;
+    position: absolute;
+    top: 50px;
 `;
 
 export const SearchInput = styled.input`
@@ -102,23 +101,27 @@ export const SearchButton = styled.button`
 export const SearchModal = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [keyword, setKeyword] = useState('');
-    const [reports, setReports] = useState([]);
-    const [analysts, setAnalysts] = useState([]);
-    const [firms, setFirms] = useState([]);
+    const dispatch = useDispatch();
 
     const handleClickModalBtn = useCallback(() => {
         setIsOpen(!isOpen)
     }, [isOpen, setIsOpen]);
 
-    const handleClickSearchBtn = useCallback(async () => {
+    const handleSearch = useCallback(async () => {
         const reports = await searchReports(keyword);
         const analysts = await searchAnalysts(keyword);
         const firms = await searchFirms(keyword);
 
-        setReports(reports);
-        setAnalysts(analysts);
-        setFirms(firms);
-    }, [keyword, reports, analysts, firms, setReports, setAnalysts, setFirms]);
+        dispatch(setReports(reports));
+        dispatch(setAnalysts(analysts));
+        dispatch(setFirms(firms));
+    }, [keyword, dispatch, setReports, setAnalysts, setFirms]);
+
+    const handleEnter = useCallback(async (e) => {
+        if (e.key === "Enter") {
+            await handleSearch();
+        }
+    }, [handleSearch]);
 
     return (
         <>
@@ -131,14 +134,15 @@ export const SearchModal = (props) => {
                         <ModalView onClick={(e) => e.stopPropagation()}>
                             <InputContainer>
                                 <SearchInput placeholder="검색어를 입력해주세요"
-                                            onChange={(e) => {
-                                                setKeyword(e.target.value)
-                                            }}/>
-                                <SearchButton onClick={handleClickSearchBtn}>
+                                             onChange={(e) => {
+                                                 setKeyword(e.target.value)
+                                             }}
+                                             onKeyDown={handleEnter}/>
+                                <SearchButton onClick={handleSearch}>
                                     <img src="/images/search-button.png" alt="search-button"/>
                                 </SearchButton>
                             </InputContainer>
-                            <SearchResult reports={reports} analysts={analysts} firms={firms}/>
+                            <SearchResult/>
                         </ModalView>
                     </ModalBackdrop>
                     : null
