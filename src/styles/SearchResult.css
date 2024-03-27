@@ -1,0 +1,10 @@
+.resultTitleContainer {
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+.resultTitleContainer p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}

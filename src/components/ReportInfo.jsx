@@ -1,13 +1,22 @@
 import React from 'react';
+import "~/styles/ReportInfo.css";
 
 export default function ReportInfo({ report }) {
     return (
         <>
-            <h3>Report Information</h3>
-            <div>
-                <p>Report Title: {report.title}</p>
-                <p>Report Summary: {report.summary}</p>
-                <p>Posted At: {report.postedAt}</p>
+            <div className="reportInfoContainer">
+                <div className="reportInfoHeader">
+                    <p>{report.title}</p>
+                    <p>{report.postedAt}</p>
+                </div>
+                <div className="reportInfoBody">
+                    <p>{report.achievementScore}</p>
+                    <p>{report.returnRate}</p>
+                </div>
+                <div className="reportInfoFooter">
+                    <p className="analyst">{report.analyst.name}</p>
+                    <p>{report.firm.name}</p>
+                </div>
             </div>
         </>
     )
