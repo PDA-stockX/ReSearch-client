@@ -52,7 +52,16 @@ export default function NavbarLayout() {
   return (
     <>
       {location.pathname.startsWith("/analyst") ? (
-        <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
+        <Container
+          sticky="top"
+          style={{
+            backgroundColor: "#F7F7F7",
+            position: "sticky",
+            width: "100%",
+            padding: "0%",
+          }}
+          className="fixed-top"
+        >
           <Header />
           <SubHeader
             menu="analyst"
@@ -61,7 +70,16 @@ export default function NavbarLayout() {
           />
         </Container>
       ) : location.pathname.startsWith("/firm") ? (
-        <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
+        <Container
+          sticky="top"
+          style={{
+            backgroundColor: "#F7F7F7",
+            position: "sticky",
+            width: "100%",
+            padding: "0%",
+          }}
+          className="fixed-top"
+        >
           <Header />
           <SubHeader
             menu="firm"
@@ -70,7 +88,16 @@ export default function NavbarLayout() {
           />
         </Container>
       ) : location.pathname.startsWith("/bookmark") ? (
-        <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
+        <Container
+          sticky="top"
+          style={{
+            backgroundColor: "#F7F7F7",
+            position: "sticky",
+            width: "100%",
+            padding: "0%",
+          }}
+          className="fixed-top"
+        >
           <Header />
           <SubHeader
             menu="bookmark"
@@ -83,10 +110,7 @@ export default function NavbarLayout() {
       )}
 
       {/* marginTop: "78.4px" */}
-      <Container
-        style={{ backgroundColor: "#F7F7F7", marginTop: "27%" }}
-        className="min-vh-100"
-      >
+      <Container style={{ backgroundColor: "#F7F7F7" }} className="min-vh-100">
         <Outlet />
       </Container>
 

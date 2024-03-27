@@ -4,6 +4,7 @@ import Best from "~/components/common/Best";
 export default function Best3({ data }) {
   return (
     <>
+      {console.log(data)}
       {data[0][0].returnRate ? (
         <div className="best3">
           <Best
