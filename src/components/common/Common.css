@@ -36,7 +36,7 @@ body {
   position: relative;
   width: 92%;
   box-shadow: 0 0.5px 4px rgba(42, 42, 42, 0.16), 0 0.5px 4px rgba(42, 42, 42, 0.16);
-  text-align: center;
+  (feat:Rank컴포넌트효과추가)text-align: center;
 }
 
 .rankContainer {
