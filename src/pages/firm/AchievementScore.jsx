@@ -27,6 +27,12 @@ const exampleBest = [
 const today = new Date();
 const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 
+const exampleColumn = [
+    { columnName: '순위', columnWidth: 40 },
+    { columnName: '증권사', columnWidth: 130 },
+    { columnName: '달성률', columnWidth: 60 }
+];
+
 export default function AchievementScore() {
     const [data, setData] = useState([]);
     const [best, setBest] = useState([]);
@@ -55,12 +61,6 @@ export default function AchievementScore() {
             setBest(best);
         });
     }, [])
-
-    const exampleColumn = [
-        { columnName: '순위', columnWidth: 40 },
-        { columnName: '증권사', columnWidth: 150 },
-        { columnName: '달성률', columnWidth: 50 }
-    ];
 
     return (
         <>

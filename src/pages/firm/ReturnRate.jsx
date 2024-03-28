@@ -9,8 +9,8 @@ const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.ge
 
 const exampleColumn = [
     { columnName: '순위', columnWidth: 40 },
-    { columnName: '증권사', columnWidth: 150 },
-    { columnName: '수익률', columnWidth: 50 } // 총 width = 240이 되도록?
+    { columnName: '증권사', columnWidth: 130 },
+    { columnName: '수익률', columnWidth: 60 } // 총 width = 240이 되도록?
 ];
 
 export default function ReturnRate() {

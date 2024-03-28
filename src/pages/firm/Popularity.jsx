@@ -9,8 +9,8 @@ const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.ge
 
 const exampleColumn = [
     { columnName: '순위', columnWidth: 40 },
-    { columnName: '증권사', columnWidth: 150 },
-    { columnName: '좋아요', columnWidth: 50 }
+    { columnName: '증권사', columnWidth: 130 },
+    { columnName: '좋아요', columnWidth: 60 }
 ];
 
 export default function Popularity() {
