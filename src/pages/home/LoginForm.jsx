@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { login } from "~/api/users";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { authenticate } from "~/reducers/auth.js";
+import React, {useCallback, useEffect, useState} from "react";
+import {login} from "~/api/users";
+import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {authenticate} from "~/reducers/auth.js";
 
 import "~/styles/LoginForm.css";
 
@@ -22,10 +22,8 @@ export default function LoginForm() {
 
   const handleLogin = useCallback(async () => {
     try {
-      console.log("handleLogin");
       const response = await login(email, password);
       dispatch(authenticate(response));
-      console.log("dispatched");
     } catch (err) {
       setError(err);
     }
