@@ -2,7 +2,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./AnalystDetail.css";
 export default function AnalystMessage(props) {
   return (
-    <div>
+    <div
+      style={{ width: "100%", alignItems: "center", justifyContent: "center" }}
+    >
       {console.log(props.nickname)}
       {props.nickname ? (
         <div>
