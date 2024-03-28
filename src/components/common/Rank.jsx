@@ -82,13 +82,13 @@ export default function Rank({ column, data }) {
         {totalPages > 1 && (
           <div className="pagination">
             {/* 첫 페이지 버튼 */}
-            {currentPage > 1 && (
+            {currentPage > 1 && totalPages - 1 > 4 && (
               <button onClick={() => handlePageChange(1)}>
                 <MdFirstPage />
               </button>
             )}
 
-            {currentPage === 1 && (
+            {currentPage === 1 && totalPages - 1 > 4 && (
               <button onClick={() => handlePageChange(1)} className="active">
                 1
               </button>
@@ -96,18 +96,18 @@ export default function Rank({ column, data }) {
 
             {generatePageNumbers(currentPage, totalPages).map((pageNumber) => (
               <button key={pageNumber} className={pageNumber === currentPage ? "active" : ""} onClick={() => handlePageChange(pageNumber)}>
-                {pageNumber === "..." ? "..." : pageNumber}
+                {pageNumber}
               </button>
             ))}
 
-            {currentPage === totalPages && (
+            {currentPage === totalPages && totalPages - 1 > 4 && (
               <button onClick={() => handlePageChange(totalPages)} className="active">
                 {totalPages}
               </button>
             )}
 
             {/* 마지막 페이지 버튼 */}
-            {currentPage < totalPages && (
+            {currentPage < totalPages && totalPages - 1 > 4 && (
               <button onClick={() => handlePageChange(totalPages)}>
                 <MdLastPage />
               </button>
