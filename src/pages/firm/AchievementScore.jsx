@@ -4,6 +4,29 @@ import Rank from '~/components/common/Rank';
 import './firm.css';
 import { fetchAchievementScoreRank } from "~/api/firms";
 
+const exampleData = [
+    [1, "Firm1", 10],
+    [2, "Firm2", 8],
+    [3, "Firm3", 7],
+    [4, "Firm4", 6],
+    [5, "Firm5", 5],
+    [6, "Firm5", 5],
+    [7, "Firm5", 5],
+    [8, "Firm5", 5],
+    [9, "Firm5", 5],
+    [10, "Firm5", 5],
+    [11, "Firm5", 5],
+];
+
+const exampleBest = [
+    ['', '신한투자증권', { name: "" }, '74.6'],
+    ['', '미래에셋증권', { name: "" }, '68.2'],
+    ['', 'KB증권', { name: "" }, '59.1']
+];
+
+const today = new Date();
+const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+
 export default function AchievementScore() {
     const [data, setData] = useState([]);
     const [best, setBest] = useState([]);
@@ -38,29 +61,6 @@ export default function AchievementScore() {
         { columnName: '증권사', columnWidth: 150 },
         { columnName: '달성률', columnWidth: 50 }
     ];
-
-    const exampleData = [
-        [1, "Firm1", 10],
-        [2, "Firm2", 8],
-        [3, "Firm3", 7],
-        [4, "Firm4", 6],
-        [5, "Firm5", 5],
-        [6, "Firm5", 5],
-        [7, "Firm5", 5],
-        [8, "Firm5", 5],
-        [9, "Firm5", 5],
-        [10, "Firm5", 5],
-        [11, "Firm5", 5],
-    ];
-
-    const exampleBest = [
-        ['', '신한투자증권', { name: "" }, '74.6'],
-        ['', '미래에셋증권', { name: "" }, '68.2'],
-        ['', 'KB증권', { name: "" }, '59.1']
-    ];
-
-    const today = new Date();
-    const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 
     return (
         <>

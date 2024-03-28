@@ -4,6 +4,15 @@ import Best3 from '~/components/common/Best3';
 import './firm.css';
 import { fetchReturnRateRank } from '~/api/firms';
 
+const today = new Date();
+const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+
+const exampleColumn = [
+    { columnName: '순위', columnWidth: 40 },
+    { columnName: '증권사', columnWidth: 150 },
+    { columnName: '수익률', columnWidth: 50 } // 총 width = 240이 되도록?
+];
+
 export default function ReturnRate() {
     const [data, setData] = useState([]);
     const [best, setBest] = useState([]);
@@ -32,17 +41,6 @@ export default function ReturnRate() {
             setBest(best);
         });
     }, [])
-
-    // 현재 날짜
-    const today = new Date();
-    const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-
-    const exampleColumn = [
-        { columnName: 'Rank', columnWidth: 40 },
-        { columnName: 'Firm', columnWidth: 150 },
-        { columnName: 'Return', columnWidth: 50 } // 총 width = 240이 되도록?
-    ];
-
 
     return (
         <>
