@@ -84,7 +84,9 @@ body {
 }
 
 .pagination button.active {
-  background-color: #dcc7ff;
+  /* background-color: #dcc7ff; */
+  border: 1px solid #be96ff;
+  color: #9c5fff;
 }
 
 /* Best3.jsx */

@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SearchModal } from "../SearchModal.jsx";
 import "./Common.css";
 import SideNavMenu from "~/components/common/SideNavMenu.jsx";
+import { GiHamburgerMenu } from "react-icons/gi";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
