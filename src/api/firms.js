@@ -18,4 +18,31 @@ const searchFirms = async (keyword) => {
     }
 }
 
-export {searchFirms};
+const fetchReturnRateRank = async () => {
+    try {
+        const response = await instance.get("/return-rate");
+        return response.data;
+    } catch (err) {
+        throw err;
+    }
+};
+
+const fetchAchievementScoreRank = async () => {
+    try {
+        const response = await instance.get("/achievement-score");
+        return response.data;
+    } catch (err) {
+        throw err;
+    }
+};
+
+const fetchLikeRank = async () => {
+    try {
+        const response = await instance.get("/like-rank");
+        return response.data;
+    } catch (err) {
+        throw err;
+    }
+};
+
+export { searchFirms, fetchReturnRateRank, fetchAchievementScoreRank, fetchLikeRank };
