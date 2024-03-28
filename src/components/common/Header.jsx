@@ -35,9 +35,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/analyst/return-rate");
               }}
-              className={
-                location.pathname.startsWith("/analyst") ? "active" : ""
-              }
+              className={location.pathname.startsWith("/analyst") ? "active" : ""}
             >
               애널리스트
             </Nav.Link>
@@ -53,9 +51,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/bookmark/analyst");
               }}
-              className={
-                location.pathname.startsWith("/bookmark") ? "active" : ""
-              }
+              className={location.pathname.startsWith("/bookmark") ? "active" : ""}
             >
               즐겨찾기
             </Nav.Link>

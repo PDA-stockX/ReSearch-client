@@ -24,7 +24,9 @@ export default function NavbarLayout() {
   const Firm_subMenuName = ["수익률", "달성률", "인기"];
 
   const Bookmark_subMenu = ["analyst", "report"];
+
   const Bookmark_subMenuName = ["애널리스트", "리포트"];
+
   const handleScroll = () => {
     if (!window.scrollY) return;
 

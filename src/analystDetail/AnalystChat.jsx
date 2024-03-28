@@ -8,10 +8,10 @@ import { useRef } from "react";
 export default function AnalystChat(props) {
   const [messageList, setMessageList] = useState([]);
   const [inputText, setInputText] = useState("");
-  const [newMessageAlert, setNewMessageAlert] = useState(true);
+  const [newMessageAlert, setNewMessageAlert] = useState(false);
   const currentUserId = useRef(0);
   const scrollable = useRef(false);
-  const scrollRef = useRef();
+  const scrollRef = useRef(null);
   const authContext = useSelector((state) => state.auth.authContext);
 
   const onClickSubmit = useCallback(() => {
@@ -31,26 +31,11 @@ export default function AnalystChat(props) {
   }, [props]);
 
   const onScrollToBottom = useCallback(() => {
-    if (
-      scrollRef.current.scrollTop + scrollRef.clientHeight + 5 >=
-      scrollRef.current.scrollHeight
-    ) {
-      setNewMessageAlert(true);
-      console.log(scrollRef.current.scrollTop);
-      console.log(scrollRef.current.scrollHeight);
-      console.log(scrollRef.current.clientHeight);
-      console.log(scrollRef.current);
-    } else {
-      console.log(scrollRef.current.scrollTop);
-      console.log(scrollRef.current.scrollHeight);
-      console.log(scrollRef.current.clientHeight);
-      console.log(scrollRef.current);
-      // scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-      scrollRef.current.scrollBy({
-        top: scrollRef.current.scrollHeight,
-        behavior: "smooth",
-      });
-    }
+    // scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    scrollRef.current.scrollBy({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   });
 
   useEffect(() => {
@@ -58,12 +43,29 @@ export default function AnalystChat(props) {
     socket.emit("connectAnalRoom", { analId: props.analId });
     socket.on("listenChat", ({ chatString, user }) => {
       const listItem = { user, chatString };
-      console.log(listItem);
       console.log("listItem : " + listItem.user.id);
+      console.log(scrollRef.current.scrollTop);
+      console.log(scrollRef.current.scrollHeight);
+      console.log(scrollRef.current.clientHeight);
+      console.log(scrollRef.current);
+      if (
+        scrollRef.current.scrollTop + scrollRef.current.clientHeight ===
+        scrollRef.current.scrollHeight
+      ) {
+        scrollable.current = true;
+      } else {
+        scrollable.current = false;
+      }
       setMessageList([...messageList, listItem]);
+
       console.log(messageList);
     });
-    onScrollToBottom();
+    if (scrollable.current === true) {
+      onScrollToBottom();
+      scrollable.current = false;
+    } else {
+      setNewMessageAlert(true);
+    }
     return () => {
       console.log("clean up");
       socket.emit("leaveRoom", { analId: props.analId });
@@ -105,7 +107,10 @@ export default function AnalystChat(props) {
       className="chatBox rounded-lg box-border h-48  gap-6 w-100 p-1"
     >
       <div
-        style={{ width: "95%", height: "85%" }}
+        style={{
+          width: "100%",
+          height: "85%",
+        }}
         ref={scrollRef}
         className="overflow-auto"
       >
@@ -127,6 +132,9 @@ export default function AnalystChat(props) {
           }
           // return <AnalystMessage chat={el.chatString} key={el.id} />;
         })}
+      </div>
+      <div style={{ display: "flex", position: "absolute" }}>
+        <button>새로운 메세지가 도착했습니다.</button>
       </div>
       <div
         style={{

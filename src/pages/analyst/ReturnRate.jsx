@@ -54,7 +54,7 @@ export default function ReturnRate() {
         style={{
           display: "flex",
           flexDirection: "column",
-          // alignItems: "center",
+          alignItems: "center",
         }}
       >
         {best.length > 0 && <Best3 data={best}></Best3>}
