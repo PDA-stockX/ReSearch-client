@@ -33,37 +33,37 @@ export default function AchievementScore() {
     });
   }, []);
 
-  return (
-    <>
-      <h2>Best 3</h2>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {best.length > 0 && <Best3 data={best}></Best3>}
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <h2>달성률 순위</h2>
-        <h5>기준 날짜: {formattedDate}</h5>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Rank column={exampleColumn} data={data}></Rank>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <h2>Best 3</h2>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                {best.length > 0 && <Best3 data={best}></Best3>}
+            </div>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                }}
+            >
+                <h2>달성률 순위</h2>
+                <h5>기준 날짜: {formattedDate}</h5>
+            </div>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                <Rank column={exampleColumn} data={data}></Rank>
+            </div>
+        </>
+    )
 }
