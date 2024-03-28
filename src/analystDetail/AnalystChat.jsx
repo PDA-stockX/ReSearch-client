@@ -152,8 +152,9 @@ export default function AnalystChat(props) {
           />
         ) : (
           <input
-            className="rounded-lg"
+            className=""
             style={{
+              borderRadius: "10%",
               width: "80%",
               border: " solid #717171 1px",
             }}
