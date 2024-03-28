@@ -3,7 +3,11 @@ import { searchAnalysts } from "~/api/analysts";
 import { searchFirms } from "~/api/firms";
 import "./Common.css";
 export default function Best({ rank, name, company, returnRate }) {
-  const color = ["#D5A11E", "#A3A3A3", "#CD7F32"];
+  const colors = [
+    "linear-gradient(124deg, #fffad2 0%, #ddac17 20%, #ffea95 45%, #e4c440 80%)",
+    "linear-gradient(124deg, #dfdfdf 0%, #8a8a8a 20%, #d1d1d1 45%, #9c9c9c 80%)",
+    "linear-gradient(124deg, #e28b4f 0%, #cd7132 20%, #f5ac7a 50%, #b85f22 80%)",
+  ];
   const [analystId, setAnalystId] = useState(null);
   const [firmId, setFirmId] = useState(null);
   useEffect(() => {
@@ -24,7 +28,7 @@ export default function Best({ rank, name, company, returnRate }) {
   return (
     <div className="bestCard">
       <div className="bestInfo">
-        <div className="rank" style={{ color: `${color[rank - 1]}` }}>
+        <div className="rank" style={{ fontSize: "1.65em", background: `${colors[rank - 1]}` }}>
           {rank}
         </div>
         <div className="name">{company.length > 0 ? <a href={`/detail/analyst/${analystId}`}>{name}</a> : <a href={`/detail/firm/${analystId}`}>{name}</a>}</div>
