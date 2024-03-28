@@ -81,7 +81,6 @@ export default function Rank({ column, data }) {
         {/* 페이지네이션 정보 표시 */}
         {totalPages > 1 && (
           <div className="pagination">
-<<<<<<< HEAD
             {/* 첫 페이지 버튼 */}
             {currentPage > 1 && totalPages - 1 > 4 && (
               <button onClick={() => handlePageChange(1)}>
@@ -90,16 +89,6 @@ export default function Rank({ column, data }) {
             )}
 
             {currentPage === 1 && totalPages - 1 > 4 && (
-=======
-            {/* 이전 버튼 */}
-            {currentPage > 1 && (
-              <button onClick={() => handlePageChange(currentPage - 1)}>
-                <MdNavigateBefore />
-              </button>
-            )}
-
-            {currentPage === 1 && (
->>>>>>> 5d1eb40 (feat: Best 컴포넌트 순위 그라데이션)
               <button onClick={() => handlePageChange(1)} className="active">
                 1
               </button>
@@ -111,27 +100,16 @@ export default function Rank({ column, data }) {
               </button>
             ))}
 
-<<<<<<< HEAD
             {currentPage === totalPages && totalPages - 1 > 4 && (
-=======
-            {currentPage === totalPages && (
->>>>>>> 5d1eb40 (feat: Best 컴포넌트 순위 그라데이션)
               <button onClick={() => handlePageChange(totalPages)} className="active">
                 {totalPages}
               </button>
             )}
 
-<<<<<<< HEAD
             {/* 마지막 페이지 버튼 */}
             {currentPage < totalPages && totalPages - 1 > 4 && (
               <button onClick={() => handlePageChange(totalPages)}>
                 <MdLastPage />
-=======
-            {/* 다음 버튼 */}
-            {currentPage < totalPages && (
-              <button onClick={() => handlePageChange(currentPage + 1)}>
-                <MdNavigateNext />
->>>>>>> 5d1eb40 (feat: Best 컴포넌트 순위 그라데이션)
               </button>
             )}
           </div>
