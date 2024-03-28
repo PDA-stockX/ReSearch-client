@@ -48,9 +48,9 @@
   right: 2px;
   top: 18px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #dcc7ff;
   border-radius: 5px;
-  background-color: #dcc7ff;
+  background-color: #fff;
   color: black;
   cursor: pointer;
 }
