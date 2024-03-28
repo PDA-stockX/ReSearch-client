@@ -35,7 +35,7 @@ export default function Best({ rank, name, company, returnRate }) {
   return (
     <div className="bestCard">
       <div className="bestInfo">
-        <div className="rank" style={{ fontSize: "1.65em", background: `${colors[rank - 1]}` }}>
+        <div className="rank" style={{ fontSize: "1.65em", fontWeight: "border", background: `${colors[rank - 1]}` }}>
           {rank}
         </div>
         <div className="name">
