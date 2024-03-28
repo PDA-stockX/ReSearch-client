@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./Common.css";
 import Row from "./RankRow"; // Row 컴포넌트 불러오기
-import { MdNavigateBefore } from "react-icons/md";
-import { MdNavigateNext } from "react-icons/md";
+import { MdFirstPage, MdLastPage } from "react-icons/md";
+import { MdOutlineFirstPage } from "react-icons/md";
 
 export default function Rank({ column, data }) {
   const cardRef = useRef(null);
@@ -81,10 +81,10 @@ export default function Rank({ column, data }) {
         {/* 페이지네이션 정보 표시 */}
         {totalPages > 1 && (
           <div className="pagination">
-            {/* 이전 버튼 */}
+            {/* 첫 페이지 버튼 */}
             {currentPage > 1 && (
-              <button onClick={() => handlePageChange(currentPage - 1)}>
-                <MdNavigateBefore />
+              <button onClick={() => handlePageChange(1)}>
+                <MdFirstPage />
               </button>
             )}
 
@@ -106,10 +106,10 @@ export default function Rank({ column, data }) {
               </button>
             )}
 
-            {/* 다음 버튼 */}
+            {/* 마지막 페이지 버튼 */}
             {currentPage < totalPages && (
-              <button onClick={() => handlePageChange(currentPage + 1)}>
-                <MdNavigateNext />
+              <button onClick={() => handlePageChange(totalPages)}>
+                <MdLastPage />
               </button>
             )}
           </div>

@@ -4,9 +4,9 @@ import { searchFirms } from "~/api/firms";
 import "./Common.css";
 
 const colors = [
-  "linear-gradient(124deg, #fffad2 0%, #ddac17 20%, #ffea95 45%, #e4c440 70%)",
-  "linear-gradient(124deg, #dfdfdf 0%, #8a8a8a 20%, #d1d1d1 45%, #9c9c9c 70%)",
-  "linear-gradient(124deg, #e28b4f 0%, #cd7132 20%, #f5ac7a 45%, #b85f22 70%)",
+  "linear-gradient(124deg, #fffad2 0%, #ddac17 20%, #ffea95 45%, #e4c440 80%)",
+  "linear-gradient(124deg, #dfdfdf 0%, #8a8a8a 20%, #d1d1d1 45%, #9c9c9c 80%)",
+  "linear-gradient(124deg, #e28b4f 0%, #cd7132 20%, #f5ac7a 45%, #b85f22 80%)",
 ];
 
 export default function Best({ rank, name, company, returnRate }) {

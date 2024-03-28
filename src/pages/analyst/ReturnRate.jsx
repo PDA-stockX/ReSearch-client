@@ -31,7 +31,7 @@ export default function ReturnRate() {
   const exampleColumn = [
     { columnName: "순위", columnWidth: 40 },
     { columnName: "애널리스트", columnWidth: 70 },
-    { columnName: "업종", columnWidth: 80 },
+    { columnName: "업종", columnWidth: 60 },
     { columnName: "수익률", columnWidth: 60 },
   ];
 
