@@ -71,7 +71,7 @@ export default function AchievementScore() {
                     alignItems: "center",
                 }}
             >
-                <Rank column={exampleColumn} data={exampleData}></Rank>
+                <Rank column={exampleColumn} data={data}></Rank>
             </div>
         </>
     )
