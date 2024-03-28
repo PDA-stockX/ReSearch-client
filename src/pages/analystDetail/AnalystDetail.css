@@ -42,6 +42,15 @@
   justify-content: flex-end;
   border-radius: 3%;
   height: 15%;
+  padding: auto;
+  padding-inline: 2%;
+  padding-block: 0.5%;
+}
+.messageBox2 {
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 3%;
+  height: 15%;
   width: auto;
 }
 .cardBox {
