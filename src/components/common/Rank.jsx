@@ -45,7 +45,7 @@ export default function Rank({ column, data }) {
     }
 
     // 현재 페이지 주변 페이지 추가
-    if (currentPage > 3 && totalPages - currentPage > 3) {
+    if (currentPage > 3 && totalPages - currentPage >= 3) {
       pageNumbers.push(currentPage - 1);
       pageNumbers.push(currentPage);
       pageNumbers.push(currentPage + 1);
