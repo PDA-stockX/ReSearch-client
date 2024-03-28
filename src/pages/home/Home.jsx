@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Rank from "~/components/common/Rank";
-import Best3 from "~/components/common/Best3";
+import HomeBest3 from "~/components/common/HomeBest3";
 import axios from "axios";
+import TodayReportList from "./TodayReportList";
 export default function Home() {
   const [todayRecommend, setTodayRecommned] = useState([]);
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function Home() {
         "http://localhost:3000/todayRecommend/getRecommend"
       );
       console.log(response);
-      setTodayRecommned(response);
+      setTodayRecommned(response.data);
     }
     getToday();
   }, []);
@@ -24,7 +25,10 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        {todayRecommend.length > 0 && <Best3 data={todayRecommend}></Best3>}
+        {console.log(todayRecommend.data)}
+        {todayRecommend.length > 0 && (
+          <HomeBest3 data={todayRecommend}></HomeBest3>
+        )}
       </div>
       <div
         style={{
@@ -32,19 +36,10 @@ export default function Home() {
           justifyContent: "space-between",
         }}
       >
-        <h2>달성률 순위</h2>
+        <h2>오늘의 리포트</h2>
         {/* <h5>기준 날짜: {formattedDate}</h5> */}
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {/* <Rank column={exampleColumn} data={data}></Rank> */}
-      </div>
-      {/* <div dangerouslySetInnerHTML={{ __html: text }} id="content"></div> */}
+      <TodayReportList />
     </>
   );
 }

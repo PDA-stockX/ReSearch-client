@@ -1,18 +1,20 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { Instance } from "~/api/instance";
 import { Link } from "react-router-dom";
-export default function BookmarkReportList() {
+export default function TodayReportList() {
   const [reportList, setReportList] = useState([]);
   useEffect(() => {
     async function getReportList() {
-      const response = await Instance.get("/bookmark/myReport");
-      console.log(response.data);
+      const response = await axios.get(
+        "http://localhost:3000/todayRecommend/getTodayReport"
+      );
       setReportList(response.data);
+      console.log(response);
     }
     getReportList();
   }, []);
+
   return (
     <div className="reportListCard" style={{ marginTop: "5%" }}>
       <div

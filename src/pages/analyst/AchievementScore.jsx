@@ -31,7 +31,7 @@ export default function AchievementScore() {
   const exampleColumn = [
     { columnName: "순위", columnWidth: 40 },
     { columnName: "애널리스트", columnWidth: 70 },
-    { columnName: "업종", columnWidth: 100 },
+    { columnName: "업종", columnWidth: 80 },
     { columnName: "달성점수", columnWidth: 60 },
   ];
 

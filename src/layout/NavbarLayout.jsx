@@ -10,7 +10,12 @@ import "./topButton.css";
 export default function NavbarLayout() {
   const [showButton, setShowButton] = useState(false);
   const location = useLocation();
-  const Analyst_subMenu = ["return-rate", "achievement-score", "sector", "popular"];
+  const Analyst_subMenu = [
+    "return-rate",
+    "achievement-score",
+    "sector",
+    "popular",
+  ];
 
   const Analyst_subMenuName = ["수익률", "달성률", "업종", "인기"];
 
@@ -49,26 +54,65 @@ export default function NavbarLayout() {
   return (
     <>
       {location.pathname.startsWith("/analyst") ? (
-        <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
+        <Container
+          sticky="top"
+          style={{
+            backgroundColor: "#F7F7F7",
+            position: "sticky",
+            width: "100%",
+            padding: "0%",
+          }}
+          className="fixed-top"
+        >
           <Header />
-          <SubHeader menu="analyst" subMenu={Analyst_subMenu} subMenuName={Analyst_subMenuName} />
+          <SubHeader
+            menu="analyst"
+            subMenu={Analyst_subMenu}
+            subMenuName={Analyst_subMenuName}
+          />
         </Container>
       ) : location.pathname.startsWith("/firm") ? (
-        <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
+        <Container
+          sticky="top"
+          style={{
+            backgroundColor: "#F7F7F7",
+            position: "sticky",
+            width: "100%",
+            padding: "0%",
+          }}
+          className="fixed-top"
+        >
           <Header />
-          <SubHeader menu="firm" subMenu={Firm_subMenu} subMenuName={Firm_subMenuName} />
+          <SubHeader
+            menu="firm"
+            subMenu={Firm_subMenu}
+            subMenuName={Firm_subMenuName}
+          />
         </Container>
       ) : location.pathname.startsWith("/bookmark") ? (
-        <Container style={{ backgroundColor: "#F7F7F7" }} className="fixed-top">
+        <Container
+          sticky="top"
+          style={{
+            backgroundColor: "#F7F7F7",
+            position: "sticky",
+            width: "100%",
+            padding: "0%",
+          }}
+          className="fixed-top"
+        >
           <Header />
-          <SubHeader menu="bookmark" subMenu={Bookmark_subMenu} subMenuName={Bookmark_subMenuName} />
+          <SubHeader
+            menu="bookmark"
+            subMenu={Bookmark_subMenu}
+            subMenuName={Bookmark_subMenuName}
+          />
         </Container>
       ) : (
         <Header />
       )}
 
       {/* marginTop: "78.4px" */}
-      <Container style={{ backgroundColor: "#F7F7F7", marginTop: "27%" }} className="min-vh-100">
+      <Container style={{ backgroundColor: "#F7F7F7" }} className="min-vh-100">
         <Outlet />
       </Container>
 

@@ -7,7 +7,10 @@ import {useSelector} from "react-redux";
 export default function AnalystChat(props) {
     const [messageList, setMessageList] = useState([]);
     const [inputText, setInputText] = useState("");
+    const [newMessageAlert, setNewMessageAlert] = useState(false);
     const currentUserId = useRef(0);
+    const scrollable = useRef(false);
+    const scrollRef = useRef(null);
     const authContext = useSelector((state) => state.auth.authContext);
 
     const onClickSubmit = useCallback(() => {
@@ -44,6 +47,72 @@ export default function AnalystChat(props) {
             socket.emit("leaveRoom", {roomId: props.analId});
         };
     }, [authContext, props.analId]);
+
+  const onScrollToBottom = useCallback(() => {
+    // scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    scrollRef.current.scrollBy({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  });
+
+  useEffect(() => {
+    console.log(authContext);
+    socket.emit("connectAnalRoom", { analId: props.analId });
+    socket.on("listenChat", ({ chatString, user }) => {
+      const listItem = { user, chatString };
+      console.log("listItem : " + listItem.user.id);
+      console.log(scrollRef.current.scrollTop);
+      console.log(scrollRef.current.scrollHeight);
+      console.log(scrollRef.current.clientHeight);
+      console.log(scrollRef.current);
+      if (
+        scrollRef.current.scrollTop + scrollRef.current.clientHeight ===
+        scrollRef.current.scrollHeight
+      ) {
+        scrollable.current = true;
+      } else {
+        scrollable.current = false;
+      }
+      setMessageList([...messageList, listItem]);
+
+      console.log(messageList);
+    });
+    if (scrollable.current === true) {
+      onScrollToBottom();
+      scrollable.current = false;
+    } else {
+      setNewMessageAlert(true);
+    }
+    return () => {
+      console.log("clean up");
+      socket.emit("leaveRoom", { analId: props.analId });
+    };
+  }, [messageList]);
+
+  // const rendering = () => {
+  //   const result = [];
+  //   console.log(messageList);
+  //   for (let i = 1; i < messageList.length; i++) {
+  //     if (messageList[i - 1].user.id === messageList[i].user.id) {
+  //       result.push(
+  //         <AnalystMessage
+  //           chat={messageList[i].chatString}
+  //           nickname={messageList[i].user.nickname}
+  //           key={messageList[i].id}
+  //         />
+  //       );
+  //     } else {
+  //       result.push(
+  //         <AnalystMessage
+  //           chat={messageList[i].chatString}
+  //           key={messageList[i].id}
+  //         />
+  //       );
+  //     }
+  //   }
+  //   return result;
+  // };
 
     return (
         <div
