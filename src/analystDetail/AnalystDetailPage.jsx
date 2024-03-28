@@ -20,7 +20,7 @@ export default function AnalystDetailPage() {
       <h2>리포트</h2>
       <AnalystReport analId={analId} />
       <h2>오픈 TALK 💬</h2>
-      <div>
+      <div style={{ height: "100%" }}>
         <AnalystChat analId={analId} />
       </div>
     </div>

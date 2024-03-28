@@ -4,6 +4,7 @@
   justify-content: space-around;
   padding: 3%;
   background-color: #f7f7f7;
+  height: 200%;
 }
 .reportListCard {
   border: 1px solid #cbcbcb;
@@ -30,6 +31,16 @@
   display: inline-block;
   border-radius: 3%;
   height: 15%;
+  padding: auto;
+  padding-inline: 2%;
+  padding-block: 0.5%;
+}
+.messageBox2 {
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 3%;
+  height: 15%;
+  width: auto;
 }
 .cardBox {
   border: 1px solid #cbcbcb;
@@ -70,7 +81,7 @@
 .messageInput {
   border: 1px;
   border: solid;
-  border-radius: 20%;
+  border-radius: 10%;
   border-color: #be96ff;
   width: 15%;
   position: absolute;
