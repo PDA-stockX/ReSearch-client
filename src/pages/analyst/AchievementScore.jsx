@@ -14,7 +14,7 @@ export default function AchievementScore() {
       const data1 = ranking.map((item, index) => [index + 1, item.name, item.sectorNames[0], item.achievementScore]);
 
       const top3 = ranking.slice(0, 3);
-      const data2 = top3.map((item, index) => [index + 1, item.name, item.firm, item.achievementScore]);
+      const data2 = top3.map((item, index) => [index + 1, item.name, item.firm, item.achievementScore + "점"]);
 
       return { data1, data2 };
     }

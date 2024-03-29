@@ -6,37 +6,40 @@
   background-color: #f7f7f7;
 }
 .reportListCard {
-  border: 1px solid #cbcbcb;
-  border-radius: 3%;
+  /* border: 1px solid #cbcbcb; */
+  border-radius: 7px;
   width: 100%;
   height: 100%;
   background-color: #ffffff;
+  box-shadow: 0 0.5px 4px rgba(42, 42, 42, 0.16), 0 0.5px 4px rgba(42, 42, 42, 0.16);
+  margin-bottom: 5%;
   display: flex;
   position: relative;
 }
 
 .chatBox {
-  border: 1px solid #cbcbcb;
+  /* border: 1px solid #cbcbcb; */
   width: 100%;
   height: 10%;
   display: flex;
   margin-bottom: 5%;
-  /* margin-bottom: 5%; */
+  box-shadow: 0 0.5px 4px rgba(42, 42, 42, 0.16), 0 0.5px 4px rgba(42, 42, 42, 0.16);
   flex-direction: column;
 }
 
 .messageBox {
   background-color: #eee3ff;
   display: inline-block;
-  border-radius: 3%;
+  border-radius: 7px;
   height: 15%;
 }
 .cardBox {
-  border: 1px solid #cbcbcb;
-  border-radius: 3%;
+  /* border: 1px solid #cbcbcb; */
+  border-radius: 7px;
   width: 100%;
   height: 100%;
   background-color: #ffffff;
+  box-shadow: 0 0.5px 4px rgba(42, 42, 42, 0.16), 0 0.5px 4px rgba(42, 42, 42, 0.16);
   display: flex;
   position: relative;
 }
@@ -70,7 +73,7 @@
 .messageInput {
   border: 1px;
   border: solid;
-  border-radius: 20%;
+  border-radius: 7px;
   border-color: #be96ff;
   width: 15%;
   position: absolute;

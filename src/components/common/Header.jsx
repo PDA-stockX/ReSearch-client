@@ -28,7 +28,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/");
               }}
-              className={location.pathname === "/home" ? "active" : ""}
+              className={location.pathname === "/" ? "active" : ""}
             >
               홈
             </Nav.Link>
@@ -58,7 +58,7 @@ export default function Header() {
             </Nav.Link>
           </Nav>
         </Container>
-        <SearchModal isMobile={true}></SearchModal>
+        <SearchModal isMobile={true} className="search"></SearchModal>
         <SideNavMenu placement="end" name="end" />
       </Navbar>
     </>

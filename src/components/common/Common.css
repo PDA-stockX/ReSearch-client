@@ -8,7 +8,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .custom-navbar .nav-link {
@@ -115,6 +115,7 @@ body {
   justify-content: center;
   position: relative;
   font-size: 14px;
+  margin-bottom: 3%;
 }
 
 .bestInfo {
@@ -144,15 +145,15 @@ body {
   padding-bottom: 10%;
 }
 
-.company {
+/* .company {
   font-size: 0.7em;
   color: #9c5fff;
   padding-bottom: 22%;
   width: "70%";
-}
+} */
 
 .returnRate {
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   text-align: right;
   color: #f22e40;
@@ -202,6 +203,10 @@ body {
 }
 
 @media screen and (min-width: 500px) {
+  .custom-navbar {
+    font-size: 20px;
+  }
+
   .rankCell {
     font-size: 1em;
   }

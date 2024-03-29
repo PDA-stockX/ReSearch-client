@@ -14,7 +14,7 @@ export default function Popularity() {
       const data1 = ranking.map((item, index) => [index + 1, item.name, item.followerCount]);
 
       const top3 = ranking.slice(0, 3);
-      const data2 = top3.map((item, index) => [index + 1, item.name, item.firm, "★" + item.followerCount]);
+      const data2 = top3.map((item, index) => [index + 1, item.name, item.firm, "⭐" + item.followerCount]);
 
       return { data1, data2 };
     }
