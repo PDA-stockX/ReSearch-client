@@ -19,7 +19,7 @@ export default function Header() {
     <>
       <Navbar
         className="fixed-top" //bg-white"
-        style={{ width: "100%", background: "#F7F7F7" }}
+        style={{ width: "100%", background: "#F7F7F7", zIndex: 1030 }}
         sticky="top"
       >
         <Container className="custom-navbar">

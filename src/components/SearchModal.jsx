@@ -50,8 +50,8 @@ export const ModalView = styled.div.attrs((props) => ({
   align-items: flex-start;
   flex-direction: column;
   border-radius: 20px;
-  width: 500px;
-  height: 600px;
+  width: 90%;
+  height: 90%;
   background-color: #ffffff;
   overflow: scroll;
 `;
@@ -62,7 +62,8 @@ export const InputContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 40px;
+  width: 84%;
+  height: 6%;
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #000000;
