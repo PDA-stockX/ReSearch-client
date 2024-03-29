@@ -36,7 +36,7 @@ export default function Popularity() {
 
   return (
     <>
-      <h2>Best 3</h2>
+      {/* <h2>Best 3</h2> */}
       <div
         style={{
           display: "flex",

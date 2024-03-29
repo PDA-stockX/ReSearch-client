@@ -67,7 +67,7 @@ export default function Sector() {
 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h2>Best 3</h2>
         <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>}>
           {sectors.map((sector, index) => (
@@ -76,7 +76,14 @@ export default function Sector() {
             </Dropdown.Item>
           ))}
         </DropdownButton>
-      </div>
+      </div> */}
+      <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>} style={{ left: "92%" }}>
+        {sectors.map((sector, index) => (
+          <Dropdown.Item key={index} onClick={() => handleSectorChange(sector.sectorName)} className="dropdownItem">
+            {sector.sectorName}
+          </Dropdown.Item>
+        ))}
+      </DropdownButton>
       <div
         style={{
           display: "flex",
@@ -92,7 +99,9 @@ export default function Sector() {
           justifyContent: "space-between",
         }}
       >
-        <h2>{selectedSector} 순위</h2>
+        <h2>
+          <span>{selectedSector}</span> 순위
+        </h2>
         <h5>기준 날짜: {formattedDate}</h5>
       </div>
       <div

@@ -14,7 +14,7 @@ body {
 .custom-navbar .nav-link {
   display: flex;
   /* font-size: 98%; */
-  padding-right: 3%;
+  /* padding-right: 3%; */
   font-weight: bold;
   color: #cbcbcb; /* 비활성화 상태 색상 */
 }
@@ -35,7 +35,7 @@ body {
   display: inline-block;
   margin: 1rem;
   position: relative;
-  width: 92%;
+  width: 95.5%;
   box-shadow: 0 0.5px 4px rgba(42, 42, 42, 0.16), 0 0.5px 4px rgba(42, 42, 42, 0.16);
   text-align: center;
 }
@@ -92,10 +92,11 @@ body {
 /* Best3.jsx */
 .best3 {
   display: flex;
-  align-content: space-between;
+  /* align-content: space-between; */
   justify-content: space-between;
   width: 100%;
-  padding: 4%;
+  margin-top: 3%;
+  /* padding: 4%; */
 }
 
 /* Best.jsx */
@@ -103,7 +104,7 @@ body {
   background-color: #ffffff;
   /* border: 1px solid #cbcbcb; */
   padding: 4%;
-  width: 27%;
+  width: 28.2%;
   height: 35%;
   border-radius: 8px;
   /* align-items: center; */
@@ -153,7 +154,7 @@ body {
 } */
 
 .returnRate {
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: bold;
   text-align: right;
   color: #f22e40;

@@ -37,7 +37,7 @@ export default function AchievementScore() {
 
   return (
     <>
-      <h2>Best 3</h2>
+      {/* <h2>Best 3</h2> */}
       <div
         style={{
           display: "flex",
