@@ -33,6 +33,7 @@ export default function Best({ rank, name, company, returnRate }) {
         <div className="rank" style={{ fontSize: "1.65em", background: `${colors[rank - 1]}` }}>
           {rank}
         </div>
+<<<<<<< HEAD
 
         {name && name.length > 0 && company.length > 0 && (
           <div className="name">
@@ -46,6 +47,12 @@ export default function Best({ rank, name, company, returnRate }) {
         )}
 
         {/* <div className="name">{company.length > 0 ? <a href={`/detail/analyst/${analystId}`}>{name}</a> : <a href={`/detail/firm/${analystId}`}>{name}</a>}</div> */}
+=======
+        <div className="name">{company.length > 0 ? <a href={`/detail/analyst/${analystId}`}>{name}</a> : <a href={`/detail/firm/${analystId}`}>{name}</a>}</div>
+        {/* <div className="company">
+          <a href={`/detail/firm/${firmId}`}>{company}</a>
+        </div> */}
+>>>>>>> 869001b (css 수정)
       </div>
       <div className="returnRate">{returnRate}</div>
     </div>

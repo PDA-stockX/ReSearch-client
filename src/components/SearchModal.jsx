@@ -50,8 +50,13 @@ export const ModalView = styled.div.attrs((props) => ({
   align-items: flex-start;
   flex-direction: column;
   border-radius: 20px;
+<<<<<<< HEAD
   width: 90%;
   height: 90%;
+=======
+  width: 500px;
+  height: 600px;
+>>>>>>> 869001b (css 수정)
   background-color: #ffffff;
   overflow: scroll;
 `;
@@ -62,8 +67,12 @@ export const InputContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   width: 84%;
   height: 6%;
+=======
+  height: 40px;
+>>>>>>> 869001b (css 수정)
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #000000;
