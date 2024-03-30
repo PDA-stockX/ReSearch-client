@@ -25,6 +25,16 @@ body {
 
 .sub-navbar {
   font-size: 90%;
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: none;
+}
+
+.sub-navbar .nav-link.active {
+  border: 1px solid #e8e8e8;
+  border-radius: 7px 7px 0 0;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #9c5fff !important;
+  border-bottom: none;
 }
 
 /* Rank.jsx */
@@ -95,7 +105,7 @@ body {
   /* align-content: space-between; */
   justify-content: space-between;
   width: 100%;
-  margin-top: 3%;
+  margin-top: 5%;
   /* padding: 4%; */
 }
 
