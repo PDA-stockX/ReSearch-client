@@ -77,7 +77,7 @@ export default function Sector() {
           ))}
         </DropdownButton>
       </div> */}
-      <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>} style={{ left: "92%" }}>
+      <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>} style={{ display: "flex", justifyContent: "flex-end", marginRight: "2%" }}>
         {sectors.map((sector, index) => (
           <Dropdown.Item key={index} onClick={() => handleSectorChange(sector.sectorName)} className="dropdownItem">
             {sector.sectorName}
