@@ -77,13 +77,14 @@ export default function Sector() {
           ))}
         </DropdownButton>
       </div> */}
-      <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>} style={{ display: "flex", justifyContent: "flex-end", marginRight: "2%" }}>
+
+      {/* <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>} style={{ display: "flex", justifyContent: "flex-end", marginRight: "2%" }}>
         {sectors.map((sector, index) => (
           <Dropdown.Item key={index} onClick={() => handleSectorChange(sector.sectorName)} className="dropdownItem">
             {sector.sectorName}
           </Dropdown.Item>
         ))}
-      </DropdownButton>
+      </DropdownButton> */}
       <div
         style={{
           display: "flex",
@@ -102,7 +103,16 @@ export default function Sector() {
         <h2>
           <span>{selectedSector}</span> 순위
         </h2>
-        <h5>기준 날짜: {formattedDate}</h5>
+        <div style={{ display: "flex", width: "42%", marginTop: "1%" }}>
+          <h5 style={{ marginTop: "3%" }}>기준 날짜: {formattedDate}</h5>
+          <DropdownButton id="dropdown-basic-button" title={<ion-icon name="options-outline"></ion-icon>} style={{ display: "flex", justifyContent: "flex-end", marginRight: "2%" }}>
+            {sectors.map((sector, index) => (
+              <Dropdown.Item key={index} onClick={() => handleSectorChange(sector.sectorName)} className="dropdownItem">
+                {sector.sectorName}
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
+        </div>
       </div>
       <div
         style={{
