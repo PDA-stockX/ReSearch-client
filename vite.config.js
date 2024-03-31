@@ -27,14 +27,7 @@ export default defineConfig({
       { find: "~/reducers", replacement: "/src/reducers" },
       { find: "~/hooks", replacement: "/src/hooks" },
       { find: "~/styles", replacement: "/src/styles" },
-      {
-        find: "~/analystDetail",
-        replacement: "/src/analystDetail",
-      },
-      {
-        find: "~/asset",
-        replacement: "/src/assets",
-      },
+      { find: "~/public", replacement: "/public" },
     ],
   },
 });

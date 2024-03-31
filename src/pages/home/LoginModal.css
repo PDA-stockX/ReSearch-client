@@ -1,0 +1,23 @@
+.goHomeButton {
+  border: 1px solid;
+  padding: 5%;
+  width: 60%;
+  color: #cbcbcb;
+  font-size: 1rem;
+  border-radius: 8%;
+  cursor: pointer;
+}
+
+.goLoginButton {
+  font-size: 1rem;
+  border: 1px solid;
+  padding: 5%;
+  border-radius: 8%;
+  width: 60%;
+  color: white;
+  background: #eee3ff;
+}
+
+.temp {
+  color: #eee3ff;
+}

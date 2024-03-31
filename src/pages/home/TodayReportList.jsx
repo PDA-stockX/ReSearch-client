@@ -10,7 +10,7 @@ export default function TodayReportList() {
         "http://localhost:3000/todayRecommend/getTodayReport"
       );
       setReportList(response.data);
-      console.log(response);
+      console.log(response.data);
     }
     getReportList();
   }, []);
@@ -47,20 +47,18 @@ export default function TodayReportList() {
               className="reportCardEle"
               style={{ marginBlock: "2%" }}
             >
-              <div style={{ width: "15%" }} key={el.report.id}>
-                {el.report.stockName}
+              <div style={{ width: "15%" }} key={el.id}>
+                {el.stockName}
+                {console.log(el)}
               </div>
 
-              <Link
-                style={{ width: "50%" }}
-                to={`/detail/report/${el.report.id}`}
-              >
+              <Link style={{ width: "50%" }} to={`/detail/report/${el.id}`}>
                 {" "}
-                <div key={el.id}>{el.report.title}</div>
+                <div key={el.id}>{el.title}</div>
               </Link>
               <div style={{ width: "15%" }}>{el.firm}</div>
               <div style={{ width: "15%" }} key={el.id}>
-                {el.report.postedAt.substr(0, 10)}
+                {el.postedAt.substr(0, 10)}
               </div>
             </div>
           );
