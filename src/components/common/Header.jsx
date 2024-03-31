@@ -19,7 +19,7 @@ export default function Header() {
     <>
       <Navbar
         className="fixed-top" //bg-white"
-        style={{ width: "100%", background: "#F7F7F7" }}
+        style={{ width: "100%", background: "#F7F7F7", zIndex: 1030 }}
         sticky="top"
       >
         <Container className="custom-navbar">
@@ -28,7 +28,7 @@ export default function Header() {
               onClick={() => {
                 navigate("/");
               }}
-              className={location.pathname === "/home" ? "active" : ""}
+              className={location.pathname === "/" ? "active" : ""}
             >
               홈
             </Nav.Link>
@@ -58,7 +58,7 @@ export default function Header() {
             </Nav.Link>
           </Nav>
         </Container>
-        <SearchModal isMobile={true}></SearchModal>
+        <SearchModal isMobile={true} className="search"></SearchModal>
         <SideNavMenu placement="end" name="end" />
       </Navbar>
     </>

@@ -10,18 +10,13 @@ import "./topButton.css";
 export default function NavbarLayout() {
   const [showButton, setShowButton] = useState(false);
   const location = useLocation();
-  const Analyst_subMenu = [
-    "return-rate",
-    "achievement-score",
-    "sector",
-    "popular",
-  ];
+  const Analyst_subMenu = ["return-rate", "achievement-score", "sector", "popular"];
 
-  const Analyst_subMenuName = ["수익률", "달성률", "업종", "인기"];
+  const Analyst_subMenuName = ["수익률", "달성점수", "업종", "인기"];
 
   const Firm_subMenu = ["return-rate", "achievement-score", "popular"];
 
-  const Firm_subMenuName = ["수익률", "달성률", "인기"];
+  const Firm_subMenuName = ["수익률", "달성점수", "인기"];
 
   const Bookmark_subMenu = ["analyst", "report"];
 
@@ -65,11 +60,7 @@ export default function NavbarLayout() {
           className="fixed-top"
         >
           <Header />
-          <SubHeader
-            menu="analyst"
-            subMenu={Analyst_subMenu}
-            subMenuName={Analyst_subMenuName}
-          />
+          <SubHeader menu="analyst" subMenu={Analyst_subMenu} subMenuName={Analyst_subMenuName} />
         </Container>
       ) : location.pathname.startsWith("/firm") ? (
         <Container
@@ -83,11 +74,7 @@ export default function NavbarLayout() {
           className="fixed-top"
         >
           <Header />
-          <SubHeader
-            menu="firm"
-            subMenu={Firm_subMenu}
-            subMenuName={Firm_subMenuName}
-          />
+          <SubHeader menu="firm" subMenu={Firm_subMenu} subMenuName={Firm_subMenuName} />
         </Container>
       ) : location.pathname.startsWith("/bookmark") ? (
         <Container
@@ -101,11 +88,7 @@ export default function NavbarLayout() {
           className="fixed-top"
         >
           <Header />
-          <SubHeader
-            menu="bookmark"
-            subMenu={Bookmark_subMenu}
-            subMenuName={Bookmark_subMenuName}
-          />
+          <SubHeader menu="bookmark" subMenu={Bookmark_subMenu} subMenuName={Bookmark_subMenuName} />
         </Container>
       ) : (
         <Header />

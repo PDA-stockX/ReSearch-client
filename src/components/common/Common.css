@@ -8,13 +8,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .custom-navbar .nav-link {
   display: flex;
   /* font-size: 98%; */
-  padding-right: 3%;
+  /* padding-right: 3%; */
   font-weight: bold;
   color: #cbcbcb; /* 비활성화 상태 색상 */
 }
@@ -25,6 +25,16 @@ body {
 
 .sub-navbar {
   font-size: 90%;
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: none;
+}
+
+.sub-navbar .nav-link.active {
+  border: 1px solid #e8e8e8;
+  border-radius: 7px 7px 0 0;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #9c5fff !important;
+  border-bottom: none;
 }
 
 /* Rank.jsx */
@@ -35,7 +45,7 @@ body {
   display: inline-block;
   margin: 1rem;
   position: relative;
-  width: 92%;
+  width: 95.5%;
   box-shadow: 0 0.5px 4px rgba(42, 42, 42, 0.16), 0 0.5px 4px rgba(42, 42, 42, 0.16);
   text-align: center;
 }
@@ -92,10 +102,11 @@ body {
 /* Best3.jsx */
 .best3 {
   display: flex;
-  align-content: space-between;
+  /* align-content: space-between; */
   justify-content: space-between;
   width: 100%;
-  padding: 4%;
+  margin-top: 5%;
+  /* padding: 4%; */
 }
 
 /* Best.jsx */
@@ -103,7 +114,7 @@ body {
   background-color: #ffffff;
   /* border: 1px solid #cbcbcb; */
   padding: 4%;
-  width: 27%;
+  width: 28.2%;
   height: 35%;
   border-radius: 8px;
   /* align-items: center; */
@@ -115,6 +126,7 @@ body {
   justify-content: center;
   position: relative;
   font-size: 14px;
+  margin-bottom: 3%;
 }
 
 .bestInfo {
@@ -144,15 +156,15 @@ body {
   padding-bottom: 10%;
 }
 
-.company {
+/* .company {
   font-size: 0.7em;
   color: #9c5fff;
   padding-bottom: 22%;
   width: "70%";
-}
+} */
 
 .returnRate {
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   text-align: right;
   color: #f22e40;
@@ -202,6 +214,10 @@ body {
 }
 
 @media screen and (min-width: 500px) {
+  .custom-navbar {
+    font-size: 20px;
+  }
+
   .rankCell {
     font-size: 1em;
   }

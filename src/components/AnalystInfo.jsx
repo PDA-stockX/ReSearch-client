@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
+import "~/styles/SearchResult.css";
 
 export default function AnalystInfo({ analyst }) {
-    return (
-        <>
-            <h3>Analyst Information</h3>
-            <div>
-                <p>Analyst Name: {analyst.name}</p>
-                <p>Analyst Return Rate: {analyst.returnRate}</p>
-                <p>Analyst Achievement Score: {analyst.achievementScore}</p>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="result">
+        <p>이름: {analyst.name}</p>
+        <p>수익률: {analyst.returnRate}</p>
+        <p>달성점수: {analyst.achievementScore}</p>
+      </div>
+    </>
+  );
 }
