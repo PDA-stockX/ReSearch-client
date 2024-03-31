@@ -5,7 +5,11 @@ import followImg from "~/assets/follow.png";
 import unFollowImg from "~/assets/unfollow.png";
 import axios from "axios";
 import { useSelector } from "react-redux";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
+=======
+
+>>>>>>> 85395bc (Firm img)
 export default function AnalystCard(props) {
   const [analInfo, setAnalInfo] = useState({});
   const [isFollow, setIsFollow] = useState(false);
@@ -13,7 +17,11 @@ export default function AnalystCard(props) {
   const authContext = useSelector((state) => state.auth.authContext);
   const [pleLogin, setPleLogin] = useState(false);
   const analId = props.analId;
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+
+>>>>>>> 85395bc (Firm img)
   useEffect(() => {
     console.log(authContext);
     async function fetchData() {

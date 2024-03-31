@@ -42,7 +42,7 @@ export default function Home() {
         <h2>오늘의 리포트</h2>
         {/* <h5>기준 날짜: {formattedDate}</h5> */}
       </div>
-      <TodayReportList />
+      {/* <TodayReportList /> */}
     </>
   );
 }
