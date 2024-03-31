@@ -52,7 +52,11 @@ export default function AnalystChat(props) {
       console.log(scrollRef.current.clientHeight);
       console.log(scrollRef.current.scrollHeight);
 
-      if (scrollRef.current.scrollTop + scrollRef.current.clientHeight + 10 >= scrollRef.current.scrollHeight || authContext.user.id == user.id) {
+      if (
+        scrollRef.current.scrollTop + scrollRef.current.clientHeight + 10 >=
+          scrollRef.current.scrollHeight ||
+        authContext.user.id == user.id
+      ) {
         scrollable.current = true;
       } else {
         scrollable.current = false;
@@ -86,18 +90,39 @@ export default function AnalystChat(props) {
       }}
       className="chatBox rounded-lg box-border h-48  gap-6 w-100 p-1"
     >
-      <div style={{ width: "100%", height: "85%" }} ref={scrollRef} className="overflow-auto">
+      <div
+        style={{ width: "100%", height: "85%" }}
+        ref={scrollRef}
+        className="overflow-auto"
+      >
         {messageList.map((el, index) => {
-          if (index > 0 && messageList[index - 1].user.id === messageList[index].user.id) {
-            if (messageList[index].user.id === authContext.user.id) return <AnalystMessage2 chat={el.chatMessage} key={el.id} />;
+          if (
+            index > 0 &&
+            messageList[index - 1].user.id === messageList[index].user.id
+          ) {
+            if (messageList[index].user.id === authContext.user.id)
+              return <AnalystMessage2 chat={el.chatMessage} key={el.id} />;
             else {
               return <AnalystMessage chat={el.chatMessage} key={el.id} />;
             }
           } else {
             currentUserId.current = el.user.id;
-            if (messageList[index].user.id === authContext.user.id) return <AnalystMessage2 chat={el.chatMessage} nickname={el.user.nickname} key={el.id} />;
+            if (messageList[index].user.id === authContext.user.id)
+              return (
+                <AnalystMessage2
+                  chat={el.chatMessage}
+                  nickname={el.user.nickname}
+                  key={el.id}
+                />
+              );
             else {
-              return <AnalystMessage chat={el.chatMessage} nickname={el.user.nickname} key={el.id} />;
+              return (
+                <AnalystMessage
+                  chat={el.chatMessage}
+                  nickname={el.user.nickname}
+                  key={el.id}
+                />
+              );
             }
           }
           // return <AnalystMessage chat={el.chatString} key={el.id} />;

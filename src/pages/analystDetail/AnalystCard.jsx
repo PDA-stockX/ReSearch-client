@@ -17,7 +17,9 @@ export default function AnalystCard(props) {
   useEffect(() => {
     console.log(authContext);
     async function fetchData() {
-      const res = await axios.get(`http://127.0.0.1:3000/analyst/${props.analId}`);
+      const res = await axios.get(
+        `http://127.0.0.1:3000/analyst/${props.analId}`
+      );
       console.log(res);
       setAnalInfo({
         analName: res.data.name,
@@ -28,14 +30,19 @@ export default function AnalystCard(props) {
       });
     }
     async function followCheck() {
-      const followCheck = await axios.get(`http://127.0.0.1:3000/followAnal/checkFollow`, { params: { analId: props.analId, userId: authContext.user.id } });
+      const followCheck = await axios.get(
+        `http://127.0.0.1:3000/followAnal/checkFollow`,
+        { params: { analId: props.analId, userId: authContext.user.id } }
+      );
       console.log(followCheck);
       if (followCheck.data.message == "Yes") {
         setIsFollow(true);
       }
     }
     async function getAnalSector() {
-      const res = await axios.get(`http://127.0.0.1:3000/analyst/checkSector/${props.analId}`);
+      const res = await axios.get(
+        `http://127.0.0.1:3000/analyst/checkSector/${props.analId}`
+      );
       console.log(res);
       setAnalSector(res.sectorName);
     }
@@ -80,7 +87,10 @@ export default function AnalystCard(props) {
   return (
     <div className="cardBox">
       {console.log(analInfo)}
-      <img className="analystImg rounded" src={`/firmIMG/증권${analInfo.firmId}.jpeg`}></img>
+      <img
+        className="analystImg rounded"
+        src={`/firmIMG/증권${analInfo.firmId}.jpeg`}
+      ></img>
       {/* {console.log(process.env.PUBLIC_URL)} */}
       <button
         style={{
@@ -91,7 +101,11 @@ export default function AnalystCard(props) {
         }}
         onClick={onFollow}
       >
-        {isFollow ? <Image style={{ size: "5%" }} src={followImg} /> : <Image style={{ size: "5%" }} src={unFollowImg} />}
+        {isFollow ? (
+          <Image style={{ size: "5%" }} src={followImg} />
+        ) : (
+          <Image style={{ size: "5%" }} src={unFollowImg} />
+        )}
       </button>
       <div
         className="analFont1 analystDetailCard"

@@ -23,5 +23,13 @@ export default function BookmarkReport() {
       setActived(true);
     }
   });
-  return <>{authContext.isAuthenticated ? <BookmarkReportList>{console.log(authContext)}</BookmarkReportList> : <></>}</>;
+  return (
+    <>
+      {authContext.isAuthenticated ? (
+        <BookmarkReportList>{console.log(authContext)}</BookmarkReportList>
+      ) : (
+        <></>
+      )}
+    </>
+  );
 }
