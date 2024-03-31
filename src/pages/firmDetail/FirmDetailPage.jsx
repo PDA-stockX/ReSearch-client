@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FirmLike from "./FirmLike";
-import AnalystCard from "~/analystDetail/AnalystCard";
+import AnalystCard from "~/pages/analystDetail/AnalystCard";
 export default function FirmDetailPage() {
   const firmId = useParams();
   const [firmInfo, setFirmInfo] = useState({});

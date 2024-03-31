@@ -3,8 +3,10 @@ import Rank from "~/components/common/Rank";
 import HomeBest3 from "~/components/common/HomeBest3";
 import axios from "axios";
 import TodayReportList from "./TodayReportList";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
   const [todayRecommend, setTodayRecommned] = useState([]);
+  const navigator = useNavigate();
   useEffect(() => {
     async function getToday() {
       const response = await axios.get(
@@ -15,6 +17,7 @@ export default function Home() {
     }
     getToday();
   }, []);
+
   return (
     <>
       <h2>Best 3</h2>
@@ -39,7 +42,7 @@ export default function Home() {
         <h2>오늘의 리포트</h2>
         {/* <h5>기준 날짜: {formattedDate}</h5> */}
       </div>
-      <TodayReportList />
+      {/* <TodayReportList /> */}
     </>
   );
 }
