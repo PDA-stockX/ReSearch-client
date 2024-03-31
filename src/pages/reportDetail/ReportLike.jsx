@@ -6,11 +6,13 @@ import likeImg from "~/assets/like.png";
 import unLikeImg from "~/assets/unlike.png";
 import unHateImg from "~/assets/unhate.png";
 import hateImg from "~/assets/hate.png";
+import { useNavigate } from "react-router-dom";
 export default function ReportLike(props) {
   const [isLike, setIsLike] = useState(false);
   const [isHate, setIsHate] = useState(false);
   const [likeNum, setLikeNum] = useState(0);
   const [hateNum, setHateNum] = useState(0);
+  const navigate = useNavigate();
   const authContext = useSelector((state) => state.auth.authContext);
   useEffect(() => {
     console.log(authContext);
@@ -73,6 +75,7 @@ export default function ReportLike(props) {
   const clickHateReport = useCallback(async () => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
+      navigate("/login");
     } else if (isHate == true) {
       setIsHate(false);
       setIsLike(false);
@@ -110,6 +113,7 @@ export default function ReportLike(props) {
   const clickLikeReport = useCallback(async () => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
+      navigate("/login");
     } else if (isLike == true) {
       setIsLike(false);
       setIsHate(false);

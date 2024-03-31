@@ -11,10 +11,12 @@ export default function BookmarkReport() {
   const [actived, setActived] = useState(false);
   const authContext = useSelector((state) => state.auth.authContext);
   const navigate = useNavigate();
-  function goLogin() {
-    alert("로그인 후 이용해주세요");
-    navigate("/login");
-  }
+  useEffect(() => {
+    if (!authContext.isAuthenticated) {
+      alert("로그인 후 이용해주세요");
+      navigate("/login");
+    }
+  }, [authContext.isAuthenticated]);
 
   useEffect(() => {
     if (authContext.isAuthenticated === false) {
@@ -26,7 +28,7 @@ export default function BookmarkReport() {
       {authContext.isAuthenticated ? (
         <BookmarkReportList>{console.log(authContext)}</BookmarkReportList>
       ) : (
-        goLogin()
+        <></>
       )}
     </>
   );

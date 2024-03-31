@@ -44,7 +44,9 @@ export default function ReportDetailCard(props) {
         </div>{" "}
         <div className="reportDetailCardEle">
           <div className="reportDetailCardLeft">작성일</div>
-          <div className="reportDetailCardRight">{reportInfo.postedAt}</div>
+          <div className="reportDetailCardRight">
+            {reportInfo.postedAt.substr(0, 10)}
+          </div>
         </div>{" "}
         <div className="reportDetailCardEle">
           <div className="reportDetailCardLeft">종목명</div>

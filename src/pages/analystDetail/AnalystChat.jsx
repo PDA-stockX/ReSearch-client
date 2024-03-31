@@ -4,7 +4,7 @@ import AnalystMessage from "./AnalystMessage";
 import AnalystMessage2 from "./AnalystMessage2";
 import "./AnalystDetail.css";
 import { useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 export default function AnalystChat(props) {
   const [messageList, setMessageList] = useState([]);
   const [inputText, setInputText] = useState("");
@@ -13,10 +13,11 @@ export default function AnalystChat(props) {
   const scrollable = useRef(false);
   const scrollRef = useRef(null);
   const authContext = useSelector((state) => state.auth.authContext);
-
+  const navigate = useNavigate();
   const onClickSubmit = useCallback(() => {
     if (!authContext.isAuthenticated) {
-      alert("로그인 해주세요");
+      alert("로그인 후 이용해 주세요");
+      navigate("/login");
     } else if (inputText === "") {
       console.log(inputText);
       alert("메세지를 입력해주세요");

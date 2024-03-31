@@ -5,7 +5,7 @@ import followImg from "~/assets/follow.png";
 import unFollowImg from "~/assets/unfollow.png";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 export default function AnalystCard(props) {
   const [analInfo, setAnalInfo] = useState({});
   const [isFollow, setIsFollow] = useState(false);
@@ -13,7 +13,7 @@ export default function AnalystCard(props) {
   const authContext = useSelector((state) => state.auth.authContext);
   const [pleLogin, setPleLogin] = useState(false);
   const analId = props.analId;
-
+  const navigate = useNavigate();
   useEffect(() => {
     console.log(authContext);
     async function fetchData() {
@@ -80,7 +80,8 @@ export default function AnalystCard(props) {
       }
     } else {
       setPleLogin(true);
-      alert("로그인을 해주세요");
+      alert("로그인 후 이용해 주세요");
+      navigate("/login");
     }
   }, [isFollow]);
   return (
