@@ -5,6 +5,7 @@ import AnalystCard from "~/pages/analystDetail/AnalystCard";
 import persist from "~/utils/persist";
 export default function BookmarkAnalCard(props) {
   const [analList, setAnalList] = useState([]);
+
   useEffect(() => {
     async function getMyAnal() {
       // console.log(persist());
@@ -15,6 +16,7 @@ export default function BookmarkAnalCard(props) {
     }
     getMyAnal();
   }, [props]);
+
 
   return (
     <>

@@ -7,12 +7,14 @@ import unLikeImg from "~/assets/unlike.png";
 import unHateImg from "~/assets/unhate.png";
 import hateImg from "~/assets/hate.png";
 import { Instance } from "~/api/instance";
+import { useNavigate } from "react-router-dom";
 export default function FirmLike(props) {
   const [isLike, setIsLike] = useState(false);
   const [isHate, setIsHate] = useState(false);
   const [likeNum, setLikeNum] = useState(0);
   const [hateNum, setHateNum] = useState(0);
   const authContext = useSelector((state) => state.auth.authContext);
+  const navigate = useNavigate();
   useEffect(() => {
     console.log(authContext);
     async function checkFirmLike() {
@@ -62,6 +64,7 @@ export default function FirmLike(props) {
   const clickHateFirm = useCallback(async () => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
+      navigate("/login");
     } else if (isHate == true) {
       setIsHate(false);
       setIsLike(false);
@@ -88,6 +91,7 @@ export default function FirmLike(props) {
   const clickLikeFirm = useCallback(async () => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
+      navigate("/login");
     } else if (isLike == true) {
       setIsLike(false);
       setIsHate(false);
