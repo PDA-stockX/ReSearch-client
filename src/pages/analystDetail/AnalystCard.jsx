@@ -5,11 +5,7 @@ import followImg from "~/assets/follow.png";
 import unFollowImg from "~/assets/unfollow.png";
 import axios from "axios";
 import { useSelector } from "react-redux";
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
-=======
-
->>>>>>> 85395bc (Firm img)
 export default function AnalystCard(props) {
   const [analInfo, setAnalInfo] = useState({});
   const [isFollow, setIsFollow] = useState(false);
@@ -17,17 +13,11 @@ export default function AnalystCard(props) {
   const authContext = useSelector((state) => state.auth.authContext);
   const [pleLogin, setPleLogin] = useState(false);
   const analId = props.analId;
-<<<<<<< HEAD
   const navigate = useNavigate();
-=======
-
->>>>>>> 85395bc (Firm img)
   useEffect(() => {
     console.log(authContext);
     async function fetchData() {
-      const res = await axios.get(
-        `http://127.0.0.1:3000/analyst/${props.analId}`
-      );
+      const res = await axios.get(`http://127.0.0.1:3000/analyst/${props.analId}`);
       console.log(res);
       setAnalInfo({
         analName: res.data.name,
@@ -38,19 +28,14 @@ export default function AnalystCard(props) {
       });
     }
     async function followCheck() {
-      const followCheck = await axios.get(
-        `http://127.0.0.1:3000/followAnal/checkFollow`,
-        { params: { analId: props.analId, userId: authContext.user.id } }
-      );
+      const followCheck = await axios.get(`http://127.0.0.1:3000/followAnal/checkFollow`, { params: { analId: props.analId, userId: authContext.user.id } });
       console.log(followCheck);
       if (followCheck.data.message == "Yes") {
         setIsFollow(true);
       }
     }
     async function getAnalSector() {
-      const res = await axios.get(
-        `http://127.0.0.1:3000/analyst/checkSector/${props.analId}`
-      );
+      const res = await axios.get(`http://127.0.0.1:3000/analyst/checkSector/${props.analId}`);
       console.log(res);
       setAnalSector(res.sectorName);
     }
@@ -95,10 +80,7 @@ export default function AnalystCard(props) {
   return (
     <div className="cardBox">
       {console.log(analInfo)}
-      <img
-        className="analystImg rounded"
-        src={`/firmIMG/증권${analInfo.firmId}.jpeg`}
-      ></img>
+      <img className="analystImg rounded" src={`/firmIMG/증권${analInfo.firmId}.jpeg`}></img>
       {/* {console.log(process.env.PUBLIC_URL)} */}
       <button
         style={{
@@ -109,11 +91,7 @@ export default function AnalystCard(props) {
         }}
         onClick={onFollow}
       >
-        {isFollow ? (
-          <Image style={{ size: "5%" }} src={followImg} />
-        ) : (
-          <Image style={{ size: "5%" }} src={unFollowImg} />
-        )}
+        {isFollow ? <Image style={{ size: "5%" }} src={followImg} /> : <Image style={{ size: "5%" }} src={unFollowImg} />}
       </button>
       <div
         className="analFont1 analystDetailCard"
