@@ -10,13 +10,12 @@ export default function BookmarkAnalCard(props) {
     async function getMyAnal() {
       // console.log(persist());
       // console.log("Bearer " + localStorage.getItem("persist:root"));
-      const response = await Instance.get("/bookmark/myAnal");
+      const response = await Instance.get("/bookmarks/my-anal");
       // console.log(response);
       setAnalList(response.data);
     }
     getMyAnal();
   }, [props]);
-
 
   return (
     <>

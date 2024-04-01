@@ -3,15 +3,17 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FirmLike from "./FirmLike";
 import AnalystCard from "~/pages/analystDetail/AnalystCard";
+import { useSelector } from "react-redux";
 export default function FirmDetailPage() {
   const firmId = useParams();
   const [firmInfo, setFirmInfo] = useState({});
   const [analList, setAnalList] = useState([]);
+  const authContext = useSelector((state) => state.auth.authContext);
   useEffect(() => {
     async function getFirmInfo() {
       console.log(firmId);
       const firmInfo = await axios.get(
-        `http://localhost:3000/firms/getDetail/${firmId.firmId}`
+        `http://localhost:3000/firms/detail/${firmId.firmId}`
       );
       console.log(firmInfo);
       const tempRes = {
@@ -24,7 +26,7 @@ export default function FirmDetailPage() {
 
     async function getMyAnal() {
       const analByFirm = await axios.get(
-        `http://localhost:3000/analyst/getAnalystByFirm/${firmId.firmId}`
+        `http://localhost:3000/analysts/analysts-firm/${firmId.firmId}`
       );
       console.log(analByFirm);
       setAnalList(analByFirm.data);

@@ -8,9 +8,8 @@ export default function AnalystReport(props) {
   useEffect(() => {
     async function getAnalList() {
       const response = await axios.get(
-        `http://localhost:3000/analyst/checkReport/${props.analId}`
+        `http://localhost:3000/analysts/reports/${props.analId}`
       );
-      // console.log(response);
       setReportList(response.data);
       // console.log(reportList);
     }
@@ -98,7 +97,7 @@ export default function AnalystReport(props) {
               style={{ marginBlock: "2%" }}
             >
               <div style={{ width: "15%" }} key={el.ticker}>
-                {/* {el.report.stockName} */}
+                {el.stockName}
               </div>
 
               <Link style={{ width: "50%" }} to={`/detail/report/${el.id}`}>

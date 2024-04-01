@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { login } from "~/api/users";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "~/reducers/auth.js";
 
@@ -41,7 +41,9 @@ export default function LoginForm() {
   return (
     <div className="formContainer">
       <div className="logoContainer">
-        <img src="/images/research-logo.png" alt="logo" />
+        <Link to="/">
+          <img src="/images/research-logo.png" alt="logo" />
+        </Link>
       </div>
       <div className="inputContainer">
         <div className="inputGroup">
@@ -65,7 +67,9 @@ export default function LoginForm() {
           />
         </div>
         <button onClick={handleLogin}>로그인</button>
-        {error ? <label className="fail">로그인 정보가 일치하지 않습니다</label> : null}
+        {error ? (
+          <label className="fail">로그인 정보가 일치하지 않습니다</label>
+        ) : null}
       </div>
       <div className="linkContainer">
         <a href="../signup">

@@ -31,7 +31,10 @@ export default function Best({ rank, name, company, totalScore }) {
   return (
     <div className="bestCard">
       <div className="bestInfo">
-        <div className="rank" style={{ fontSize: "1.65em", background: `${colors[rank - 1]}` }}>
+        <div
+          className="rank"
+          style={{ fontSize: "1.65em", background: `${colors[rank - 1]}` }}
+        >
           {rank}
         </div>
         <div className="name">
@@ -41,6 +44,7 @@ export default function Best({ rank, name, company, totalScore }) {
           <a href={`/detail/firm/${firmId}`}>{company}</a>
         </div>
       </div>
+      {console.log(typeof totalScore)}
       <div className="returnRate">{totalScore.toFixed(2)}</div>
     </div>
   );

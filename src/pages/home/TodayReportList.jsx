@@ -6,9 +6,7 @@ export default function TodayReportList() {
   const [reportList, setReportList] = useState([]);
   useEffect(() => {
     async function getReportList() {
-      const response = await axios.get(
-        "http://localhost:3000/todayRecommend/getTodayReport"
-      );
+      const response = await axios.get("http://localhost:3000/today/reports");
       setReportList(response.data);
       console.log(response.data);
     }
