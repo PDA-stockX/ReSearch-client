@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import FirmLike from "./FirmLike";
 import AnalystCard from "~/pages/analystDetail/AnalystCard";
 import { useSelector } from "react-redux";
+import { cInstance } from "~/api/cInstance";
 export default function FirmDetailPage() {
   const firmId = useParams();
   const [firmInfo, setFirmInfo] = useState({});
@@ -12,9 +13,7 @@ export default function FirmDetailPage() {
   useEffect(() => {
     async function getFirmInfo() {
       console.log(firmId);
-      const firmInfo = await axios.get(
-        `http://localhost:3000/firms/detail/${firmId.firmId}`
-      );
+      const firmInfo = await cInstance.get(`/firms/detail/${firmId.firmId}`);
       console.log(firmInfo);
       const tempRes = {
         name: firmInfo.data.name,
@@ -25,8 +24,8 @@ export default function FirmDetailPage() {
     }
 
     async function getMyAnal() {
-      const analByFirm = await axios.get(
-        `http://localhost:3000/analysts/analysts-firm/${firmId.firmId}`
+      const analByFirm = await cInstance.get(
+        `/analysts/analysts-firm/${firmId.firmId}`
       );
       console.log(analByFirm);
       setAnalList(analByFirm.data);

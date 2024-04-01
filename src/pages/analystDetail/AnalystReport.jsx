@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Instance } from "~/api/instance";
 import { Link } from "react-router-dom";
+import { cInstance } from "~/api/cInstance";
 export default function AnalystReport(props) {
   const [reportList, setReportList] = useState([]);
   useEffect(() => {
     async function getAnalList() {
-      const response = await axios.get(
-        `http://localhost:3000/analysts/reports/${props.analId}`
-      );
+      const response = await cInstance.get(`/analysts/reports/${props.analId}`);
       setReportList(response.data);
       // console.log(reportList);
     }

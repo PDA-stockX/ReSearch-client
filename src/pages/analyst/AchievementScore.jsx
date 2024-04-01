@@ -11,10 +11,20 @@ export default function AchievementScore() {
   useEffect(() => {
     async function fetchData() {
       const ranking = await fetchAchievementScoreRank();
-      const data1 = ranking.map((item, index) => [index + 1, item.name, item.sectorNames[0], item.achievementScore]);
+      const data1 = ranking.map((item, index) => [
+        index + 1,
+        item.name,
+        item.sectorNames[0],
+        item.achievementScore,
+      ]);
 
       const top3 = ranking.slice(0, 3);
-      const data2 = top3.map((item, index) => [index + 1, item.name, item.firm, item.achievementScore + "점"]);
+      const data2 = top3.map((item, index) => [
+        index + 1,
+        item.name,
+        item.firm,
+        item.achievementScore + "점",
+      ]);
 
       return { data1, data2 };
     }
@@ -26,7 +36,9 @@ export default function AchievementScore() {
 
   // 현재 날짜
   const today = new Date();
-  const formattedDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  const formattedDate = `${today.getFullYear()}-${
+    today.getMonth() + 1
+  }-${today.getDate()}`;
 
   const exampleColumn = [
     { columnName: "순위", columnWidth: 40 },
@@ -63,6 +75,7 @@ export default function AchievementScore() {
           alignItems: "center",
         }}
       >
+        {console.log(data)}
         <Rank column={exampleColumn} data={data}></Rank>
       </div>
       {/* <div dangerouslySetInnerHTML={{ __html: text }} id="content"></div> */}

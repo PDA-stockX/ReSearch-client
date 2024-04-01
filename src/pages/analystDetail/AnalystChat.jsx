@@ -48,9 +48,6 @@ export default function AnalystChat(props) {
     socket.on("receiveMessage", ({ chatMessage, user }) => {
       const listItem = { user, chatMessage };
       console.log(listItem);
-      console.log(scrollRef.current.scrollTop);
-      console.log(scrollRef.current.clientHeight);
-      console.log(scrollRef.current.scrollHeight);
 
       if (
         scrollRef.current.scrollTop + scrollRef.current.clientHeight + 10 >=

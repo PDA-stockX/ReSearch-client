@@ -12,9 +12,7 @@ export default function ReportContentCard(props) {
   useEffect(() => {
     console.log("page");
     async function getReportDetail() {
-      const response = await axios.get(
-        `http://localhost:3000/reports/${props.reportId}`
-      );
+      const response = await cInstance.get(`/reports/${props.reportId}`);
       console.log(response);
       setTitle(response.data.title);
       setContent(response.data.summary);
@@ -24,8 +22,8 @@ export default function ReportContentCard(props) {
   }, [props.reportId]);
 
   const goPDF = useCallback(() => {
-    navigate("https://7942yongdae.tistory.com/173");
-  }, []);
+    <a href={`${pdf}`}>네이버로 이동</a>;
+  }, [props]);
 
   return (
     <div className="reportContentCard">
@@ -60,6 +58,7 @@ export default function ReportContentCard(props) {
               justifyContent: "center",
               alignItems: "center",
             }}
+            to="https://www.naver.com/"
           >
             <HiArrowSmRight size="30" />
             리포트 보기

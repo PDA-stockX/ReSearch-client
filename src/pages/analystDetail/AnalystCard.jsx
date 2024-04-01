@@ -6,6 +6,8 @@ import unFollowImg from "~/assets/unfollow.png";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { cInstance } from "~/api/cInstance";
+import { Instance } from "~/api/instance";
 export default function AnalystCard(props) {
   const [analInfo, setAnalInfo] = useState({
     analName: "",
@@ -23,9 +25,7 @@ export default function AnalystCard(props) {
   useEffect(() => {
     console.log(authContext);
     async function fetchData() {
-      const res = await axios.get(
-        `http://127.0.0.1:3000/analysts/${props.analId}`
-      );
+      const res = await cInstance.get(`/analysts/${props.analId}`);
       console.log(res);
       setAnalInfo({
         analName: res.data.name,
@@ -36,7 +36,7 @@ export default function AnalystCard(props) {
       });
     }
     async function followCheck() {
-      const followCheck = await axios.get(`http://127.0.0.1:3000/follows/my`, {
+      const followCheck = await cInstance.get(`/follows/my`, {
         params: { analId: props.analId, userId: authContext.user.id },
       });
       console.log(followCheck);
@@ -45,9 +45,7 @@ export default function AnalystCard(props) {
       }
     }
     async function getAnalSector() {
-      const res = await axios.get(
-        `http://127.0.0.1:3000/analysts/sectors/${props.analId}`
-      );
+      const res = await cInstance.get(`/analysts/sectors/${props.analId}`);
       console.log(res);
       setAnalSector(res.data);
     }
@@ -56,32 +54,25 @@ export default function AnalystCard(props) {
     if (authContext.isAuthenticated == true) followCheck();
   }, [authContext, props.analId]);
 
+  const goAnal = useCallback(() => {
+    navigate(`/detail/analyst/${props.analId}`);
+  });
+
   const onFollow = useCallback(() => {
     if (authContext.isAuthenticated == true) {
       // console.log("Bearer " + authContext.token);
       if (isFollow === false) {
         setIsFollow(true);
-        axios.post(
+        Instance.post(
           "http://127.0.0.1:3000/follows/follows",
 
-          { analId: props.analId },
-          {
-            headers: {
-              Authorization: `Bearer ${authContext.token}`,
-            },
-          }
+          { analId: props.analId }
         );
       } else {
         setIsFollow(false);
-        axios.post(
-          "http://127.0.0.1:3000/follows/un-follows",
-          { analId: props.analId },
-          {
-            headers: {
-              Authorization: `Bearer ${authContext.token}`,
-            },
-          }
-        );
+        Instance.post("http://127.0.0.1:3000/follows/un-follows", {
+          analId: props.analId,
+        });
       }
     } else {
       setPleLogin(true);
@@ -92,10 +83,13 @@ export default function AnalystCard(props) {
   return (
     <div className="cardBox">
       {console.log(analInfo)}
+
       <img
         className="analystImg rounded"
         src={`/firmIMG/증권${analInfo.firmId}.jpeg`}
+        onClick={goAnal}
       ></img>
+
       {/* {console.log(process.env.PUBLIC_URL)} */}
       <button
         style={{

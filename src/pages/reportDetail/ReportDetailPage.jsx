@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ReportDetailCard from "./ReportDetailCard";
 import ReportLike from "./ReportLike";
 import ReportContentCard from "./ReportContentCard";
+import Rank from "~/components/common/Rank";
 export default function ReportDetailPage() {
   const [photoUrl, setPhotoUrl] = useState("");
   const { reportId } = useParams();

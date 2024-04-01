@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./reportDetail.css";
 import axios from "axios";
+import { cInstance } from "~/api/cInstance";
 export default function ReportDetailCard(props) {
   const [reportInfo, setReportInfo] = useState({
     analystName: "",
@@ -13,9 +14,7 @@ export default function ReportDetailCard(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(
-        `http://localhost:3000/reports/${props.reportId}`
-      );
+      const res = await cInstance.get(`/reports/${props.reportId}`);
       console.log(res.data);
       setReportInfo({
         analystName: res.data.analyst.name,

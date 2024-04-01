@@ -8,6 +8,7 @@ import unHateImg from "~/assets/unhate.png";
 import hateImg from "~/assets/hate.png";
 import { Instance } from "~/api/instance";
 import { useNavigate } from "react-router-dom";
+import { cInstance } from "~/api/cInstance";
 export default function FirmLike(props) {
   const [isLike, setIsLike] = useState(false);
   const [isHate, setIsHate] = useState(false);
@@ -38,19 +39,16 @@ export default function FirmLike(props) {
     }
 
     async function checkLikeNum() {
-      const response = await axios.get("http://localhost:3000/like-firms/num", {
+      const response = await cInstance.get("/like-firms/num", {
         params: { firmId: props.firmId },
       });
 
       setLikeNum(response.data.likeNum);
     }
     async function checkHateNum() {
-      const response = await axios.get(
-        "http://localhost:3000/dislike-firms/num",
-        {
-          params: { firmId: props.firmId },
-        }
-      );
+      const response = await cInstance.get("/dislike-firms/num", {
+        params: { firmId: props.firmId },
+      });
 
       setHateNum(response.data.hateNum);
     }

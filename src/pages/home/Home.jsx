@@ -4,17 +4,20 @@ import HomeBest3 from "~/components/common/HomeBest3";
 import axios from "axios";
 import TodayReportList from "./TodayReportList";
 import { useNavigate } from "react-router-dom";
+import { cInstance } from "~/api/cInstance";
 export default function Home() {
   const [todayRecommend, setTodayRecommned] = useState([]);
+  const [todayReportList, setTodayReportList] = useState([]);
   const navigator = useNavigate();
   useEffect(() => {
     async function getToday() {
-      const response = await axios.get(
-        "http://localhost:3000/analysts/anals/today"
-      );
+      const response = await cInstance.get("/analysts/anals/today");
       console.log(response);
+      const response2 = await cInstance.get("/today/reports");
+      console.log(response2);
       setTodayRecommned(response.data);
     }
+
     getToday();
   }, []);
 
