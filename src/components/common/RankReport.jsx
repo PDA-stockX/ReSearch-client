@@ -24,7 +24,7 @@ export default function RankReport({ column, data }) {
     const paginatedData = data.slice(startIndex, startIndex + perPage);
     const totalPages = Math.ceil(data.length / perPage);
 
-    setPaginatedData(data);
+    setPaginatedData(paginatedData);
     setTotalPages(totalPages);
   }, [currentPage, perPage, data]);
 

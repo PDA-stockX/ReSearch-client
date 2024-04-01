@@ -64,14 +64,15 @@ export default function AnalystCard(props) {
       if (isFollow === false) {
         setIsFollow(true);
         Instance.post(
-          "http://127.0.0.1:3000/follows/follows",
+          "/follows/follows",
 
-          { analId: props.analId }
+          { analId: props.analId, userId: authContext.user.id }
         );
       } else {
         setIsFollow(false);
-        Instance.post("http://127.0.0.1:3000/follows/un-follows", {
+        Instance.post("/follows/un-follows", {
           analId: props.analId,
+          userId: authContext.user.id,
         });
       }
     } else {
@@ -84,7 +85,11 @@ export default function AnalystCard(props) {
     <div className="cardBox">
       {console.log(analInfo)}
 
-      <img className="analystImg rounded" src={`/firmIMG/증권${analInfo.firmId}.jpeg`} onClick={goAnal}></img>
+      <img
+        className="analystImg rounded"
+        src={`/firmIMG/증권${analInfo.firmId}.jpeg`}
+        onClick={goAnal}
+      ></img>
 
       {/* {console.log(process.env.PUBLIC_URL)} */}
       <button
@@ -96,7 +101,11 @@ export default function AnalystCard(props) {
         }}
         onClick={onFollow}
       >
-        {isFollow ? <Image style={{ size: "5%" }} src={followImg} /> : <Image style={{ size: "5%" }} src={unFollowImg} />}
+        {isFollow ? (
+          <Image style={{ size: "5%" }} src={followImg} />
+        ) : (
+          <Image style={{ size: "5%" }} src={unFollowImg} />
+        )}
       </button>
       <div
         className="analFont1 analystDetailCard"
@@ -120,10 +129,10 @@ export default function AnalystCard(props) {
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <div style={{ width: "35%" }}>업종 정보</div>
+          <div style={{ width: "35%" }}>대표 업종</div>
           <div style={{ width: "65%" }} className="analystFont2">
             {/* {analSector} */}
-            {analSector.sectorName}: {analSector.num}
+            {analSector.sectorName}
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>

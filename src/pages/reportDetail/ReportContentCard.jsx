@@ -30,20 +30,19 @@ export default function ReportContentCard(props) {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
+
           margin: "8%",
-          gap: "25px",
+          // gap: "10%",
           position: "relative",
-          justifyItems: "center",
+          justifyItems: "end",
+          justifyContent: "space-between",
         }}
       >
+        <h2>제목 : {title}</h2>
         <div
           style={{
-            position: "absolute",
-            top: "-7%",
-            right: "3%",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "end",
             border: "solid 1px",
             borderRadius: "7%",
             padding: "2%",
@@ -52,21 +51,23 @@ export default function ReportContentCard(props) {
         >
           <Link
             style={{
-              display: "inline-flex",
+              display: "flex",
               flexDirection: "column",
-              justifyItems: "center",
-              justifyContent: "center",
+              justifyItems: "end",
+              justifyContent: "end",
               alignItems: "center",
             }}
-            to="https://www.naver.com/"
+            to={pdf}
           >
             <HiArrowSmRight size="30" />
             리포트 보기
           </Link>
         </div>
-        <h2>제목 : {title}</h2>
-        <h3>내용 : {content}</h3>
       </div>
+      <div
+        dangerouslySetInnerHTML={{ __html: content }}
+        style={{ margin: "8%" }}
+      ></div>{" "}
     </div>
   );
 }

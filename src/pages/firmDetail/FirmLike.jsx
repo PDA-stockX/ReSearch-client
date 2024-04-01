@@ -19,8 +19,8 @@ export default function FirmLike(props) {
   useEffect(() => {
     // console.log(authContext);
     async function checkFirmLike() {
-      const response = await Instance.get("like-firms/my", {
-        params: { firmId: props.firmId },
+      const response = await Instance.get("/like-firms/my", {
+        params: { firmId: props.firmId, userId: authContext.user.id },
       });
       console.log(response.data.message);
       if (response.data.message == "success") {
@@ -28,8 +28,8 @@ export default function FirmLike(props) {
       }
     }
     async function checkFirmHate() {
-      const response = await Instance.get("dislike-firms/my", {
-        params: { firmId: props.firmId },
+      const response = await Instance.get("/dislike-firms/my", {
+        params: { firmId: props.firmId, userId: authContext.user.id },
       });
       console.log(response.data.message);
 
@@ -60,7 +60,7 @@ export default function FirmLike(props) {
     checkLikeNum();
   }, [props.reportId]);
 
-  const clickHateFirm = useCallback(async () => {
+  const clickHateFirm = useCallback(() => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
       navigate("/login");
@@ -68,11 +68,10 @@ export default function FirmLike(props) {
       setIsHate(false);
       setIsLike(false);
       setHateNum(hateNum - 1);
-      const response = await Instance.post("dislike-firms/un-dislike", {
+      Instance.post("/dislike-firms/un-dislike", {
+        userId: authContext.user.id,
         firmId: props.firmId,
       });
-
-      console.log(response);
     } else {
       setIsHate(true);
       setHateNum(hateNum + 1);
@@ -80,14 +79,23 @@ export default function FirmLike(props) {
         setIsLike(false);
         setLikeNum(likeNum - 1);
       }
-      const response = await Instance.post("dislike-firms/dislike", {
+      Instance.post("/dislike-firms/dislike", {
+        userId: authContext.user.id,
         firmId: props.firmId,
       });
-      console.log(response);
     }
-  });
+  }, [
+    authContext.isAuthenticated,
+    authContext.user.id,
+    hateNum,
+    isHate,
+    isLike,
+    likeNum,
+    navigate,
+    props.firmId,
+  ]);
 
-  const clickLikeFirm = useCallback(async () => {
+  const clickLikeFirm = useCallback(() => {
     if (authContext.isAuthenticated == false) {
       alert("로그인 후 이용해주세요");
       navigate("/login");
@@ -95,10 +103,10 @@ export default function FirmLike(props) {
       setIsLike(false);
       setIsHate(false);
       setLikeNum(likeNum - 1);
-      const response = await Instance.post("like-firms/un-like", {
+      Instance.post("/like-firms/un-like", {
         firmId: props.firmId,
+        userId: authContext.user.id,
       });
-      console.log(response);
     } else {
       setIsLike(true);
       setLikeNum(likeNum + 1);
@@ -106,12 +114,21 @@ export default function FirmLike(props) {
         setIsHate(false);
         setHateNum(hateNum - 1);
       }
-      const response = await Instance.post("like-firms/like", {
+      Instance.post("/like-firms/like", {
         firmId: props.firmId,
+        userId: authContext.user.id,
       });
-      console.log(response);
     }
-  });
+  }, [
+    authContext.isAuthenticated,
+    authContext.user.id,
+    hateNum,
+    isHate,
+    isLike,
+    likeNum,
+    navigate,
+    props.firmId,
+  ]);
   return (
     <div
       style={{
