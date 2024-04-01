@@ -16,9 +16,9 @@ export default function FirmLike(props) {
   const authContext = useSelector((state) => state.auth.authContext);
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(authContext);
+    // console.log(authContext);
     async function checkFirmLike() {
-      const response = await Instance.get("likeFirm/checkLike", {
+      const response = await Instance.get("like-firms/my", {
         params: { firmId: props.firmId },
       });
       console.log(response.data.message);
@@ -27,7 +27,7 @@ export default function FirmLike(props) {
       }
     }
     async function checkFirmHate() {
-      const response = await Instance.get("hateFirm/checkHate", {
+      const response = await Instance.get("dislike-firms/my", {
         params: { firmId: props.firmId },
       });
       console.log(response.data.message);
@@ -38,17 +38,18 @@ export default function FirmLike(props) {
     }
 
     async function checkLikeNum() {
-      const response = await axios.get(
-        "http://localhost:3000/likeFirm/checkLikeNum",
-        { params: { firmId: props.firmId } }
-      );
+      const response = await axios.get("http://localhost:3000/like-firms/num", {
+        params: { firmId: props.firmId },
+      });
 
       setLikeNum(response.data.likeNum);
     }
     async function checkHateNum() {
       const response = await axios.get(
-        "http://localhost:3000/hateFirm/checkHateNum",
-        { params: { firmId: props.firmId } }
+        "http://localhost:3000/dislike-firms/num",
+        {
+          params: { firmId: props.firmId },
+        }
       );
 
       setHateNum(response.data.hateNum);
@@ -69,7 +70,7 @@ export default function FirmLike(props) {
       setIsHate(false);
       setIsLike(false);
       setHateNum(hateNum - 1);
-      const response = await Instance.post("hateFirm/unHateFirm", {
+      const response = await Instance.post("dislike-firms/un-dislike", {
         firmId: props.firmId,
       });
 
@@ -81,7 +82,7 @@ export default function FirmLike(props) {
         setIsLike(false);
         setLikeNum(likeNum - 1);
       }
-      const response = await Instance.post("hateFirm/hateFirm", {
+      const response = await Instance.post("dislike-firms/dislike", {
         firmId: props.firmId,
       });
       console.log(response);
@@ -96,7 +97,7 @@ export default function FirmLike(props) {
       setIsLike(false);
       setIsHate(false);
       setLikeNum(likeNum - 1);
-      const response = await Instance.post("likeFirm/unLikeFirm", {
+      const response = await Instance.post("like-firms/un-like", {
         firmId: props.firmId,
       });
       console.log(response);
@@ -107,7 +108,7 @@ export default function FirmLike(props) {
         setIsHate(false);
         setHateNum(hateNum - 1);
       }
-      const response = await Instance.post("likeFirm/likeFirm", {
+      const response = await Instance.post("like-firms/like", {
         firmId: props.firmId,
       });
       console.log(response);

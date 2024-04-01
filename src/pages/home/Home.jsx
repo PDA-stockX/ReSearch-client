@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     async function getToday() {
       const response = await axios.get(
-        "http://localhost:3000/todayRecommend/getRecommend"
+        "http://localhost:3000/analysts/anals/today"
       );
       console.log(response);
       setTodayRecommned(response.data);
@@ -42,7 +42,7 @@ export default function Home() {
         <h2>오늘의 리포트</h2>
         {/* <h5>기준 날짜: {formattedDate}</h5> */}
       </div>
-      <TodayReportList />
+      {/* <TodayReportList /> */}
     </>
   );
 }

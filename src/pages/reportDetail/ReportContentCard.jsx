@@ -2,12 +2,15 @@ import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { HiArrowSmRight } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
+import { cInstance } from "~/api/cInstance";
 export default function ReportContentCard(props) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [pdf, setPdf] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
+    console.log("page");
     async function getReportDetail() {
       const response = await axios.get(
         `http://localhost:3000/reports/${props.reportId}`
@@ -21,8 +24,8 @@ export default function ReportContentCard(props) {
   }, [props.reportId]);
 
   const goPDF = useCallback(() => {
-    navigate("/");
-  });
+    navigate("https://7942yongdae.tistory.com/173");
+  }, []);
 
   return (
     <div className="reportContentCard">

@@ -18,7 +18,7 @@ export default function ReportLike(props) {
     console.log(authContext);
     async function checkReportLike() {
       const response = await axios.get(
-        "http://localhost:3000/likeReport/checkLike",
+        "http://localhost:3000/like-reports/my",
         { params: { userId: authContext.user.id, reportId: props.reportId } },
         {
           headers: {
@@ -33,7 +33,7 @@ export default function ReportLike(props) {
     }
     async function checkReportHate() {
       const response = await axios.get(
-        "http://localhost:3000/hateReport/checkHate",
+        "http://localhost:3000/dislike-reports/my",
         { params: { userId: authContext.user.id, reportId: props.reportId } },
         {
           headers: {
@@ -50,7 +50,7 @@ export default function ReportLike(props) {
 
     async function checkLikeNum() {
       const response = await axios.get(
-        "http://localhost:3000/likeReport/checkLikeNum",
+        "http://localhost:3000/like-reports/num",
         { params: { reportId: props.reportId } }
       );
 
@@ -58,13 +58,13 @@ export default function ReportLike(props) {
     }
     async function checkHateNum() {
       const response = await axios.get(
-        "http://localhost:3000/hateReport/checkHateNum",
+        "http://localhost:3000/dislike-reports/num",
         { params: { reportId: props.reportId } }
       );
 
       setHateNum(response.data.hateNum);
     }
-    if (authContext.isAuthenticated == true) {
+    if (authContext.isAuthenticated === true) {
       checkReportHate();
       checkReportLike();
     }
@@ -81,7 +81,7 @@ export default function ReportLike(props) {
       setIsLike(false);
       setHateNum(hateNum - 1);
       const response = await axios.post(
-        "http://localhost:3000/hateReport/unHateReport",
+        "http://localhost:3000/dislike-reports/un-dislike",
         { userId: authContext.user.id, reportId: props.reportId },
         {
           headers: {
@@ -98,7 +98,7 @@ export default function ReportLike(props) {
         setLikeNum(likeNum - 1);
       }
       const response = await axios.post(
-        "http://localhost:3000/hateReport/hateReport",
+        "http://localhost:3000/dislike-reports/dislike",
         { userId: authContext.user.id, reportId: props.reportId },
         {
           headers: {
@@ -119,7 +119,7 @@ export default function ReportLike(props) {
       setIsHate(false);
       setLikeNum(likeNum - 1);
       const response = await axios.post(
-        "http://localhost:3000/likeReport/unlikeReport",
+        "http://localhost:3000/like-reports/un-like",
         { userId: authContext.user.id, reportId: props.reportId },
         {
           headers: {
@@ -136,7 +136,7 @@ export default function ReportLike(props) {
         setHateNum(hateNum - 1);
       }
       const response = await axios.post(
-        "http://localhost:3000/likeReport/LikeReport",
+        "http://localhost:3000/like-reports/like",
         { userId: authContext.user.id, reportId: props.reportId },
         {
           headers: {

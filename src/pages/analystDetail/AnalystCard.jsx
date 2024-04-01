@@ -7,7 +7,13 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export default function AnalystCard(props) {
-  const [analInfo, setAnalInfo] = useState({});
+  const [analInfo, setAnalInfo] = useState({
+    analName: "",
+    firm: "",
+    achievementRate: "",
+    firmId: 0,
+    returnRate: 0,
+  });
   const [isFollow, setIsFollow] = useState(false);
   const [analSector, setAnalSector] = useState("");
   const authContext = useSelector((state) => state.auth.authContext);
@@ -18,7 +24,7 @@ export default function AnalystCard(props) {
     console.log(authContext);
     async function fetchData() {
       const res = await axios.get(
-        `http://127.0.0.1:3000/analyst/${props.analId}`
+        `http://127.0.0.1:3000/analysts/${props.analId}`
       );
       console.log(res);
       setAnalInfo({
@@ -30,10 +36,9 @@ export default function AnalystCard(props) {
       });
     }
     async function followCheck() {
-      const followCheck = await axios.get(
-        `http://127.0.0.1:3000/followAnal/checkFollow`,
-        { params: { analId: props.analId, userId: authContext.user.id } }
-      );
+      const followCheck = await axios.get(`http://127.0.0.1:3000/follows/my`, {
+        params: { analId: props.analId, userId: authContext.user.id },
+      });
       console.log(followCheck);
       if (followCheck.data.message == "Yes") {
         setIsFollow(true);
@@ -41,15 +46,15 @@ export default function AnalystCard(props) {
     }
     async function getAnalSector() {
       const res = await axios.get(
-        `http://127.0.0.1:3000/analyst/checkSector/${props.analId}`
+        `http://127.0.0.1:3000/analysts/sectors/${props.analId}`
       );
       console.log(res);
-      setAnalSector(res.sectorName);
+      setAnalSector(res.data);
     }
     fetchData();
     getAnalSector();
     if (authContext.isAuthenticated == true) followCheck();
-  }, []);
+  }, [authContext, props.analId]);
 
   const onFollow = useCallback(() => {
     if (authContext.isAuthenticated == true) {
@@ -57,7 +62,7 @@ export default function AnalystCard(props) {
       if (isFollow === false) {
         setIsFollow(true);
         axios.post(
-          "http://127.0.0.1:3000/followAnal/followAnal",
+          "http://127.0.0.1:3000/follows/follows",
 
           { analId: props.analId },
           {
@@ -69,7 +74,7 @@ export default function AnalystCard(props) {
       } else {
         setIsFollow(false);
         axios.post(
-          "http://127.0.0.1:3000/followAnal/unFollowAnal",
+          "http://127.0.0.1:3000/follows/un-follows",
           { analId: props.analId },
           {
             headers: {
@@ -135,15 +140,15 @@ export default function AnalystCard(props) {
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <div style={{ width: "35%" }}>달성률</div>
+          <div style={{ width: "35%" }}>달성 점수</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            {analInfo.returnRate}%
+            {analInfo.achievementRate}점
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div style={{ width: "35%" }}>수익률</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            {analInfo.achievementRate}%
+            {analInfo.returnRate}%
           </div>
         </div>
       </div>

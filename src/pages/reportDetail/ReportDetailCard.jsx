@@ -2,10 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./reportDetail.css";
 import axios from "axios";
 export default function ReportDetailCard(props) {
-  const [reportInfo, setReportInfo] = useState({});
+  const [reportInfo, setReportInfo] = useState({
+    analystName: "",
+    firm: "",
+    postedAt: "",
+    title: "",
+    targetPrice: "",
+    investmentOpinion: "",
+  });
 
   useEffect(() => {
-    console.log(props.reportId);
     async function fetchData() {
       const res = await axios.get(
         `http://localhost:3000/reports/${props.reportId}`
@@ -21,7 +27,7 @@ export default function ReportDetailCard(props) {
       });
     }
     fetchData();
-  }, [props]);
+  }, [props.reportId]);
   return (
     <div className="reportDetailCard">
       <div

@@ -7,7 +7,7 @@ export default function BookmarkReportList() {
   const [reportList, setReportList] = useState([]);
   useEffect(() => {
     async function getReportList() {
-      const response = await Instance.get("/bookmark/myReport");
+      const response = await Instance.get("/bookmarks/my-report");
       console.log(response.data);
       setReportList(response.data);
     }
