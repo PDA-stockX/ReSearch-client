@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-// import { UseSelector } from "react-redux";
 import { useSelector } from "react-redux";
 import BookmarkAnalCard from "./BookAnalCard";
-import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 export default function BookAnalystPage() {
   const authContext = useSelector((state) => state.auth.authContext);
   const navigate = useNavigate();
