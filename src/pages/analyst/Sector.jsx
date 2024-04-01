@@ -21,6 +21,16 @@ export default function Sector() {
       const ranking = await fetchSectorRank(selectedSector);
       console.log("랭킹", ranking);
       const data1 = ranking.map((item, index) => [index + 1, item.name, item.returnRate, item.achievementScore]);
+      const processedData = data1.map((item) => {
+        // item의 두번째 요소가 빈 문자열인지 확인 후 처리
+        if (item[2] !== "" && item) {
+          const roundedValue2 = parseFloat(item[2]).toFixed(2); // 소수점 둘째 자리까지 고정
+          const roundedValue3 = parseFloat(item[3]).toFixed(2);
+          return [item[0], item[1], roundedValue2, roundedValue3];
+        } else {
+          return item;
+        }
+      });
 
       const top3 = ranking.slice(0, 3);
       let emptyData = [];
@@ -35,7 +45,7 @@ export default function Sector() {
         ...emptyData, // 빈 데이터 배열 추가
       ];
 
-      return { data1, data2 };
+      return { processedData, data2 };
     }
 
     async function fetchSectorName() {
@@ -43,8 +53,8 @@ export default function Sector() {
       setSectors(names);
     }
 
-    fetchData().then(({ data1, data2 }) => {
-      setData(data1);
+    fetchData().then(({ processedData, data2 }) => {
+      setData(processedData);
       setBest(data2);
     });
     fetchSectorName();
