@@ -14,7 +14,6 @@ export default function Row({ row, column }) {
           // 결과가 있다면 첫 번째 애널리스트의 ID를 설정
           if (result.length > 0) {
             setAnalystId(result[0].id);
-            console.log("에에ㅔㅔ에ㅔㅇ", result);
           }
         })
         .catch((error) => {
