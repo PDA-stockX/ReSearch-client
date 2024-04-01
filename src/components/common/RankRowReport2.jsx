@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { searchAnalysts } from "~/api/analysts";
 import { searchFirms } from "~/api/firms";
 import { useNavigate } from "react-router-dom";
-export default function RowReport({ row, column }) {
+export default function RowReport2({ row, column }) {
   const [analystId, setAnalystId] = useState(null);
   const [firmId, setFirmId] = useState(null);
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export default function RowReport({ row, column }) {
             textAlign: "center",
           }}
         >
-          {row[0] ? row[0] : null}
+          {row.analyst ? row.analyst.name : null}
         </div>
       }
       {
@@ -45,13 +45,17 @@ export default function RowReport({ row, column }) {
             textAlign: "center",
           }}
         >
-          <a
-            href={`/detail/report/${row[4]}`}
-            onMouseOver={onMouseOver}
-            onMouseOut={onMouseOut}
-          >
-            {row[1]}
-          </a>
+          {row.id ? (
+            <a
+              href={`/detail/report/${row.id}`}
+              onMouseOver={onMouseOver}
+              onMouseOut={onMouseOut}
+            >
+              {row.stockName ? row.stockName : null}
+            </a>
+          ) : (
+            <></>
+          )}
         </div>
       }
       {
@@ -61,7 +65,7 @@ export default function RowReport({ row, column }) {
             textAlign: "center",
           }}
         >
-          {row[2]}
+          {row.title ? row.title : null}
         </div>
       }
       {
@@ -71,7 +75,7 @@ export default function RowReport({ row, column }) {
             textAlign: "center",
           }}
         >
-          {row[3]}
+          {row.firm ? row.firm.name : null}
         </div>
       }
     </div>

@@ -5,23 +5,32 @@ import axios from "axios";
 import TodayReportList from "./TodayReportList";
 import { useNavigate } from "react-router-dom";
 import { cInstance } from "~/api/cInstance";
-import RankReport from "~/components/common/RankReport";
+import RankReport2 from "~/components/common/RankReport2";
 export default function Home() {
-  const [todayRecommend, setTodayRecommned] = useState([]);
-  const [todayReportList, setTodayReportList] = useState([]);
+  const [todayRecommend, setTodayRecommned] = useState([{}]);
+  const [todayReportList, setTodayReportList] = useState([{}]);
   const navigator = useNavigate();
   useEffect(() => {
     async function getToday() {
-      const response = await cInstance.get("/analysts/anals/today");
-      console.log(response);
-      const response2 = await cInstance.get("/today/reports");
-      console.log(response2);
-      const tempList = await response2.data.map((el) => {
-        [el.analystName, el.stokeName, el.title, el.firm, el.id];
-      });
+      const response = await cInstance.get("/today/anals");
+      console.log(response.data);
       setTodayRecommned(response.data);
-    }
 
+      // [
+      //   (el.analystName, el.stokeName, el.title, el.firm, el.id)
+      // ];
+
+      // response.data.foreach((e) => {
+      //   console.log(e);
+      //   setTodayRecommned((el) => [...el]);
+      // });
+    }
+    async function getToday2() {
+      const response2 = await cInstance.get("/today/reports");
+      console.log(JSON.parse(response2.data));
+      setTodayReportList(JSON.parse(response2.data));
+    }
+    getToday2();
     getToday();
   }, []);
   const exampleColumn = [
@@ -40,8 +49,8 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        {console.log(todayRecommend.data)}
-        {todayRecommend.length > 0 && (
+        {console.log(todayRecommend)}
+        {todayRecommend.length > 2 && (
           <HomeBest3 data={todayRecommend}></HomeBest3>
         )}
       </div>
@@ -55,7 +64,7 @@ export default function Home() {
         {/* <h5>기준 날짜: {formattedDate}</h5> */}
       </div>
       {/* <TodayReportList />/ */}
-      <RankReport column={exampleColumn} data={todayReportList} />
+      <RankReport2 column={exampleColumn} data={todayReportList} />
     </>
   );
 }

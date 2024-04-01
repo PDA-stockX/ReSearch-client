@@ -45,7 +45,7 @@ export default function Best({ rank, name, company, totalScore }) {
         </div>
       </div>
       {console.log(typeof totalScore)}
-      <div className="returnRate">{totalScore.toFixed(2)}</div>
+      <div className="returnRate">{totalScore}</div>
     </div>
   );
 }
