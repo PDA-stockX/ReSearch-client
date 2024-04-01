@@ -29,7 +29,7 @@ export default function SubHeader(props) {
       <Navbar className="fixed-top" bg="F7F7F7" sticky="top" style={{ padding: 0 }}>
         <Container className="custom-navbar sub-navbar">
           <Nav>
-            {console.log("여기", props, location.pathname)}
+            {/* {console.log("여기", props, location.pathname)} */}
 
             {props.subMenu.map((item, index) => (
               <Nav.Link

@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {Instance} from "~/api/instance";
-import AnalystCard from "~/analystDetail/AnalystCard";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { Instance } from "~/api/instance";
+import AnalystCard from "~/pages/analystDetail/AnalystCard";
 
 export default function BookmarkAnalCard(props) {
   const [analList, setAnalList] = useState([]);
+
   useEffect(() => {
     async function getMyAnal() {
       const response = await Instance.get("/bookmark/myAnal");

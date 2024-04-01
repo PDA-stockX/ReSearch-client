@@ -1,5 +1,5 @@
 div h2 {
-  font-size: 18px;
+  font-size: 20px;
   padding: 3%;
   font-weight: 600;
 }
@@ -41,6 +41,15 @@ div h5 {
 .dropdownItem:hover {
   background-color: rgb(247, 247, 247);
   cursor: pointer;
+}
+
+span {
+  font-size: 50px;
+  font-weight: bolder;
+  background-image: linear-gradient(135deg, #9c5fff 0%, #5c68e2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* #content div {
