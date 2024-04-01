@@ -12,7 +12,7 @@ export default function Popularity() {
     async function fetchData() {
       const ranking = await fetchFollowerRank();
       const data1 = ranking.map((item, index) => [index + 1, item.name, item.followerCount]);
-
+      console.log("에벱베베ㅔ", ranking);
       const top3 = ranking.slice(0, 3);
       const data2 = top3.map((item, index) => [index + 1, item.name, item.firm, "⭐" + item.followerCount]);
 
