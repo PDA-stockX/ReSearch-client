@@ -81,12 +81,13 @@
 .messageInput {
   border: 1px;
   border: solid;
-  border-radius: 10%;
+  border-radius: 7px;
   border-color: #be96ff;
   width: 15%;
   position: absolute;
   /* bottom: 5%; */
   right: 2.5%;
+  padding: 0.5%;
   color: #be96ff;
 }
 

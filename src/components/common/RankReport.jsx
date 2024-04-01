@@ -69,18 +69,12 @@ export default function RankReport({ column, data }) {
         <div
           className="rankRow"
           style={{
-            gridTemplateColumns: column
-              .map((col) => col.columnWidth + "fr")
-              .join(" "),
+            gridTemplateColumns: column.map((col) => col.columnWidth + "fr").join(" "),
             fontWeight: 600,
           }}
         >
           {column.map((col, cellIndex) => (
-            <div
-              key={cellIndex}
-              className="rankCell"
-              style={{ textAlign: "center" }}
-            >
+            <div key={cellIndex} className="rankCell" style={{ textAlign: "center" }}>
               {col.columnName}
             </div>
           ))}
@@ -108,20 +102,13 @@ export default function RankReport({ column, data }) {
             )}
 
             {generatePageNumbers(currentPage, totalPages).map((pageNumber) => (
-              <button
-                key={pageNumber}
-                className={pageNumber === currentPage ? "active" : ""}
-                onClick={() => handlePageChange(pageNumber)}
-              >
+              <button key={pageNumber} className={pageNumber === currentPage ? "active" : ""} onClick={() => handlePageChange(pageNumber)}>
                 {pageNumber}
               </button>
             ))}
 
             {currentPage === totalPages && totalPages - 1 > 4 && (
-              <button
-                onClick={() => handlePageChange(totalPages)}
-                className="active"
-              >
+              <button onClick={() => handlePageChange(totalPages)} className="active">
                 {totalPages}
               </button>
             )}
