@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: import.meta.env.VITE_API_URL,
+        target: "http://15.165.71.109:80",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/,
             import.meta.env.mode === "production" ? "/api" : ""),
