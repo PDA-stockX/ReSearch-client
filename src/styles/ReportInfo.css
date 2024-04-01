@@ -1,6 +1,6 @@
 .reportInfoContainer {
-    margin: 0.3rem 0.8rem;
-    padding: 0.3rem;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -11,14 +11,30 @@
     margin-bottom: 0.5rem;
 }
 
+.reportInfoHeader #reportTitle {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.reportInfoHeader #reportPostedAt {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: right;
+    padding-right: 0.5rem;
+}
+
 .reportContent .reportInfoBody {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     margin-bottom: 0.5rem;
+}
+
+.reportInfoBody #reportEvaluation {
+    font-weight: 700;
 }
 
 .reportInfoFooter {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
 }
