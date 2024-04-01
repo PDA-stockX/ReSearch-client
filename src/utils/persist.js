@@ -1,17 +1,17 @@
 function getAuthContext() {
-    const persistRoot = localStorage.getItem("persist:root");
-    if (!persistRoot) {
-        return {
-            isAuthenticated: false,
-            token: null,
-            user: null,
-        };
-    }
+  const persistRoot = localStorage.getItem("persist:root");
+  if (!persistRoot) {
+    return {
+      isAuthenticated: false,
+      token: null,
+      user: null,
+    };
+  }
 
-    const root = JSON.parse(persistRoot);
-    const auth = JSON.parse(root.auth);
+  const root = JSON.parse(persistRoot);
+  const auth = JSON.parse(root.auth);
 
-    return auth.authContext;
+  return auth.authContext;
 }
 
-export {getAuthContext};
+export { getAuthContext };
