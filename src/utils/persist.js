@@ -6,4 +6,4 @@ function getAuthContext() {
     return auth.authContext;
 }
 
-export default getAuthContext;
+export {getAuthContext};

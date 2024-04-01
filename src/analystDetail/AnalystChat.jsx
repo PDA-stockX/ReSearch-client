@@ -90,30 +90,6 @@ export default function AnalystChat(props) {
     };
   }, [messageList]);
 
-  // const rendering = () => {
-  //   const result = [];
-  //   console.log(messageList);
-  //   for (let i = 1; i < messageList.length; i++) {
-  //     if (messageList[i - 1].user.id === messageList[i].user.id) {
-  //       result.push(
-  //         <AnalystMessage
-  //           chat={messageList[i].chatString}
-  //           nickname={messageList[i].user.nickname}
-  //           key={messageList[i].id}
-  //         />
-  //       );
-  //     } else {
-  //       result.push(
-  //         <AnalystMessage
-  //           chat={messageList[i].chatString}
-  //           key={messageList[i].id}
-  //         />
-  //       );
-  //     }
-  //   }
-  //   return result;
-  // };
-
     return (
         <div
             style={{
