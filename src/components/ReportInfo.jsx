@@ -4,6 +4,7 @@ import {dateToSimpleFormat} from "~/utils/date.js";
 import {useNavigate} from "react-router-dom";
 
 export default function ReportInfo({report}) {
+    const navigate = useNavigate();
 
     const achievementScoreColor = () => {
         if (report.achievementScore >= 80) {
@@ -27,7 +28,7 @@ export default function ReportInfo({report}) {
 
     const handleClick = useCallback(() => {
         navigate(`/detail/report/${report.id}`);
-    }, [report.id]);
+    }, [navigate, report.id]);
 
     return (
         <>
