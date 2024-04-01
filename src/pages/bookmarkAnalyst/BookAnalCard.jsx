@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Instance } from "~/api/instance";
 import AnalystCard from "~/pages/analystDetail/AnalystCard";
-import persist from "~/utils/persist";
+
 export default function BookmarkAnalCard(props) {
   const [analList, setAnalList] = useState([]);
 
