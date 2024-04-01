@@ -20,15 +20,25 @@ export default function ReturnRate() {
   useEffect(() => {
     async function fetchData() {
       const ranking = await fetchReturnRateRank();
-      const data = ranking.map((item, index) => [index + 1, item.name, item.returnRate]);
+      const data = ranking.map((item, index) => [index + 1, item.name, item.returnRate * 100]);
+      console.log("왼뢍리ㅏㅇ", data);
+      const processedData = data.map((item) => {
+        // item의 두번째 요소가 빈 문자열인지 확인 후 처리
+        if (item[2] !== "" && item) {
+          const roundedValue2 = parseFloat(item[2]).toFixed(2);
+          return [item[0], item[1], roundedValue2];
+        } else {
+          return item;
+        }
+      });
 
       const top3 = ranking.slice(0, 3);
-      const best = top3.map((item, index) => [index + 1, item.name, { name: "" }, item.returnRate + "%"]);
+      const best = top3.map((item, index) => [index + 1, item.name, { name: "" }, (item.returnRate * 100).toFixed(2) + "%"]);
       console.log(best);
-      return { data, best };
+      return { processedData, best };
     }
-    fetchData().then(({ data, best }) => {
-      setData(data);
+    fetchData().then(({ processedData, best }) => {
+      setData(processedData);
       setBest(best);
     });
   }, []);
