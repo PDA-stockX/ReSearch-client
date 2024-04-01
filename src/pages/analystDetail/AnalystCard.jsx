@@ -84,11 +84,7 @@ export default function AnalystCard(props) {
     <div className="cardBox">
       {console.log(analInfo)}
 
-      <img
-        className="analystImg rounded"
-        src={`/firmIMG/증권${analInfo.firmId}.jpeg`}
-        onClick={goAnal}
-      ></img>
+      <img className="analystImg rounded" src={`/firmIMG/증권${analInfo.firmId}.jpeg`} onClick={goAnal}></img>
 
       {/* {console.log(process.env.PUBLIC_URL)} */}
       <button
@@ -100,11 +96,7 @@ export default function AnalystCard(props) {
         }}
         onClick={onFollow}
       >
-        {isFollow ? (
-          <Image style={{ size: "5%" }} src={followImg} />
-        ) : (
-          <Image style={{ size: "5%" }} src={unFollowImg} />
-        )}
+        {isFollow ? <Image style={{ size: "5%" }} src={followImg} /> : <Image style={{ size: "5%" }} src={unFollowImg} />}
       </button>
       <div
         className="analFont1 analystDetailCard"
@@ -130,7 +122,8 @@ export default function AnalystCard(props) {
         <div style={{ display: "flex", flexDirection: "row" }}>
           <div style={{ width: "35%" }}>업종 정보</div>
           <div style={{ width: "65%" }} className="analystFont2">
-            {analSector}
+            {/* {analSector} */}
+            {analSector.sectorName}: {analSector.num}
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
